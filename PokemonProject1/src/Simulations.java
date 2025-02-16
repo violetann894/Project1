@@ -66,23 +66,19 @@ public class Simulations {
             //Initialize the variable for checking the number of pokemon
             int countOfPokemonHand = 0;
 
+            boolean broke = false;
+
             //Run through the cards in the hand
             for(Card c: hand){
 
-                //Check to see if a pokemon card is in the hand
                 if (c.getTypeOfCard().equals("Pokemon")){
 
-                    //If one is found
-
-                    //Add one to the pokemon in hand count
-                    countOfPokemonHand++;
+                    broke = true;
+                    break;
                 }
             }
 
-            //If there were no pokemon in the hand
-            if(countOfPokemonHand == 0){
-
-                //Increment the number of mulligans by 1
+            if(!broke){
                 numberOfMulligans++;
             }
 
