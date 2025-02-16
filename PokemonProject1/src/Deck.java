@@ -33,6 +33,29 @@ public class Deck extends Card{
         deckOfCards = deck;
     }
 
+    public void generateDeck(int numOfPokemon, int numOfEnergies, int numOfTrainers){
+        //Initialize the deck (An ArrayList of cards)
+        ArrayList<Card> deck = new ArrayList<>();
+
+        //Add the number of pokemon to the deck
+        for(int i = 0; i < numOfPokemon; i++){
+            deck.add(new Card(new Pokemon()));
+        }
+
+        //Add the number of energies to the deck
+        for(int i = 0; i < numOfEnergies; i++){
+            deck.add(new Card(new Energy()));
+        }
+
+        //Add number of trainer cards to the deck
+        for(int i = 0; i< numOfTrainers; i++){
+            deck.add(new Card(new Trainer()));
+        }
+
+        //The deck of cards created is now equal to the global variable deckOfCards
+        deckOfCards = deck;
+    }
+
     /**
      * The shuffle method shuffles the current deckOfCards
      */
@@ -42,16 +65,16 @@ public class Deck extends Card{
         ArrayList<Card> shuffled = new ArrayList<>();
         Random random = new Random();
 
-        //
+        //For the size of the deckOfCards
         for(int i = 0; i < deckOfCards.size(); i++){
 
-            //
+            //Pick a random integer value
             int randomValue = random.nextInt(0, deckOfCards.size());
 
-            //
+            //Add the randomly chosen card to the shuffled deck
             shuffled.add(deckOfCards.get(randomValue));
 
-            //
+            //Remove the card from the original deck
             deckOfCards.remove(randomValue);
         }
 
