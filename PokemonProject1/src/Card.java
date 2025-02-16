@@ -5,6 +5,7 @@
 public class Card {
 
     private String typeOfCard;
+
     private Pokemon p;
     private Trainer t;
     private Energy e;
@@ -57,5 +58,53 @@ public class Card {
      */
     public void setTypeOfCard(String typeOfCard) {
         this.typeOfCard = typeOfCard;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Pokemon getP() {
+        return p;
+    }
+
+    /**
+     *
+     * @param p
+     */
+    public void setP(Pokemon p) {
+        this.p = p;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Trainer getT() {
+        return t;
+    }
+
+    /**
+     *
+     * @param t
+     */
+    public void setT(Trainer t) {
+        this.t = t;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Energy getE() {
+        return e;
+    }
+
+    /**
+     *
+     * @param e
+     */
+    public void setE(Energy e) {
+        this.e = e;
     }
 }
