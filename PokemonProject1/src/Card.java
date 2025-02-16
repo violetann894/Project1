@@ -61,50 +61,38 @@ public class Card {
     }
 
     /**
-     *
-     * @return
+     * The getP method returns the Pokemon object associated with the Card.
+     * @return If the card is a Pokemon, it returns the Pokemon object. Otherwise, it returns null.
      */
     public Pokemon getP() {
-        return p;
+        if(typeOfCard.equals("Pokemon")) {
+            return p;
+        }
+
+        return null;
     }
 
     /**
-     *
-     * @param p
-     */
-    public void setP(Pokemon p) {
-        this.p = p;
-    }
-
-    /**
-     *
-     * @return
+     * The getT method returns the Trainer object associated with the Card.
+     * @return If the card is a Trainer, it returns the Trainer object. Otherwise, it returns null.
      */
     public Trainer getT() {
-        return t;
+        if(typeOfCard.equals("Trainer")) {
+            return t;
+        }
+
+        return null;
     }
 
     /**
-     *
-     * @param t
-     */
-    public void setT(Trainer t) {
-        this.t = t;
-    }
-
-    /**
-     *
-     * @return
+     * The getE method returns the Energy object associated with the Card.
+     * @return If the card is an Energy, it returns the Energy object. Otherwise, it returns null.
      */
     public Energy getE() {
-        return e;
-    }
+        if(typeOfCard.equals("Energy")) {
+            return e;
+        }
 
-    /**
-     *
-     * @param e
-     */
-    public void setE(Energy e) {
-        this.e = e;
+        return null;
     }
 }
