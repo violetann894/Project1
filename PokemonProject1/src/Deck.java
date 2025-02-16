@@ -33,6 +33,12 @@ public class Deck extends Card{
         deckOfCards = deck;
     }
 
+    /**
+     * The generateDeck method creates a new deck of 60 cards for use in a Pokemon TCG game.
+     * @param numOfPokemon The number of pokemon to be generated.
+     * @param numOfEnergies The number of energies to be generated.
+     * @param numOfTrainers The number of trainer cards to be generated.
+     */
     public void generateDeck(int numOfPokemon, int numOfEnergies, int numOfTrainers){
         //Initialize the deck (An ArrayList of cards)
         ArrayList<Card> deck = new ArrayList<>();
