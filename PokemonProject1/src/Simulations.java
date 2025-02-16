@@ -6,7 +6,6 @@ import java.util.ArrayList;
  */
 public class Simulations {
 
-
     /**
      * The runMulliganSimulation method runs the mulligan simulation
      * @param numOfTrials The number of trials the user would like to run
