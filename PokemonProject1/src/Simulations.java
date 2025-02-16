@@ -189,6 +189,9 @@ public class Simulations {
             //Initialize the variable to check if the loop breaks
             boolean broke = false;
 
+
+            //Check all code below to make sure it works to for the problem.
+
             //Run through the cards in the hand
             for(Card c: hand){
 
