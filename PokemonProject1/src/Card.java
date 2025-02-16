@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * The Card class holds information about the card that is in the deck.
  * @author Rachel Hussmann
@@ -94,5 +96,36 @@ public class Card {
         }
 
         return null;
+    }
+
+    /**
+     * The checkForMulligan method checks to see if the current hand has no pokemon in it.
+     * @param hand The hand of cards that needs to be checked.
+     * @return A boolean value: true - if a mulligan has been detected, false = if no mulligan has been found.
+     */
+    public boolean checkForMulligan(ArrayList<Card> hand){
+
+        //Initialize the boolean variable to check if the loop broke
+        boolean broke = false;
+
+        //Run through the cards in the hand
+        for(Card c: hand){
+
+            //Check to see if a pokemon card is in the hand
+            if (c.getTypeOfCard().equals("Pokemon")){
+
+                //Set the broke variable to true and break the loop
+                broke = true;
+                break;
+            }
+        }
+
+        //If the loop broke, return true because a mulligan has been found
+        if(broke){
+            return true;
+        }
+
+        //Else return false
+        return false;
     }
 }

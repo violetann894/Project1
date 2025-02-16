@@ -12,9 +12,11 @@ public class Trainer extends Card{
      * Default constructor for the Trainer class.
      */
     public Trainer(){
-        typeOfTrainerCard = "Supporter";
-        nameOfCard = "Professor's Research";
-        descriptionOfCard = "Discard your hand and draw 7 cards";
+        typeOfTrainerCard = "Item";
+        nameOfCard = "Rare Candy";
+        descriptionOfCard = "Choose 1 of your basic pokemon in play. If you have a stage 2 card in your hand that " +
+                "evolves from that pokemon, put that card onto the basic pokemon to evolve it, skipping the stage 1. " +
+                "You can't use this card during you first turn or on a basic pokemon that was put into play this turn.";
     }
 
     /**
