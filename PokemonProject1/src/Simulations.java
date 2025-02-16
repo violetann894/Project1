@@ -66,19 +66,25 @@ public class Simulations {
             //Initialize the variable for checking the number of pokemon
             int countOfPokemonHand = 0;
 
+            //Initialize the variable to check if the loop breaks
             boolean broke = false;
 
             //Run through the cards in the hand
             for(Card c: hand){
 
+                //If one of the cards in the hand is a pokemon card
                 if (c.getTypeOfCard().equals("Pokemon")){
 
+                    //Set the broke variable equal to true and break the loop
                     broke = true;
                     break;
                 }
             }
 
+            //If the above loop never broke
             if(!broke){
+
+                //Increment the numberOfMulligans varaible
                 numberOfMulligans++;
             }
 
