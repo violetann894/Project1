@@ -131,12 +131,13 @@ public class Simulations {
     }
 
     /**
-     *
-     * @param numOfTrainer
-     * @param numOfPokemon
-     * @param numOfEnergies
-     * @param numOfTrials
-     * @return
+     * The getBrickChance method calculates how many times the player's gets stuck when all rare candies are in their
+     * prize pool.
+     * @param numOfTrainer The number of trainer (rare candy) cards to put in the deck.
+     * @param numOfPokemon The number of pokemon cards to be put in the deck.
+     * @param numOfEnergies The number of energy cards to be put in the deck.
+     * @param numOfTrials The number of trials to be run.
+     * @return The percentage of times the player got stuck with all rare candy cards being in the prize pool.
      */
     public double getBrickChance(int numOfTrainer, int numOfPokemon, int numOfEnergies, int numOfTrials){
 
@@ -163,6 +164,7 @@ public class Simulations {
                 hand.add(d.pickTopCard());
             }
 
+            //Checks for a mulligan
             while(!tester.checkForMulligan(hand)){
 
                 //Add the chosen cards back into the deck
@@ -181,44 +183,40 @@ public class Simulations {
                 }
             }
 
-            //
+            //Add cards to the prize pool
             for(int j = 0; j < 6; j++){
                 prizePool.add(d.pickTopCard());
             }
 
-            //Initialize the variable to check if the loop breaks
-            boolean broke = false;
+            //Initialize the variable to count how many rare candies are in the prize pool
+            int candiesInPrize = 0;
 
+            //Iterate through the prizepool
+            for (Card c: prizePool){
 
-            //Check all code below to make sure it works to for the problem.
+                //Check if the current card is a trainer card
+                if(c.getTypeOfCard().equals("Trainer")){
 
-            //Run through the cards in the hand
-            for(Card c: hand){
+                    //Check if the trainer card is a Rare Candy
+                    if(c.getT().getNameOfCard().equals("Rare Candy")){
 
-                //If one of the cards in the hand is a pokemon card
-                if (!c.getT().getNameOfCard().equals("Rare Candy")){
-
-                    //Set the broke variable equal to true and break the loop
-                    broke = true;
-                    break;
+                        //If it is, increment the candiesInPrize variable by one
+                        candiesInPrize++;
+                    }
                 }
             }
 
-            //If the above loop never broke
-            if(!broke){
+            //If the number of candies in the prize pool are the same as the number of trainer cards (which are all
+            // rare candies)
+            if (candiesInPrize == numOfTrainer){
 
-                //Increment the numberOfMulligans variable
+                //Then increment the numberofBricks variable because the player is stuck
                 numberOfBricks++;
             }
 
-            //Clear the hand
-            hand.clear();
-
-            //Clear the deck
-            d.getDeckOfCards().clear();
         }
 
-        //After all the trials have been run, return the percentage value of the number of mulligans
+        //After all the trials have been run, return the percentage value of the number of bricks
         return ((double)numberOfBricks/numOfTrials)*100.00;
     }
 
