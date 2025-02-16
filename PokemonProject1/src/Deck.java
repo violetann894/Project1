@@ -64,7 +64,7 @@ public class Deck extends Card{
      * @return The Card object from the top of the deck.
      */
     public Card pickTopCard(){
-        return deckOfCards.remove(0);
+        return deckOfCards.removeFirst();
     }
 
     /**
