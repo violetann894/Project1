@@ -1,4 +1,5 @@
 import java.math.BigInteger;
+import java.sql.Array;
 import java.util.ArrayList;
 
 /**
@@ -118,6 +119,7 @@ public class StatsTester {
         System.out.println("Result of standard deviation (using ArrayList<Integer>): " +
                 tester.getStandardDeviationInt(intArrayListOdd));
 
+        System.out.println();
 
         //Initializes some BigInteger objects for test cases
         BigInteger n = BigInteger.valueOf(6);
@@ -166,6 +168,7 @@ public class StatsTester {
 
         //Confirmed answer with the answer in the back of the textbook (48/1326 or .0362)
 
+        System.out.println();
 
         //Initializes the ArrayList that will hold the sample values
         ArrayList<String> sample = new ArrayList<>();
@@ -201,6 +204,53 @@ public class StatsTester {
 
         //Finds and prints out the ArrayList that is the complement to array1
         System.out.println("Complement: " + tester.complement(array1, sample));
+
+        System.out.println();
+
+        //Testing conditional probability
+        System.out.println("Conditional Probability: " + tester.conditionalProbability(0.20,
+                0.5));
+
+        //Testing the different forms of independence
+        System.out.println("Independence of P(A) = .40, P(B) = .37, P(A and B): " +
+                tester.independence(.40, .37, .10));
+        System.out.println("Independence of P(A) = .40 and P(A|B) = 0.27: " +
+                tester.independence(0.27, .40));
+
+        //Testing the mn rule
+        System.out.println("mn rule for 1, 2, 3, 4, 5: " + tester.mnRule(intArrayListOdd));
+
+        //Initialize the ArrayList of integers
+        ArrayList<Integer> listOfNumbers = new ArrayList<>();
+
+        //Adds numbers to the listOfNumbers
+        listOfNumbers.add(6);
+        listOfNumbers.add(4);
+
+        //Initialize the ArrayList of BigIntegers
+        ArrayList<BigInteger> listOfBigNumbers = new ArrayList<>();
+
+        //Adds BigIntegers to the listOfBigNumbers
+        listOfBigNumbers.add(BigInteger.valueOf(6));
+        listOfBigNumbers.add(BigInteger.valueOf(4));
+
+
+        //Testing multinomial coefficient
+        System.out.println("Multinomial coefficient: " + tester.multinomialCoefficient(10, listOfNumbers));
+        System.out.println("Multinomial coefficient: " + tester.multinomialCoefficient(BigInteger.valueOf(10),
+                listOfBigNumbers));
+
+        //Testing multiplicative rule
+        System.out.println("Multiplicative rule (independent): " +
+                tester.multiplicativeProbability(0.5, 0.16666667, 0.5));
+        System.out.println("Multiplicative rule (dependent): " +
+                tester.multiplicativeProbability(0.4, 0.286, 0.9));
+
+        //Testing additive rule
+        System.out.println("Additive rule (independent): " +
+                tester.additiveProbability(0.5, 0.16666, 0.0));
+        System.out.println("Additive rule (dependent): " +
+                tester.additiveProbability(0.6, 0.1, 0.4));
     }
 
 }
