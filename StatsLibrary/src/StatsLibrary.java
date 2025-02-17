@@ -1140,23 +1140,23 @@ public class StatsLibrary {
      * @param listOfSets The list of groups.
      * @return The number of groups that can be made.
      */
-    public double multinomialCoefficient(int n, ArrayList<Integer> listOfSets){
+    public int multinomialCoefficient(int n, ArrayList<Integer> listOfSets){
 
         //Initialize the numerator with the factorial of n
         int numerator = factorial(n);
 
         //Initialize the denominator
-        int denominator = 0;
+        int denominator = 1;
 
         //Loop through the list of groups
         for(Integer i : listOfSets){
 
             //Find the factorial of i and then add it to the denominator
-            denominator += factorial(i);
+            denominator = denominator*factorial(i);
         }
 
         //Return the double value of the numerator divided by the denominator
-        return (double)numerator/denominator;
+        return numerator/denominator;
     }
 
     /**
@@ -1172,16 +1172,16 @@ public class StatsLibrary {
         BigInteger numerator = factorial(n);
 
         //Initialize the denominator
-        BigInteger denominator = new BigInteger("0");
+        BigInteger denominator = BigInteger.valueOf(1);
 
         //Loop through the list of groups
         for(BigInteger i : listOfSets){
 
             //Find the factorial of i and then add it to the denominator
-            denominator = denominator.add(i);
+            denominator = denominator.multiply(factorial(i));
         }
 
-        //Return the double value of the numerator divided by the denominator
+        //Return the BigInteger value of the numerator divided by the denominator
         return numerator.divide(denominator);
     }
 
