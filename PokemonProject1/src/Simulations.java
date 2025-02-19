@@ -63,9 +63,6 @@ public class Simulations {
                 hand.add(d.pickTopCard());
             }
 
-            //Initialize the variable for checking the number of pokemon
-            int countOfPokemonHand = 0;
-
             //Initialize the variable to check if the loop breaks
             boolean broke = false;
 
@@ -117,10 +114,10 @@ public class Simulations {
             int numOfRareCandies = i;
 
             //Number of energies is equal to 30 (the total number of cards in the deck) minus i (the number of candies)
-            int numOfEnergies = 30 - i;
+            int numOfEnergies = 30;
 
             //Number of pokemon to be added to the deck
-            int numOfPokemon = 30;
+            int numOfPokemon = 30 - i;
 
             //Run the trial and add the percentage to the percentages ArrayList
             percentages.add(getBrickChance(numOfRareCandies, numOfPokemon, numOfEnergies, numOfTrials));
@@ -148,11 +145,14 @@ public class Simulations {
         Card tester = new Card();
         ArrayList<Card> prizePool = new ArrayList<>();
 
+
         //Run the simulation for the designated number of trials
         for (int i = 0; i < numOfTrials; i++){
 
             //Use the generateDeck method to create the deck needed for the trial
             d.generateDeck(numOfPokemon, numOfEnergies, numOfTrainer);
+
+            //System.out.println(d.getDeckOfCards().size() + " " + numOfPokemon + " " + numOfEnergies + " " + numOfTrainer);
 
             //Use the shuffle method to shuffle the created deck
             d.shuffle();
@@ -181,6 +181,7 @@ public class Simulations {
                     //Pick the top card from the deck and add it to the hand
                     hand.add(d.pickTopCard());
                 }
+
             }
 
             //Add cards to the prize pool
@@ -194,11 +195,17 @@ public class Simulations {
             //Iterate through the prizepool
             for (Card c: prizePool){
 
+                String type = c.getTypeOfCard();
+
                 //Check if the current card is a trainer card
-                if(c.getTypeOfCard().equals("Trainer")){
+                if(type.equals("Trainer")){
+
+                    Trainer t = c.getT();
+
+                    String nameOfCard = t.getNameOfCard();
 
                     //Check if the trainer card is a Rare Candy
-                    if(c.getT().getNameOfCard().equals("Rare Candy")){
+                    if(nameOfCard.equals("Rare Candy")){
 
                         //If it is, increment the candiesInPrize variable by one
                         candiesInPrize++;
@@ -210,12 +217,15 @@ public class Simulations {
             // rare candies)
             if (candiesInPrize == numOfTrainer){
 
+                System.out.println("Candies in Prize: " + candiesInPrize + " Trainer cards: " + numOfTrainer);
+
                 //Then increment the numberofBricks variable because the player is stuck
                 numberOfBricks++;
             }
 
         }
 
+        System.out.println("Number of bricks: " + numberOfBricks);
         //After all the trials have been run, return the percentage value of the number of bricks
         return ((double)numberOfBricks/numOfTrials)*100.00;
     }

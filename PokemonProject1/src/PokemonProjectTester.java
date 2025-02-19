@@ -10,9 +10,9 @@ public class PokemonProjectTester {
         Simulations sTester = new Simulations();
         ArrayList<Double> percentages;
 
-        percentages = sTester.runMulliganSimulation(10000);
+        //percentages = sTester.runMulliganSimulation(10000);
 
-        System.out.println(percentages);
+        //System.out.println(percentages);
 
         percentages = sTester.runBrickSimulation(10000);
 
