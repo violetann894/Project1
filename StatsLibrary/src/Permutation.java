@@ -92,4 +92,20 @@ public class Permutation {
         return f;
     }
 
+    public void tester(){
+        //Initializes some BigInteger objects for test cases
+        BigInteger n = BigInteger.valueOf(6);
+        BigInteger r = BigInteger.valueOf(2);
+        System.out.println("Permutations of n = 6 and r = 2: " + this.getPermutation(6, 2));
+        System.out.println("Permutations of n = 6 and r = 2 using BigInteger: " + this.getPermutation(n, r));
+
+        //Testing out an example from the book
+        //Example 2.8 - Pizza problem
+        //According to the textbook, the problem is a permutation and the answer is 24360
+        BigInteger f = BigInteger.valueOf(30);
+        BigInteger g = BigInteger.valueOf(3);
+
+        System.out.println("Testing example 2.8 from the book (answer should be 24360): " +
+                this.getPermutation(f, g));
+    }
 }

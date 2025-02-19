@@ -198,4 +198,59 @@ public class ProbabilityCalculations {
         return f;
     }
 
+    public void tester(){
+
+        //Initialize ArrayList for testing
+        ArrayList<Integer> intArrayList = new ArrayList<>();
+        intArrayList.add(1);
+        intArrayList.add(2);
+        intArrayList.add(3);
+        intArrayList.add(4);
+        intArrayList.add(5);
+
+        //Testing conditional probability
+        System.out.println("Conditional Probability: " + this.conditionalProbability(0.20,
+                0.5));
+
+        //Testing the different forms of independence
+        System.out.println("Independence of P(A) = .40, P(B) = .37, P(A and B): " +
+                this.independence(.40, .37, .10));
+        System.out.println("Independence of P(A) = .40 and P(A|B) = 0.27: " +
+                this.independence(0.27, .40));
+
+        //Testing the mn rule
+        System.out.println("mn rule for 1, 2, 3, 4, 5: " + this.mnRule(intArrayList));
+
+        //Initialize the ArrayList of integers
+        ArrayList<Integer> listOfNumbers = new ArrayList<>();
+
+        //Adds numbers to the listOfNumbers
+        listOfNumbers.add(6);
+        listOfNumbers.add(4);
+
+        //Initialize the ArrayList of BigIntegers
+        ArrayList<BigInteger> listOfBigNumbers = new ArrayList<>();
+
+        //Adds BigIntegers to the listOfBigNumbers
+        listOfBigNumbers.add(BigInteger.valueOf(6));
+        listOfBigNumbers.add(BigInteger.valueOf(4));
+
+
+        //Testing multinomial coefficient
+        System.out.println("Multinomial coefficient: " + this.multinomialCoefficient(10, listOfNumbers));
+        System.out.println("Multinomial coefficient: " + this.multinomialCoefficient(BigInteger.valueOf(10),
+                listOfBigNumbers));
+
+        //Testing multiplicative rule
+        System.out.println("Multiplicative rule (independent): " +
+                this.multiplicativeProbability(0.5, 0.16666667, 0.5));
+        System.out.println("Multiplicative rule (dependent): " +
+                this.multiplicativeProbability(0.4, 0.286, 0.9));
+
+        //Testing additive rule
+        System.out.println("Additive rule (independent): " +
+                this.additiveProbability(0.5, 0.16666, 0.0));
+        System.out.println("Additive rule (dependent): " +
+                this.additiveProbability(0.6, 0.1, 0.4));
+    }
 }
