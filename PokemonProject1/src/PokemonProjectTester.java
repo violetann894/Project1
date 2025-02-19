@@ -7,14 +7,15 @@ import java.util.ArrayList;
 public class PokemonProjectTester {
     public static void main(String[] args) {
 
-        Simulations sTester = new Simulations();
+        MulliganMonteCarlo tester = new MulliganMonteCarlo();
+        BrickMonteCarlo bTester = new BrickMonteCarlo();
         ArrayList<Double> percentages;
 
-        //percentages = sTester.runMulliganSimulation(10000);
+        percentages = tester.runMulliganSimulation(10000);
 
-        //System.out.println(percentages);
+        System.out.println(percentages);
 
-        percentages = sTester.runBrickSimulation(10000);
+        percentages = bTester.runBrickSimulation(10000);
 
         System.out.println(percentages);
 
