@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BirthdayProject/BirthdayProject.iml" filepath="$PROJECT_DIR$/BirthdayProject/BirthdayProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MonteCarloBirthdaySim/BirthdayProject.iml" filepath="$PROJECT_DIR$/MonteCarloBirthdaySim/BirthdayProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/CombinationsPermutationsSolver/CombinationsPermutationsSolver.iml" filepath="$PROJECT_DIR$/CombinationsPermutationsSolver/CombinationsPermutationsSolver.iml" />
       <module fileurl="file://$PROJECT_DIR$/MonteCarloDoorGame/DoorGame.iml" filepath="$PROJECT_DIR$/MonteCarloDoorGame/DoorGame.iml" />
       <module fileurl="file://$PROJECT_DIR$/PokemonProject1/PokemonProject1.iml" filepath="$PROJECT_DIR$/PokemonProject1/PokemonProject1.iml" />

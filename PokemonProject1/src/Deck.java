@@ -70,9 +70,10 @@ public class Deck extends Card{
         //Initialize and create the list and random object needed to shuffle
         ArrayList<Card> shuffled = new ArrayList<>();
         Random random = new Random();
+        int sizeOfDeck = deckOfCards.size();
 
         //For the size of the deckOfCards
-        for(int i = 0; i < deckOfCards.size(); i++){
+        for(int i = 0; i < sizeOfDeck; i++){
 
             //Pick a random integer value
             int randomValue = random.nextInt(0, deckOfCards.size());
