@@ -802,6 +802,9 @@ public class StatsLibrary {
         return Math.sqrt(variance);
     }
 
+    /**
+     * The tester method is used to test the methods that have been developed in this class.
+     */
     public void tester(){
         //Initializes the even and odd length double arrays and ArrayLists
         double[] doubleValuesOdd = {1.1, 2.5, 3.7, 6.9, 7.4};

@@ -92,6 +92,9 @@ public class Permutation {
         return f;
     }
 
+    /**
+     * The tester method is used to test the methods that have been developed in this class.
+     */
     public void tester(){
         //Initializes some BigInteger objects for test cases
         BigInteger n = BigInteger.valueOf(6);
@@ -107,5 +110,7 @@ public class Permutation {
 
         System.out.println("Testing example 2.8 from the book (answer should be 24360): " +
                 this.getPermutation(f, g));
+
+        System.out.println();
     }
 }
