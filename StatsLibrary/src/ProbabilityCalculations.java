@@ -198,6 +198,40 @@ public class ProbabilityCalculations {
         return f;
     }
 
+    /**
+     * The lawOfTotalProbability method accepts ArrayLists and calculates the probability of A happening across a range
+     * of different other events.
+     * @param AgivenBi An ArrayList holding all the probabilities of A given Bi, where i is another event.
+     * @param Bi An ArrayList holding all the probabilities of Bi.
+     * @return The probability of A
+     */
+    public double lawOfTotalProbability(ArrayList<Double> AgivenBi, ArrayList<Double> Bi){
+
+        double probA = 0.0;
+
+        for(int i = 0; i < AgivenBi.size(); i++){
+            probA += AgivenBi.get(i)*Bi.get(i);
+        }
+
+        return probA;
+    }
+
+    /**
+     * The bayesRule method accepts ArrayLists and probabilities, and calculates the probability of A happening when we
+     * only know information about events B1, B2, . . .Bi.
+     * @param AgivenBi An ArrayList holding all the probabilities of A given Bi, where i is another event.
+     * @param Bi An ArrayList holding all the probabilities of Bi.
+     * @param AgivenBj The probability of A happening given a specific event, Bj, happening.
+     * @param Bj The probability of a specific event, Bj, happening.
+     * @return The probability of a specific event, Bj, given A happens.
+     */
+    public double bayesRule(ArrayList<Double> AgivenBi, ArrayList<Double> Bi, double AgivenBj, double Bj){
+        return (AgivenBj*Bj)/lawOfTotalProbability(AgivenBi, Bi);
+    }
+
+    /**
+     * The tester method is used to test the methods that have been developed in this class.
+     */
     public void tester(){
 
         //Initialize ArrayList for testing
@@ -212,14 +246,20 @@ public class ProbabilityCalculations {
         System.out.println("Conditional Probability: " + this.conditionalProbability(0.20,
                 0.5));
 
+        System.out.println();
+
         //Testing the different forms of independence
         System.out.println("Independence of P(A) = .40, P(B) = .37, P(A and B): " +
                 this.independence(.40, .37, .10));
         System.out.println("Independence of P(A) = .40 and P(A|B) = 0.27: " +
                 this.independence(0.27, .40));
 
+        System.out.println();
+
         //Testing the mn rule
         System.out.println("mn rule for 1, 2, 3, 4, 5: " + this.mnRule(intArrayList));
+
+        System.out.println();
 
         //Initialize the ArrayList of integers
         ArrayList<Integer> listOfNumbers = new ArrayList<>();
@@ -241,16 +281,44 @@ public class ProbabilityCalculations {
         System.out.println("Multinomial coefficient: " + this.multinomialCoefficient(BigInteger.valueOf(10),
                 listOfBigNumbers));
 
+        System.out.println();
+
         //Testing multiplicative rule
         System.out.println("Multiplicative rule (independent): " +
                 this.multiplicativeProbability(0.5, 0.16666667, 0.5));
         System.out.println("Multiplicative rule (dependent): " +
                 this.multiplicativeProbability(0.4, 0.286, 0.9));
 
+        System.out.println();
+
         //Testing additive rule
         System.out.println("Additive rule (independent): " +
                 this.additiveProbability(0.5, 0.16666, 0.0));
         System.out.println("Additive rule (dependent): " +
                 this.additiveProbability(0.6, 0.1, 0.4));
+
+        System.out.println();
+
+        //Testing out law of total probability and bayes rule
+        //Using example 2.23
+        ArrayList<Double> AgivenBi = new ArrayList<>();
+        ArrayList<Double> Bi = new ArrayList<>();
+
+        AgivenBi.add(.135275);
+        AgivenBi.add(.057624);
+
+        Bi.add(0.2);
+        Bi.add(0.8);
+
+        System.out.println("Law of Total Probability: " + lawOfTotalProbability(AgivenBi, Bi));
+
+        double AgivenB = AgivenBi.get(0);
+        double B = Bi.get(0);
+
+        System.out.println("Bayes Rule: " + bayesRule(AgivenBi, Bi, AgivenB, B));
+
+        System.out.println("Final calculation: " + (1.0 - bayesRule(AgivenBi, Bi, AgivenB, B)));
+
+        System.out.println();
     }
 }
