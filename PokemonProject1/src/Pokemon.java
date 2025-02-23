@@ -94,16 +94,16 @@ public class Pokemon extends Card{
     }
 
     /**
-     *
-     * @return
+     * Getter method for the name variable
+     * @return The name of the pokemon
      */
     public String getName() {
         return name;
     }
 
     /**
-     *
-     * @param name
+     * Setter variable for the name variable
+     * @param name The new name for the pokemon
      */
     public void setName(String name) {
         this.name = name;
