@@ -15,7 +15,7 @@ public class PokemonCardGame {
     private String whoGoesFirst;
 
     /**
-     *
+     * The startGame method handles all the initialization tasks that are needed to start the game
      */
     public void startGame(){
         System.out.println("Starting game . . .");
@@ -26,8 +26,20 @@ public class PokemonCardGame {
         player1.createHand();
         player2.createHand();
 
+        while(!player1.getDeck().checkForMulligan(player1.getHand())){
+            mulligan(player1);
+            addCardToOtherPlayer(player2);
+        }
+
+        while(!player2.getDeck().checkForMulligan(player2.getHand())){
+            mulligan(player2);
+            addCardToOtherPlayer(player1);
+        }
+
         player1.pickPrizeDeck();
         player2.pickPrizeDeck();
+
+
 
         firstTurnCheck = true;
     }
@@ -56,11 +68,13 @@ public class PokemonCardGame {
         ArrayList<Card> hand = playerWithMulligan.getHand();
 
         System.out.println("Mulligan Detected, showing player's hand");
-        for(int i = 0; i < hand.size(); i++) {
-            System.out.println();
-
+        for(Card c : hand){
+            System.out.println(c);
         }
 
+        System.out.println("Returning cards to deck and picking a new hand . . .");
+
+        playerWithMulligan.setHand(playerWithMulligan.getDeck().returnHandToDeck(hand));
     }
 
     /**
@@ -84,4 +98,10 @@ public class PokemonCardGame {
 
     }
 
+    /**
+     *
+     */
+    public void addCardToOtherPlayer(Player playerToGetExtraCard){
+        playerToGetExtraCard.getHand().add(playerToGetExtraCard.getDeck().pickTopCard());
+    }
 }
