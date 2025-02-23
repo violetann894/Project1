@@ -146,4 +146,29 @@ public class Deck extends Card{
     public void setDeckOfCards(ArrayList<Card> deckOfCards) {
         this.deckOfCards = deckOfCards;
     }
+
+    /**
+     *
+     * @param hand
+     */
+    public ArrayList<Card> returnHandToDeck(ArrayList<Card> hand){
+        //Add the chosen cards back into the deck
+        for(Card c : hand){
+            this.getDeckOfCards().add(c);
+        }
+
+        //Shuffle the deck again
+        this.shuffle();
+
+        hand.clear();
+
+        //For the number of cards in a hand
+        for(int j = 0; j < 7; j++){
+
+            //Pick the top card from the deck and add it to the hand
+            hand.add(this.pickTopCard());
+        }
+
+        return hand;
+    }
 }
