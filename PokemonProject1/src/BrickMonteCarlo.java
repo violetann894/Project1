@@ -110,7 +110,7 @@ public class BrickMonteCarlo {
                 //Check if the current card is a trainer card
                 if(type.equals("Trainer")){
 
-                    Trainer t = c.getT();
+                    Trainer t = c.getTrainer();
 
                     String nameOfCard = t.getNameOfCard();
 
