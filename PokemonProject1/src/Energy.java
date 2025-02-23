@@ -14,14 +14,6 @@ public class Energy extends Card{
     }
 
     /**
-     * Additional constructor for the Energy class
-     * @param type The type of energy of the card.
-     */
-    public Energy(String type){
-        this.type = type;
-    }
-
-    /**
      * The getType method returns the type of the energy the card is.
      * @return The type of energy the card is.
      */
