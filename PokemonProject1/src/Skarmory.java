@@ -11,6 +11,7 @@ public class Skarmory extends Pokemon{
      */
     public Skarmory(){
         setHp(80);
+        setName("Skarmory");
         ArrayList<Attack> attacks = new ArrayList<>();
 
         ArrayList<Energy> clawAttackCost = new ArrayList<>();

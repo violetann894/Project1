@@ -7,6 +7,7 @@ public class Pokemon extends Card{
 
     //Global variables for the class
     private int hp;
+    private String name;
     private ArrayList<Attack> attacks;
     private String weakness;
     private String type;
@@ -90,5 +91,21 @@ public class Pokemon extends Card{
      */
     public void setRetreatCost(int retreatCost) {
         this.retreatCost = retreatCost;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }

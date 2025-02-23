@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -50,7 +51,15 @@ public class PokemonCardGame {
     /**
      *
      */
-    public void mulligan(){
+    public void mulligan(Player playerWithMulligan){
+
+        ArrayList<Card> hand = playerWithMulligan.getHand();
+
+        System.out.println("Mulligan Detected, showing player's hand");
+        for(int i = 0; i < hand.size(); i++) {
+            System.out.println();
+
+        }
 
     }
 
