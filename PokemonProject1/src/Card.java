@@ -156,9 +156,13 @@ public class Card {
     @Override
     public String toString() {
         if(typeOfCard.equals("Pokemon")) {
-            return pokemon.getPokemon().ge;
+            return pokemon.getPokemon().getName();
         }else if(typeOfCard.equals("Trainer")){
-
+            return trainer.getTrainer().getNameOfCard();
+        }else if (typeOfCard.equals("Energy")){
+            return energy.getEnergy().getType() + " Energy";
         }
+
+        return null;
     }
 }
