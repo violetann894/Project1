@@ -9,29 +9,6 @@ public class Trainer extends Card{
     private String descriptionOfCard;
 
     /**
-     * Default constructor for the Trainer class.
-     */
-    public Trainer(){
-        typeOfTrainerCard = "Item";
-        nameOfCard = "Rare Candy";
-        descriptionOfCard = "Choose 1 of your basic pokemon in play. If you have a stage 2 card in your hand that " +
-                "evolves from that pokemon, put that card onto the basic pokemon to evolve it, skipping the stage 1. " +
-                "You can't use this card during you first turn or on a basic pokemon that was put into play this turn.";
-    }
-
-    /**
-     * Constructor for the Trainer class.
-     * @param typeOfTrainerCard The type of trainer card.
-     * @param nameOfCard The name of the trainer card.
-     * @param descriptionOfCard The description of the trainer card.
-     */
-    public Trainer(String typeOfTrainerCard, String nameOfCard, String descriptionOfCard){
-        this.typeOfTrainerCard = typeOfTrainerCard;
-        this.nameOfCard = nameOfCard;
-        this.descriptionOfCard = descriptionOfCard;
-    }
-
-    /**
      * Getter for the typeOfTrainerCard variable.
      * @return The type of trainer card.
      */
