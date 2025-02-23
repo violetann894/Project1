@@ -28,9 +28,11 @@ public class Deck extends Card{
             deckOfCards.add(new ProfsResearch());
         }
 
+        //Adds two more trainer cards to the deck
         deckOfCards.add(new Cynthia());
         deckOfCards.add(new PokeBall());
 
+        //Adds 6 energies of each type to the deck
         for(int i = 0; i < 6; i++){
             deckOfCards.add(new Energy());
             deckOfCards.add(new Electric());
