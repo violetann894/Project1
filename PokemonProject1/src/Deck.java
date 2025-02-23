@@ -10,6 +10,37 @@ public class Deck extends Card{
     private ArrayList<Card> deckOfCards;
 
     /**
+     * The generateDeck method generates a standard deck of cards with 20 pokemon, 10 trainer cards, and 30 energy cards
+     */
+    public void generateDeck(){
+
+        for(int i = 0; i < 4; i++){
+
+            //Adds 20 pokemon cards to the deck
+            deckOfCards.add(new Charmander());
+            deckOfCards.add(new Lapras());
+            deckOfCards.add(new Pikachu());
+            deckOfCards.add(new Eevee());
+            deckOfCards.add(new Skarmory());
+
+            //Adds 8 trainer cards to the deck
+            deckOfCards.add(new ProfsLetter());
+            deckOfCards.add(new ProfsResearch());
+        }
+
+        deckOfCards.add(new Cynthia());
+        deckOfCards.add(new PokeBall());
+
+        for(int i = 0; i < 6; i++){
+            deckOfCards.add(new Energy());
+            deckOfCards.add(new Electric());
+            deckOfCards.add(new Fire());
+            deckOfCards.add(new Water());
+            deckOfCards.add(new Steel());
+        }
+    }
+
+    /**
      * The generateDeckMulligan method creates a deck of 60 cards with the specified number of pokemon and energies for
      * the MulliganMonteCarlo class and simulation.
      * @param numOfPokemon The number of pokemon to be added to the deck.
