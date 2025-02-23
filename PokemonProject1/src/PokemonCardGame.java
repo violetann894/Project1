@@ -19,7 +19,7 @@ public class PokemonCardGame {
         Deck player1Deck = new Deck();
 
         //Generate Player 1's deck
-        player1Deck.generateDeck(20, 30, 10);
+        player1Deck.generateDeckRareCandy(20, 30, 10);
 
         //Set player1 global variable equal to the new deck of cards just created
         this.player1 = player1Deck.getDeckOfCards();
@@ -28,7 +28,7 @@ public class PokemonCardGame {
         Deck player2Deck = new Deck();
 
         //Generate Player 2's deck
-        player2Deck.generateDeck(20,30,10);
+        player2Deck.generateDeckRareCandy(20,30,10);
 
         //Set player2 global variable equal to the new deck of cards just created
         this.player2 = player2Deck.getDeckOfCards();
@@ -43,7 +43,7 @@ public class PokemonCardGame {
 
         //Generate player 2's deck and set it equal to the global variable player2
         Deck player2Deck = new Deck();
-        player2Deck.generateDeck(20,30,10);
+        player2Deck.generateDeckRareCandy(20,30,10);
         this.player2 = player2Deck.getDeckOfCards();
 
     }
