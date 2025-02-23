@@ -152,4 +152,13 @@ public class Card {
         //Else return false
         return false;
     }
+
+    @Override
+    public String toString() {
+        if(typeOfCard.equals("Pokemon")) {
+            return pokemon.getPokemon().ge;
+        }else if(typeOfCard.equals("Trainer")){
+
+        }
+    }
 }
