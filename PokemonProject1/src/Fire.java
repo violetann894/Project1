@@ -1,5 +1,6 @@
 /**
  * The Fire class is a Fire Energy card.
+ * @author Rachel Hussmann
  */
 public class Fire extends Energy{
 

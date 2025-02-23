@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 /**
  * The Skarmory class holds information about the pokemon Skarmory for a Pokemon TCG game.
+ * @author Rachel Hussmann
  */
 public class Skarmory extends Pokemon{
 

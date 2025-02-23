@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 /**
  * The Charmander class holds information about the pokemon Charmander for a Pokemon TCG game.
+ * @author Rachel Hussmann
  */
 public class Charmander extends Pokemon{
 

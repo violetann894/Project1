@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 /**
  * The Eevee class holds information about the pokemon Eevee for a Pokemon TCG game.
+ * @author Rachel Hussmann
  */
 public class Eevee extends Pokemon{
 

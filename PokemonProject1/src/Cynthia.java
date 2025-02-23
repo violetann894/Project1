@@ -1,5 +1,6 @@
 /**
  * The Cynthia class is a trainer card that can be used in a Pokemon TCG game.
+ * @author Rachel Hussmann
  */
 public class Cynthia extends Trainer{
 

@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 /**
  * The Lapras class holds information about the pokemon Lapras for a Pokemon TCG game.
+ * @author Rachel Hussmann
  */
 public class Lapras extends Pokemon{
 

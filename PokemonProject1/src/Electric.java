@@ -1,5 +1,6 @@
 /**
  * The Electric class is an Electric Energy card.
+ * @author Rachel Hussmann
  */
 public class Electric extends Energy{
 

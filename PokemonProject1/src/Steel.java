@@ -1,5 +1,6 @@
 /**
  * The Steel class is a Steel Energy card.
+ * @author Rachel Hussmann
  */
 public class Steel extends Energy{
 

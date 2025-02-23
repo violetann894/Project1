@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 /**
  * The Pikachu class holds information about the pokemon Pikachu for a Pokemon TCG game.
+ * @author Rachel Hussmann
  */
 public class Pikachu extends Pokemon{
 
