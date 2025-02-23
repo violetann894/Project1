@@ -72,7 +72,7 @@ public class Deck extends Card{
         Random random = new Random();
 
         //For the size of the deckOfCards
-        for(int i = 0; i < deckOfCards.size(); i++){
+        while(deckOfCards.size() > 0){
 
             //Pick a random integer value
             int randomValue = random.nextInt(0, deckOfCards.size());

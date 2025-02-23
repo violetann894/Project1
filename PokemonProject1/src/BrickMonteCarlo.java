@@ -52,10 +52,7 @@ public class BrickMonteCarlo {
         //Initializes the variables that will be used for the simulations
         int numberOfBricks = 0;
         Deck d = new Deck();
-        ArrayList<Card> hand = new ArrayList<>();
         Card tester = new Card();
-        ArrayList<Card> prizePool = new ArrayList<>();
-
 
         //Run the simulation for the designated number of trials
         for (int i = 0; i < numOfTrials; i++){
@@ -63,11 +60,11 @@ public class BrickMonteCarlo {
             //Use the generateDeck method to create the deck needed for the trial
             d.generateDeck(numOfPokemon, numOfEnergies, numOfTrainer);
 
-            //System.out.println(d.getDeckOfCards().size() + " " + numOfPokemon + " " + numOfEnergies + " " + numOfTrainer);
-
             //Use the shuffle method to shuffle the created deck
             d.shuffle();
 
+
+            ArrayList<Card> hand = new ArrayList<>();
             //For the number of cards in a hand
             for(int j = 0; j < 7; j++){
 
@@ -86,6 +83,8 @@ public class BrickMonteCarlo {
                 //Shuffle the deck again
                 d.shuffle();
 
+                hand.clear();
+
                 //For the number of cards in a hand
                 for(int j = 0; j < 7; j++){
 
@@ -95,6 +94,7 @@ public class BrickMonteCarlo {
 
             }
 
+            ArrayList<Card> prizePool = new ArrayList<>();
             //Add cards to the prize pool
             for(int j = 0; j < 6; j++){
                 prizePool.add(d.pickTopCard());
@@ -128,15 +128,12 @@ public class BrickMonteCarlo {
             // rare candies)
             if (candiesInPrize == numOfTrainer){
 
-                System.out.println("Candies in Prize: " + candiesInPrize + " Trainer cards: " + numOfTrainer);
-
                 //Then increment the numberofBricks variable because the player is stuck
                 numberOfBricks++;
             }
 
         }
 
-        System.out.println("Number of bricks: " + numberOfBricks);
         //After all the trials have been run, return the percentage value of the number of bricks
         return ((double)numberOfBricks/numOfTrials)*100.00;
     }
