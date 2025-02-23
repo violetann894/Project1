@@ -10,11 +10,12 @@ public class Deck extends Card{
     private ArrayList<Card> deckOfCards;
 
     /**
-     * The generateDeck method creates a deck of 60 cards with the specified number of pokemon and energies in it
+     * The generateDeckMulligan method creates a deck of 60 cards with the specified number of pokemon and energies for
+     * the MulliganMonteCarlo class and simulation.
      * @param numOfPokemon The number of pokemon to be added to the deck.
      * @param numOfEnergies The number of energies to be added to the deck.
      */
-    public void generateDeck(int numOfPokemon, int numOfEnergies){
+    public void generateDeckMulligan(int numOfPokemon, int numOfEnergies){
 
         //Initialize the deck (An ArrayList of cards)
         ArrayList<Card> deck = new ArrayList<>();
@@ -34,12 +35,13 @@ public class Deck extends Card{
     }
 
     /**
-     * The generateDeck method creates a new deck of 60 cards for use in a Pokemon TCG game.
+     * The generateDeckRareCandy method creates a new deck of 60 cards for use in the BrickMonteCarlo class and
+     * simulation.
      * @param numOfPokemon The number of pokemon to be generated.
      * @param numOfEnergies The number of energies to be generated.
      * @param numOfTrainers The number of trainer cards to be generated.
      */
-    public void generateDeck(int numOfPokemon, int numOfEnergies, int numOfTrainers){
+    public void generateDeckRareCandy(int numOfPokemon, int numOfEnergies, int numOfTrainers){
         //Initialize the deck (An ArrayList of cards)
         ArrayList<Card> deck = new ArrayList<>();
 
@@ -55,7 +57,7 @@ public class Deck extends Card{
 
         //Add number of trainer cards to the deck
         for(int i = 0; i< numOfTrainers; i++){
-            deck.add(new Card(new Trainer()));
+            deck.add(new Card(new RareCandy()));
         }
 
         //The deck of cards created is now equal to the global variable deckOfCards
