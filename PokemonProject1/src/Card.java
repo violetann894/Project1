@@ -8,9 +8,9 @@ public class Card {
 
     private String typeOfCard;
 
-    private Pokemon p;
-    private Trainer t;
-    private Energy e;
+    private Pokemon pokemon;
+    private Trainer trainer;
+    private Energy energy;
 
     /**
      * Default constructor for the Card class.
@@ -21,29 +21,29 @@ public class Card {
 
     /**
      * Constructor for the Card class.
-     * @param p The Pokemon object.
+     * @param pokemon The Pokemon object.
      */
-    public Card(Pokemon p){
+    public Card(Pokemon pokemon){
         typeOfCard = "Pokemon";
-        this.p = p;
+        this.pokemon = pokemon;
     }
 
     /**
      * Constructor for the Card class.
-     * @param t The Trainer object.
+     * @param trainer The Trainer object.
      */
-    public Card(Trainer t){
+    public Card(Trainer trainer){
         typeOfCard = "Trainer";
-        this.t = t;
+        this.trainer = trainer;
     }
 
     /**
      * Constructor for the Card class.
-     * @param e The Energy object.
+     * @param energy The Energy object.
      */
-    public Card(Energy e){
+    public Card(Energy energy){
         typeOfCard = "Energy";
-        this.e = e;
+        this.energy = energy;
     }
 
     /**
@@ -63,39 +63,63 @@ public class Card {
     }
 
     /**
-     * The getP method returns the Pokemon object associated with the Card.
+     * Getter method for the pokemon variable
      * @return If the card is a Pokemon, it returns the Pokemon object. Otherwise, it returns null.
      */
-    public Pokemon getP() {
+    public Pokemon getPokemon() {
         if(typeOfCard.equals("Pokemon")) {
-            return p;
+            return pokemon;
         }
 
         return null;
     }
 
     /**
-     * The getT method returns the Trainer object associated with the Card.
+     * Setter method for the pokemon variable
+     * @param pokemon The new Pokemon card.
+     */
+    public void setPokemon(Pokemon pokemon){
+        this.pokemon = pokemon;
+    }
+
+    /**
+     * Getter method for the trainer variable
      * @return If the card is a Trainer, it returns the Trainer object. Otherwise, it returns null.
      */
-    public Trainer getT() {
+    public Trainer getTrainer() {
         if(typeOfCard.equals("Trainer")) {
-            return t;
+            return trainer;
         }
 
         return null;
     }
 
     /**
-     * The getE method returns the Energy object associated with the Card.
+     * Setter for the trainer variable
+     * @param trainer The new Trainer card.
+     */
+    public void setTrainer(Trainer trainer){
+        this.trainer = trainer;
+    }
+
+    /**
+     * The getEnergy method returns the Energy object associated with the Card.
      * @return If the card is an Energy, it returns the Energy object. Otherwise, it returns null.
      */
-    public Energy getE() {
+    public Energy getEnergy() {
         if(typeOfCard.equals("Energy")) {
-            return e;
+            return energy;
         }
 
         return null;
+    }
+
+    /**
+     * Setter method for the energy variable
+     * @param energy The new Energy card.
+     */
+    public void setEnergy(Energy energy){
+        this.energy = energy;
     }
 
     /**
