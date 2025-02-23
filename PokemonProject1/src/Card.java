@@ -125,7 +125,7 @@ public class Card {
     /**
      * The checkForMulligan method checks to see if the current hand has no pokemon in it.
      * @param hand The hand of cards that needs to be checked.
-     * @return A boolean value: true - if a mulligan has been detected, false = if no mulligan has been found.
+     * @return A boolean value: true - if a mulligan has not been detected, false = if a mulligan has been found.
      */
     public boolean checkForMulligan(ArrayList<Card> hand){
 
