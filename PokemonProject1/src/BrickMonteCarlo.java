@@ -57,12 +57,11 @@ public class BrickMonteCarlo {
         //Run the simulation for the designated number of trials
         for (int i = 0; i < numOfTrials; i++){
 
-            //Use the generateDeck method to create the deck needed for the trial
-            d.generateDeck(numOfPokemon, numOfEnergies, numOfTrainer);
+            //Use the generateDeckRareCandy method to create the deck needed for the trial
+            d.generateDeckRareCandy(numOfPokemon, numOfEnergies, numOfTrainer);
 
             //Use the shuffle method to shuffle the created deck
             d.shuffle();
-
 
             ArrayList<Card> hand = new ArrayList<>();
             //For the number of cards in a hand

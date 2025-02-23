@@ -51,8 +51,8 @@ public class MulliganMonteCarlo {
         //Run the simulation for the designated number of trials
         for (int i = 0; i < numOfTrials; i++){
 
-            //Use the generateDeck method to create the deck needed for the trial
-            d.generateDeck(numOfPokemon, numOfEnergies);
+            //Use the generateDeckMulligan method to create the deck needed for the trial
+            d.generateDeckMulligan(numOfPokemon, numOfEnergies);
 
             //Use the shuffle method to shuffle the created deck
             d.shuffle();
