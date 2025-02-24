@@ -157,7 +157,7 @@ public class Player {
     }
 
     /**
-     *
+     * The addCardToHand method takes one card from the deck and adds it to the player hand.
      */
     public void addCardToHand(){
         hand.add(deck.pickTopCard());
