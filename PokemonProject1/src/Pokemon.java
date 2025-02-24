@@ -108,4 +108,23 @@ public class Pokemon extends Card{
     public void setName(String name) {
         this.name = name;
     }
+
+    /**
+     * The battle method manages a battle between two pokemon.
+     * @param attackingPokemon The attacking pokemon.
+     * @param pokemonAttack The Attack the attacking pokemon will use.
+     * @param defendingPokemon The defensing pokemon that will be losing HP.
+     */
+    public void battle(Pokemon attackingPokemon, Attack pokemonAttack, Pokemon defendingPokemon){
+        String type = attackingPokemon.getType();
+        int damage = pokemonAttack.getDamage();
+        int hp = defendingPokemon.getHp();
+
+        if(type.equals(defendingPokemon.getWeakness())){
+            damage = damage * 2;
+        }
+
+        hp -= damage;
+        defendingPokemon.setHp(hp);
+    }
 }
