@@ -14,7 +14,7 @@ public class Player {
     private ArrayList<Card> discardPile;
 
     /**
-     *
+     * Default constructor
      */
     public Player(){
         deck = new Deck();
@@ -23,7 +23,7 @@ public class Player {
     }
 
     /**
-     *
+     * The createHand method creates a new hand for a player.
      */
     public void createHand(){
         for(int i = 0; i < 7; i++){
@@ -32,7 +32,7 @@ public class Player {
     }
 
     /**
-     *
+     * The pickPrizeDeck method picks a prize deck for the player.
      */
     public void pickPrizeDeck(){
         for(int i = 0; i < 6; i++){
@@ -108,29 +108,29 @@ public class Player {
      * Getter method for the activePokemon variable
      * @return The current active pokemon
      */
-    public Card getActivePokemon() {
-        return activePokemon;
+    public Pokemon getActivePokemon() {
+        return (Pokemon) activePokemon;
     }
 
     /**
      * Setter method for the activePokemon variable
      * @param activePokemon The new active pokemon
      */
-    public void setActivePokemon(Card activePokemon) {
+    public void setActivePokemon(Pokemon activePokemon) {
         this.activePokemon = activePokemon;
     }
 
     /**
-     *
-     * @return
+     * Getter method for the discardPile variable
+     * @return The discard pile
      */
     public ArrayList<Card> getDiscardPile() {
         return discardPile;
     }
 
     /**
-     *
-     * @param discardPile
+     * Setter method for the discardPile variable
+     * @param discardPile The new discard pile
      */
     public void setDiscardPile(ArrayList<Card> discardPile) {
         this.discardPile = discardPile;
