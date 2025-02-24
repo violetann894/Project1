@@ -153,6 +153,10 @@ public class Card {
         return false;
     }
 
+    /**
+     * The toString method overrides the toString method for this object and instead returns the name of the card.
+     * @return The name of the card
+     */
     @Override
     public String toString() {
         if(typeOfCard.equals("Pokemon")) {
