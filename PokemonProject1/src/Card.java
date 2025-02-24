@@ -169,6 +169,10 @@ public class Card {
         return false;
     }
 
+    /**
+     * The checkTypeOfCard method checks which type of card this instance of the Card class is.
+     * @return The type of card that this object is.
+     */
     public String checkTypeOfCard(){
         if(this.typeOfCard.equals("Trainer")){
             return "Trainer";
