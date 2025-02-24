@@ -140,4 +140,20 @@ public class Player {
         this.discardPile = discardPile;
     }
 
+    /**
+     * The removeCardFromHand method removes the given card from the hand of the player.
+     * @param cardToBeRemoved The card to be removed from the players hand.
+     */
+    public void removeCardFromHand(Card cardToBeRemoved){
+        hand.remove(cardToBeRemoved);
+    }
+
+    /**
+     * The addCardToDiscard adds the given card from the player's playing space and adds it to the discardPile.
+     * @param cardToBeAdded The card to be added to the discard pile.
+     */
+    public void addCardToDiscard(Card cardToBeAdded){
+        discardPile.add(cardToBeAdded);
+    }
+
 }
