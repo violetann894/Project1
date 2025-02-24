@@ -28,7 +28,7 @@ public class Deck extends Card{
             deckOfCards.add(new ProfsResearch());
             deckOfCards.add(new Cynthia());
             deckOfCards.add(new PokeBall());
-            deckOfCards.add(new Potion());
+            deckOfCards.add(new XSpeed());
 
             //Adds 20 energy cards to the deck
             deckOfCards.add(new Energy());
@@ -145,8 +145,8 @@ public class Deck extends Card{
     }
 
     /**
-     *
-     * @param hand
+     * The returnHandToDeck method returns a hand of cards back to the deck.
+     * @param hand The hand of cards to be added back to the deck.
      */
     public ArrayList<Card> returnHandToDeck(ArrayList<Card> hand){
         //Add the chosen cards back into the deck
@@ -167,5 +167,33 @@ public class Deck extends Card{
         }
 
         return hand;
+    }
+
+    /**
+     * The findFirstPokemon method finds the first pokemon card in the deck.
+     * @return The first Pokemon cards found in the deck.
+     */
+    public Pokemon findFirstPokemon(){
+        for(Card c : this.getDeckOfCards()){
+            if(c.getTypeOfCard().equals("Pokemon")){
+                return c.getPokemon();
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * The findFirstEnergy method finds the first energy card in the deck.
+     * @return The first Energy card found in the deck.
+     */
+    public Energy findFirstEnergy(){
+        for(Card c : this.getDeckOfCards()){
+            if(c.getTypeOfCard().equals("Energy")){
+                return c.getEnergy();
+            }
+        }
+
+        return null;
     }
 }
