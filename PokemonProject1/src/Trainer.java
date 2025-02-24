@@ -56,4 +56,8 @@ public class Trainer extends Card{
         this.descriptionOfCard = descriptionOfCard;
     }
 
+    public void useAbility(Player playerWhoUsedCard){
+        if(nameOfCard.equals())
+    }
+
 }
