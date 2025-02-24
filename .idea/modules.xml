@@ -8,7 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/PokemonProject1/PokemonProject1.iml" filepath="$PROJECT_DIR$/PokemonProject1/PokemonProject1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Project1.iml" filepath="$PROJECT_DIR$/.idea/Project1.iml" />
       <module fileurl="file://$PROJECT_DIR$/SetOperations/SetOperations.iml" filepath="$PROJECT_DIR$/SetOperations/SetOperations.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SkillUpPart2/SkillUpPart2.iml" filepath="$PROJECT_DIR$/SkillUpPart2/SkillUpPart2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PokemonBattler/SkillUpPart2.iml" filepath="$PROJECT_DIR$/PokemonBattler/SkillUpPart2.iml" />
       <module fileurl="file://$PROJECT_DIR$/StandardDeviation/StandardDeviation.iml" filepath="$PROJECT_DIR$/StandardDeviation/StandardDeviation.iml" />
       <module fileurl="file://$PROJECT_DIR$/StatsLibrary/StatsLibrary.iml" filepath="$PROJECT_DIR$/StatsLibrary/StatsLibrary.iml" />
     </modules>

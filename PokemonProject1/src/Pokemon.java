@@ -101,6 +101,22 @@ public class Pokemon extends Card{
     }
 
     /**
+     * Getter for the energiesAttached variable
+     * @return The ArrayList of energies attached to the pokemon
+     */
+    public ArrayList<Energy> getEnergiesAttached() {
+        return energiesAttached;
+    }
+
+    /**
+     * Setter for the energiesAttached variable
+     * @param energiesAttached The new ArrayList of energies attached to the pokemon
+     */
+    public void setEnergiesAttached(ArrayList<Energy> energiesAttached) {
+        this.energiesAttached = energiesAttached;
+    }
+
+    /**
      * The battle method manages a battle between two pokemon.
      * @param attackingPokemon The attacking pokemon.
      * @param pokemonAttack The Attack the attacking pokemon will use.
@@ -134,4 +150,5 @@ public class Pokemon extends Card{
     public void removeEnergy(Energy cardToRemove){
         energiesAttached.remove(cardToRemove);
     }
+
 }
