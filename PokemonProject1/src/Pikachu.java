@@ -12,7 +12,7 @@ public class Pikachu extends Pokemon{
     public Pikachu(){
 
         setHp(60);
-        setName("Pikachu");
+        setNameOfCard("Pikachu");
         ArrayList<Attack> attacks = new ArrayList<>();
 
         ArrayList<Energy> pikaPunchCost = new ArrayList<>();

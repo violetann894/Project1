@@ -12,7 +12,7 @@ public class Lapras extends Pokemon{
     public Lapras(){
 
         setHp(100);
-        setName("Lapras");
+        setNameOfCard("Lapras");
         ArrayList<Attack> attacks = new ArrayList<>();
 
         ArrayList<Energy> surfAttackCost = new ArrayList<>();

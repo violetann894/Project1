@@ -9,6 +9,7 @@ public class Fire extends Energy{
      */
     public Fire(){
         setType("Fire");
+        setNameOfCard("Fire Energy");
         setTypeOfCard("Energy");
         setEnergy(this);
     }

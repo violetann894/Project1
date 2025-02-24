@@ -9,6 +9,7 @@ public class Electric extends Energy{
      */
     public Electric(){
         setType("Electric");
+        setNameOfCard("Electric Energy");
         setTypeOfCard("Energy");
         setEnergy(this);
     }

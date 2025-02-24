@@ -9,6 +9,7 @@ public class Steel extends Energy{
      */
     public Steel(){
         setType("Steel");
+        setNameOfCard("Steel Energy");
         setTypeOfCard("Energy");
         setEnergy(this);
     }

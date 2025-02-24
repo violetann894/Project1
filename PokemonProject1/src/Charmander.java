@@ -12,7 +12,7 @@ public class Charmander extends Pokemon{
     public Charmander(){
 
         setHp(50);
-        setName("Charmander");
+        setNameOfCard("Charmander");
 
         ArrayList<Attack> attacks = new ArrayList<>();
 

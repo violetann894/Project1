@@ -7,11 +7,11 @@ public class Pokemon extends Card{
 
     //Global variables for the class
     private int hp;
-    private String name;
     private ArrayList<Attack> attacks;
     private String weakness;
     private String type;
     private int retreatCost;
+    private ArrayList<Energy> energiesAttached;
 
     /**
      * The getHp method returns the value of the health points of the Pokemon.
@@ -94,22 +94,6 @@ public class Pokemon extends Card{
     }
 
     /**
-     * Getter method for the name variable
-     * @return The name of the pokemon
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Setter variable for the name variable
-     * @param name The new name for the pokemon
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
      * The battle method manages a battle between two pokemon.
      * @param attackingPokemon The attacking pokemon.
      * @param pokemonAttack The Attack the attacking pokemon will use.
@@ -126,5 +110,21 @@ public class Pokemon extends Card{
 
         hp -= damage;
         defendingPokemon.setHp(hp);
+    }
+
+    /**
+     *
+     * @param cardToAttach
+     */
+    public void attachEnergy(Energy cardToAttach){
+        energiesAttached.add(cardToAttach);
+    }
+
+    /**
+     *
+     * @param cardToRemove
+     */
+    public void removeEnergy(Energy cardToRemove){
+        energiesAttached.remove(cardToRemove);
     }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Card {
 
     private String typeOfCard;
-
+    private String nameOfCard;
     private Pokemon pokemon;
     private Trainer trainer;
     private Energy energy;
@@ -123,6 +123,22 @@ public class Card {
     }
 
     /**
+     * Getter for the nameOfCard variable
+     * @return The name of the card
+     */
+    public String getNameOfCard() {
+        return nameOfCard;
+    }
+
+    /**
+     * Setter for the nameOfCard variable
+     * @param nameOfCard The new name of the card
+     */
+    public void setNameOfCard(String nameOfCard) {
+        this.nameOfCard = nameOfCard;
+    }
+
+    /**
      * The checkForMulligan method checks to see if the current hand has no pokemon in it.
      * @param hand The hand of cards that needs to be checked.
      * @return A boolean value: true - if a mulligan has not been detected, false = if a mulligan has been found.
@@ -160,13 +176,14 @@ public class Card {
     @Override
     public String toString() {
         if(typeOfCard.equals("Pokemon")) {
-            return pokemon.getPokemon().getName();
+            return pokemon.getPokemon().getNameOfCard();
         }else if(typeOfCard.equals("Trainer")){
             return trainer.getTrainer().getNameOfCard();
         }else if (typeOfCard.equals("Energy")){
-            return energy.getEnergy().getType() + " Energy";
+            return energy.getEnergy().getNameOfCard();
         }
 
         return null;
     }
+
 }

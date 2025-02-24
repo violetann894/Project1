@@ -12,7 +12,7 @@ public class Eevee extends Pokemon{
     public Eevee(){
 
         setHp(50);
-        setName("Eevee");
+        setNameOfCard("Eevee");
         ArrayList<Attack> attacks = new ArrayList<>();
 
         ArrayList<Energy> tackleAttackCost = new ArrayList<>();

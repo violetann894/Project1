@@ -9,6 +9,7 @@ public class Water extends Energy{
      */
     public Water(){
         setTypeOfCard("Energy");
+        setNameOfCard("Water Energy");
         setType("Water");
         setEnergy(this);
     }

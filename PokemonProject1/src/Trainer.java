@@ -8,7 +8,6 @@ import java.util.Random;
 public class Trainer extends Card{
 
     private String typeOfTrainerCard;
-    private String nameOfCard;
     private String descriptionOfCard;
 
     /**
@@ -25,22 +24,6 @@ public class Trainer extends Card{
      */
     public void setTypeOfTrainerCard(String typeOfTrainerCard) {
         this.typeOfTrainerCard = typeOfTrainerCard;
-    }
-
-    /**
-     * Getter for the nameOfCard variable.
-     * @return The name of the trainer card.
-     */
-    public String getNameOfCard() {
-        return nameOfCard;
-    }
-
-    /**
-     * Setter for the nameOfCard variable.
-     * @param nameOfCard The new name of the trainer card.
-     */
-    public void setNameOfCard(String nameOfCard) {
-        this.nameOfCard = nameOfCard;
     }
 
     /**
@@ -67,7 +50,7 @@ public class Trainer extends Card{
 
         //This method runs through all the available cards
 
-        if(nameOfCard.equals("Cynthia")){
+        if(getNameOfCard().equals("Cynthia")){
             System.out.println("Player used Cynthia");
 
             ArrayList<Card> hand = playerWhoUsedCard.getHand();
@@ -86,7 +69,7 @@ public class Trainer extends Card{
             ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
             discardPile.add(this);
             playerWhoUsedCard.setDiscardPile(discardPile);
-        }else if(nameOfCard.equals("Poke Ball")){
+        }else if(getNameOfCard().equals("Poke Ball")){
             Random random = new Random();
 
             int coinFace = random.nextInt(0, 2);
@@ -104,7 +87,7 @@ public class Trainer extends Card{
 
                 deckArray.remove(firstPokemon);
 
-                System.out.println("Player picked " + firstPokemon.getName());
+                System.out.println("Player picked " + firstPokemon.getNameOfCard());
 
                 System.out.println("Player is adding it to their hand and shuffling their deck");
 
@@ -121,7 +104,7 @@ public class Trainer extends Card{
             hand.remove(this);
             discardPile.add(this);
             playerWhoUsedCard.setDiscardPile(discardPile);
-        }else if(nameOfCard.equals("X Speed")){
+        }else if(getNameOfCard().equals("X Speed")){
             int retreatCost = playerWhoUsedCard.getActivePokemon().getRetreatCost();
             retreatCost -= 1;
             playerWhoUsedCard.getActivePokemon().setRetreatCost(retreatCost);
@@ -130,7 +113,7 @@ public class Trainer extends Card{
             ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
             hand.remove(this);
             discardPile.add(this);
-        }else if(nameOfCard.equals("Professor's Letter")){
+        }else if(getNameOfCard().equals("Professor's Letter")){
             ArrayList<Card> hand = playerWhoUsedCard.getHand();
 
             Energy energyOne = playerWhoUsedCard.getDeck().findFirstEnergy();
@@ -157,7 +140,7 @@ public class Trainer extends Card{
             discardPile.add(this);
 
             playerWhoUsedCard.setDiscardPile(discardPile);
-        }else if(nameOfCard.equals("Professor's Research")){
+        }else if(getNameOfCard().equals("Professor's Research")){
 
             System.out.println("Player used Professor's Research");
 
