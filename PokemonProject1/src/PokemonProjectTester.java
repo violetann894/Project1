@@ -11,13 +11,13 @@ public class PokemonProjectTester {
         BrickMonteCarlo bTester = new BrickMonteCarlo();
         ArrayList<Double> percentages;
 
-        percentages = tester.runMulliganSimulation(10000);
+        //percentages = tester.runMulliganSimulation(10000);
 
-        System.out.println(percentages);
+        //System.out.println(percentages);
 
-        percentages = bTester.runBrickSimulation(10000);
+        //percentages = bTester.runBrickSimulation(10000);
 
-        System.out.println(percentages);
+        //System.out.println(percentages);
 
         System.out.println();
 
