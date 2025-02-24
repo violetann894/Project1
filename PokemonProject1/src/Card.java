@@ -169,6 +169,18 @@ public class Card {
         return false;
     }
 
+    public String checkTypeOfCard(){
+        if(this.typeOfCard.equals("Trainer")){
+            return "Trainer";
+        }else if(this.typeOfCard.equals("Pokemon")){
+            return "Pokemon";
+        }else if(this.typeOfCard.equals("Energy")){
+            return "Energy";
+        }
+
+        return null;
+    }
+
     /**
      * The toString method overrides the toString method for this object and instead returns the name of the card.
      * @return The name of the card
