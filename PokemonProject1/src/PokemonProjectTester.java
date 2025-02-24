@@ -19,5 +19,9 @@ public class PokemonProjectTester {
 
         System.out.println(percentages);
 
+        System.out.println();
+
+        PokemonCardGame pokemonTester = new PokemonCardGame();
+        pokemonTester.startGame();
     }
 }
