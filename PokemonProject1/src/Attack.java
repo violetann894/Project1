@@ -68,4 +68,9 @@ public class Attack {
     public void setDamage(int damage) {
         this.damage = damage;
     }
+
+    @Override
+    public String toString(){
+        return "Cost: " + costOfAttack + " Name of Attack: " + attackName + " Damage: " + damage;
+    }
 }
