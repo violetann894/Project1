@@ -64,6 +64,9 @@ public class Trainer extends Card{
      * @param playerWhoUsedCard The player who used the card.
      */
     public void useAbility(Player playerWhoUsedCard){
+
+        //This method runs through all the available cards
+
         if(nameOfCard.equals("Cynthia")){
             System.out.println("Player used Cynthia");
 
