@@ -120,16 +120,16 @@ public class Pokemon extends Card{
     }
 
     /**
-     *
-     * @param cardToAttach
+     * The attachEnergy method accepts an energy card the that player would like to attack to a pokemon.
+     * @param cardToAttach The energy to attach to the pokemon.
      */
     public void attachEnergy(Energy cardToAttach){
         energiesAttached.add(cardToAttach);
     }
 
     /**
-     *
-     * @param cardToRemove
+     * The removeEnergy method accepts an energy card to remove from a pokemon.
+     * @param cardToRemove The energy card the player would like to remove.
      */
     public void removeEnergy(Energy cardToRemove){
         energiesAttached.remove(cardToRemove);
