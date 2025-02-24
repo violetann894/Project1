@@ -192,7 +192,8 @@ public class Card {
     @Override
     public String toString() {
         if(typeOfCard.equals("Pokemon")) {
-            return pokemon.getPokemon().getNameOfCard();
+            return pokemon.getPokemon().getNameOfCard() + " (" + pokemon.getPokemon().getEnergiesAttached().size()
+                    + ")";
         }else if(typeOfCard.equals("Trainer")){
             return trainer.getTrainer().getNameOfCard();
         }else if (typeOfCard.equals("Energy")){
