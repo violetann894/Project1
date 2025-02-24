@@ -10,6 +10,13 @@ public class Deck extends Card{
     private ArrayList<Card> deckOfCards;
 
     /**
+     * Default constructor
+     */
+    public Deck(){
+        deckOfCards = new ArrayList<>();
+    }
+
+    /**
      * The generateDeck method generates a standard deck of cards with 20 pokemon, 10 trainer cards, and 30 energy cards
      */
     public void generateDeck(){
