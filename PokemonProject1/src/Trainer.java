@@ -70,6 +70,8 @@ public class Trainer extends Card{
             discardPile.add(this);
             playerWhoUsedCard.setDiscardPile(discardPile);
         }else if(getNameOfCard().equals("Poke Ball")){
+            System.out.println("Player used Poke Ball");
+
             Random random = new Random();
 
             int coinFace = random.nextInt(0, 2);
@@ -105,6 +107,7 @@ public class Trainer extends Card{
             discardPile.add(this);
             playerWhoUsedCard.setDiscardPile(discardPile);
         }else if(getNameOfCard().equals("X Speed")){
+            System.out.println("Player used X Speed");
             int retreatCost = playerWhoUsedCard.getActivePokemon().getRetreatCost();
             retreatCost -= 1;
             playerWhoUsedCard.getActivePokemon().setRetreatCost(retreatCost);
@@ -114,6 +117,7 @@ public class Trainer extends Card{
             hand.remove(this);
             discardPile.add(this);
         }else if(getNameOfCard().equals("Professor's Letter")){
+            System.out.println("Player used Professor's Letter");
             ArrayList<Card> hand = playerWhoUsedCard.getHand();
 
             Energy energyOne = playerWhoUsedCard.getDeck().findFirstEnergy();
