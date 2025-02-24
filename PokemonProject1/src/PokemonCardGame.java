@@ -39,7 +39,14 @@ public class PokemonCardGame {
         player1.pickPrizeDeck();
         player2.pickPrizeDeck();
 
+        String result = coinFlip();
 
+        //if the result is heads, the players can stay the way they are
+        //if the result is Tails, player 1 needs to be player 2 and player 2 needs to be player 1
+        if(result.equals("Tails")){
+
+
+        }
 
         firstTurnCheck = true;
     }
