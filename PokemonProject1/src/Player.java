@@ -20,6 +20,10 @@ public class Player {
         deck = new Deck();
         deck.generateDeck();
         deck.shuffle();
+        hand = new ArrayList<>();
+        prizeDeck = new ArrayList<>();
+        bench = new ArrayList<>();
+        discardPile = new ArrayList<>();
     }
 
     /**
