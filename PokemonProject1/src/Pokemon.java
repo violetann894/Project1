@@ -14,6 +14,13 @@ public class Pokemon extends Card{
     private ArrayList<Energy> energiesAttached;
 
     /**
+     * Default constructor
+     */
+    public Pokemon(){
+        energiesAttached = new ArrayList<>();
+    }
+
+    /**
      * The getHp method returns the value of the health points of the Pokemon.
      * @return The total health points of the Pokemon.
      */
