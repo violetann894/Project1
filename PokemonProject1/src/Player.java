@@ -163,4 +163,12 @@ public class Player {
         hand.add(deck.pickTopCard());
     }
 
+    /**
+     * The addCardToBench method takes one card and adds it to the player's bench.
+     * @param cardToAdd The pokemon card to add to the player's bench.
+     */
+    public void addCardToBench(Card cardToAdd){
+        bench.add(cardToAdd);
+    }
+
 }
