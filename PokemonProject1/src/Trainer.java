@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * The Trainer class holds information about trainer cards for a Pokemon TCG game.
  * @author Rachel Hussmann
@@ -56,8 +59,124 @@ public class Trainer extends Card{
         this.descriptionOfCard = descriptionOfCard;
     }
 
+    /**
+     *
+     * @param playerWhoUsedCard
+     */
     public void useAbility(Player playerWhoUsedCard){
-        if(nameOfCard.equals())
+        if(nameOfCard.equals("Cynthia")){
+            System.out.println("Player used Cynthia");
+
+            ArrayList<Card> hand = playerWhoUsedCard.getHand();
+            Deck playerDeck = playerWhoUsedCard.getDeck();
+
+            playerDeck.returnHandToDeck(hand);
+            hand.clear();
+
+            for(int i = 0; i < 6; i++) {
+                hand.add(playerDeck.pickTopCard());
+            }
+
+            playerWhoUsedCard.setHand(hand);
+            playerWhoUsedCard.setDeck(playerDeck);
+
+            ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
+            discardPile.add(this);
+            playerWhoUsedCard.setDiscardPile(discardPile);
+        }else if(nameOfCard.equals("Poke Ball")){
+            Random random = new Random();
+
+            int coinFace = random.nextInt(0, 2);
+
+            Deck deck = playerWhoUsedCard.getDeck();
+            ArrayList<Card> deckArray = playerWhoUsedCard.getDeck().getDeckOfCards();
+            ArrayList<Card> hand = playerWhoUsedCard.getHand();
+
+            if(coinFace == 0){
+                System.out.println("The coin shows heads");
+
+                System.out.println("Searching deck fo pokemon . . .");
+
+                Pokemon firstPokemon = deck.findFirstPokemon();
+
+                deckArray.remove(firstPokemon);
+
+                System.out.println("Player picked " + firstPokemon.getName());
+
+                System.out.println("Player is adding it to their hand and shuffling their deck");
+
+                hand.add(firstPokemon);
+                playerWhoUsedCard.setHand(hand);
+                playerWhoUsedCard.getDeck().setDeckOfCards(deckArray);
+                playerWhoUsedCard.getDeck().shuffle();
+
+            }else{
+                System.out.println("The coin shows tails. Card use failed");
+            }
+
+            ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
+            hand.remove(this);
+            discardPile.add(this);
+            playerWhoUsedCard.setDiscardPile(discardPile);
+        }else if(nameOfCard.equals("X Speed")){
+            int retreatCost = playerWhoUsedCard.getActivePokemon().getRetreatCost();
+            retreatCost -= 1;
+            playerWhoUsedCard.getActivePokemon().setRetreatCost(retreatCost);
+
+            ArrayList<Card> hand = playerWhoUsedCard.getHand();
+            ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
+            hand.remove(this);
+            discardPile.add(this);
+        }else if(nameOfCard.equals("Professor's Letter")){
+            ArrayList<Card> hand = playerWhoUsedCard.getHand();
+
+            Energy energyOne = playerWhoUsedCard.getDeck().findFirstEnergy();
+
+            ArrayList<Card> deckArray = playerWhoUsedCard.getDeck().getDeckOfCards();
+
+            deckArray.remove(energyOne);
+
+            playerWhoUsedCard.getDeck().setDeckOfCards(deckArray);
+
+            Energy energyTwo = playerWhoUsedCard.getDeck().findFirstEnergy();
+
+            deckArray.remove(energyTwo);
+
+            playerWhoUsedCard.getDeck().setDeckOfCards(deckArray);
+
+            System.out.println("Player picked two energies: " + energyOne.getType() + " and " + energyTwo.getType());
+
+            hand.add(energyOne);
+            hand.add(energyTwo);
+
+            hand.remove(this);
+            ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
+            discardPile.add(this);
+
+            playerWhoUsedCard.setDiscardPile(discardPile);
+        }else if(nameOfCard.equals("Professor's Research")){
+
+            System.out.println("Player used Professor's Research");
+
+            ArrayList<Card> hand = playerWhoUsedCard.getHand();
+            ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
+            for(Card c : hand) {
+                discardPile.add(c);
+            }
+
+            playerWhoUsedCard.setDiscardPile(discardPile);
+
+            hand.clear();
+
+            Deck deck = playerWhoUsedCard.getDeck();
+
+            for(int i = 0; i < 7; i++) {
+                hand.add(deck.pickTopCard());
+            }
+
+            playerWhoUsedCard.setDeck(deck);
+            playerWhoUsedCard.setHand(hand);
+        }
     }
 
 }
