@@ -13,6 +13,7 @@ public class ProfsLetter extends Trainer{
         setTypeOfCard("Trainer");
         setDescriptionOfCard("Search your deck for up to 2 basic energy cards, reveal them, and put them into your" +
                 "hand. Shuffle your deck afterwards");
+        setTrainer(this);
     }
 
 }
