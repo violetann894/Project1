@@ -13,6 +13,7 @@ public class Energy extends Card{
         type = "Colorless";
         setTypeOfCard("Energy");
         setNameOfCard("Colorless Energy");
+        setEnergy(this);
     }
 
     /**
