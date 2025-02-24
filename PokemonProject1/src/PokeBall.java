@@ -11,9 +11,8 @@ public class PokeBall extends Trainer{
         setNameOfCard("Poke Ball");
         setTypeOfCard("Trainer");
         setTypeOfCard("Item");
-        setDescriptionOfCard("Flip a coin. If heads, search you deck for a Pokemon, reveal it, and put it into your" +
+        setDescriptionOfCard("Flip a coin. If heads, search your deck for a Pokemon, reveal it, and put it into your" +
                 "hand. Then, shuffle your deck.");
         setTrainer(this);
     }
-
 }
