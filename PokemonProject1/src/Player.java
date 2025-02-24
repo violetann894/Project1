@@ -156,4 +156,11 @@ public class Player {
         discardPile.add(cardToBeAdded);
     }
 
+    /**
+     *
+     */
+    public void addCardToHand(){
+        hand.add(deck.pickTopCard());
+    }
+
 }
