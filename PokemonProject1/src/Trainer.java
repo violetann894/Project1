@@ -60,8 +60,8 @@ public class Trainer extends Card{
     }
 
     /**
-     *
-     * @param playerWhoUsedCard
+     * The useAbility method handles special abilities when a Trainer card is used.
+     * @param playerWhoUsedCard The player who used the card.
      */
     public void useAbility(Player playerWhoUsedCard){
         if(nameOfCard.equals("Cynthia")){
@@ -160,6 +160,7 @@ public class Trainer extends Card{
 
             ArrayList<Card> hand = playerWhoUsedCard.getHand();
             ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
+
             for(Card c : hand) {
                 discardPile.add(c);
             }
@@ -170,12 +171,9 @@ public class Trainer extends Card{
 
             Deck deck = playerWhoUsedCard.getDeck();
 
-            for(int i = 0; i < 7; i++) {
-                hand.add(deck.pickTopCard());
-            }
+            playerWhoUsedCard.createHand();
 
             playerWhoUsedCard.setDeck(deck);
-            playerWhoUsedCard.setHand(hand);
         }
     }
 
