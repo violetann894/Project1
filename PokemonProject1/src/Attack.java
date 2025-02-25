@@ -71,6 +71,6 @@ public class Attack {
 
     @Override
     public String toString(){
-        return "Cost: " + costOfAttack + " Name of Attack: " + attackName + " Damage: " + damage;
+        return "\nCost: " + costOfAttack + "\nName of Attack: " + attackName + "\nDamage: " + damage;
     }
 }
