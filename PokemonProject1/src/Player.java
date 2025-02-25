@@ -164,11 +164,31 @@ public class Player {
     }
 
     /**
+     * the addPrizeCardToHand method adds one card from the prize deck into the player's hand.
+     */
+    public void addPrizeCardToHand(){
+        hand.add(prizeDeck.removeFirst());
+    }
+
+    /**
      * The addCardToBench method takes one card and adds it to the player's bench.
      * @param cardToAdd The pokemon card to add to the player's bench.
      */
     public void addCardToBench(Card cardToAdd){
         bench.add(cardToAdd);
+    }
+
+    /**
+     * The isKnockedOut method checks to see if this instance of Pokemon is knocked out.
+     * @return true - if the pokemon has no HP left, false - if the pokemon still has some HP left
+     */
+    public boolean isKnockedOut(){
+
+        if(this.getActivePokemon().getHp() <= 0){
+            return true;
+        }
+
+        return false;
     }
 
 }
