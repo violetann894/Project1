@@ -26,6 +26,10 @@ public class PokemonCardGame {
         player1 = new Player();
         player2 = new Player();
 
+        //Set the player names
+        player1.setPlayerName("Player 1");
+        player2.setPlayerName("Player 2");
+
         //Create the player hands
         player1.createHand();
         player2.createHand();
@@ -320,6 +324,12 @@ public class PokemonCardGame {
                     }
                 }
 
+
+                //
+                if(xSpeedUsed){
+                    player1.getActivePokemon().addOneRetreatCost();
+                }
+
                 //
                 firstTurnCheck = false;
 
@@ -381,14 +391,16 @@ public class PokemonCardGame {
             //
             if (player2.getActivePokemon() == null) {
 
-            } else if (player1.getPrizeDeck().isEmpty()) {
-                break;
             } else if (player2.isKnockedOut()) {
                 //
                 player2.addCardToDiscard(player2.getActivePokemon());
 
                 //
                 player1.addPrizeCardToHand();
+
+                if(player1.getPrizeDeck().isEmpty()){
+                    break;
+                }
 
                 //
                 noActivePokemonFromBench(player2);
@@ -400,8 +412,6 @@ public class PokemonCardGame {
 
             if (player1.getActivePokemon() == null) {
 
-            }else if(player2.getPrizeDeck().isEmpty()){
-                break;
             }else if(player1.isKnockedOut()){
 
                 //
@@ -409,6 +419,11 @@ public class PokemonCardGame {
 
                 //
                 player2.addPrizeCardToHand();
+
+                //
+                if(player2.getPrizeDeck().isEmpty()){
+                    break;
+                }
 
                 //
                 noActivePokemonFromBench(player1);
@@ -525,6 +540,20 @@ public class PokemonCardGame {
         System.out.println("Current number of cards in deck: " + player.getDeck().getDeckOfCards().size());
         System.out.println();
 
+        if(player.getBench().isEmpty()){
+
+            System.out.println(player.getPlayerName() + " has no active pokemon and no pokemon in their bench!");
+
+            if(player1.getPlayerName().equals(player.getPlayerName())){
+                System.out.println("Player 2 is the winner!");
+                System.exit(0);
+            }else if(player2.getPlayerName().equals(player.getPlayerName())) {
+                System.out.println("Player 1 is the winner!");
+                System.exit(0);
+            }
+
+        }
+
         System.out.println("Pick a pokemon from your bench to place in your active pokemon spot");
 
         //
@@ -590,6 +619,23 @@ public class PokemonCardGame {
 
             //
             displayPlayerStats(player);
+
+            //Checks one of the win conditions, if the player's deck is empty by the beginning of their turn
+            if(player.getDeck().getDeckOfCards().isEmpty()){
+
+                System.out.println(player.getPlayerName() + " has no more cards in their deck at the start of " +
+                        "their turn!");
+
+                if(player.getPlayerName().equals(player1.getPlayerName())){
+                    System.out.println();
+                    System.out.println("Player 1 is the winner!");
+                    System.exit(0);
+                } else if (player.getPlayerName().equals(player2.getPlayerName())) {
+                    System.out.println();
+                    System.out.println("Player 2 is the winner!");
+                    System.exit(0);
+                }
+            }
 
             System.out.println("Pick a card to continue with your turn (Or type done to move on to the battle phase)");
 
@@ -685,12 +731,17 @@ public class PokemonCardGame {
                 }
             } else if (typeOfCard.equals("Pokemon")) {
 
-                //
-                player.addCardToBench(cardToBeUsed);
-                player.removeCardFromHand(cardToBeUsed);
+                if(player.getBench().size() < 5){
+                    player.addCardToBench(cardToBeUsed);
+                    player.removeCardFromHand(cardToBeUsed);
 
-                System.out.println("Added card to bench");
-                System.out.println();
+                    System.out.println("Added card to bench");
+                    System.out.println();
+                }else{
+                    System.out.println("You have too many pokemon in your bench!");
+                    System.out.println();
+                }
+
 
             } else if (typeOfCard.equals("Energy")) {
 
@@ -836,7 +887,6 @@ public class PokemonCardGame {
             System.out.println("You did not pick a valid option, please pick another attack");
             System.out.println();
         }
-
     }
 
 }
