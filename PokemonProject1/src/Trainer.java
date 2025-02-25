@@ -83,7 +83,7 @@ public class Trainer extends Card{
             if(coinFace == 0){
                 System.out.println("The coin shows heads");
 
-                System.out.println("Searching deck fo pokemon . . .");
+                System.out.println("Searching deck for pokemon . . .");
 
                 Pokemon firstPokemon = deck.findFirstPokemon();
 
