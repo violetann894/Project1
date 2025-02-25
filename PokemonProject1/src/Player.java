@@ -149,6 +149,14 @@ public class Player {
     }
 
     /**
+     * The removeCardFromBench method removes a card from the bench.
+     * @param cardToBeRemoved The card to be removed from the bench.
+     */
+    public void removeCardFromBench(Card cardToBeRemoved){
+        bench.remove(cardToBeRemoved);
+    }
+
+    /**
      * The addCardToDiscard adds the given card from the player's playing space and adds it to the discardPile.
      * @param cardToBeAdded The card to be added to the discard pile.
      */
