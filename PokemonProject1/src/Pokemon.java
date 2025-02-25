@@ -117,6 +117,18 @@ public class Pokemon extends Card{
     }
 
     /**
+     * The checkIfAttackIsValid method checks to see if the player can use that attack by checking the number and type
+     * of energies required for the attack.
+     * @return true - if the attack is valid and the pokemon has the correct energies and number of energies to
+     * initiate the attack false - if the attack is not valid and the pokemon either does not have enough energies or
+     * the right type of energies to attack
+     */
+    public boolean checkIfAttackIsValid(){
+
+        return false;
+    }
+
+    /**
      * The battle method manages a battle between two pokemon.
      * @param attackingPokemon The attacking pokemon.
      * @param pokemonAttack The Attack the attacking pokemon will use.
@@ -133,6 +145,15 @@ public class Pokemon extends Card{
 
         hp -= damage;
         defendingPokemon.setHp(hp);
+    }
+
+    /**
+     * The isKnockedOut method checks to see if this instance of Pokemon is knocked out.
+     * @return true - if the pokemon has no HP left, false - if the pokemon still has some HP left
+     */
+    public boolean isKnockedOut(){
+
+        return false;
     }
 
     /**
