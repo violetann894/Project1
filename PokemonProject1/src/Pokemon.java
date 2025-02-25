@@ -101,6 +101,14 @@ public class Pokemon extends Card{
     }
 
     /**
+     * The addOneRetreatCost method adds one to the retreatCost variable. Used after the player uses an X Speed trainer
+     * card to make the retreatCost return to normal.
+     */
+    public void addOneRetreatCost(){
+        retreatCost++;
+    }
+
+    /**
      * Getter for the energiesAttached variable
      * @return The ArrayList of energies attached to the pokemon
      */
@@ -125,6 +133,9 @@ public class Pokemon extends Card{
      */
     public boolean checkIfAttackIsValid(){
 
+        ArrayList<Energy> cardsRequired = new ArrayList<>();
+        ArrayList<Energy> cardsGiven = new ArrayList<>();
+
         return false;
     }
 
@@ -148,28 +159,11 @@ public class Pokemon extends Card{
     }
 
     /**
-     * The isKnockedOut method checks to see if this instance of Pokemon is knocked out.
-     * @return true - if the pokemon has no HP left, false - if the pokemon still has some HP left
-     */
-    public boolean isKnockedOut(){
-
-        return false;
-    }
-
-    /**
      * The attachEnergy method accepts an energy card the that player would like to attack to a pokemon.
      * @param cardToAttach The energy to attach to the pokemon.
      */
     public void attachEnergy(Energy cardToAttach){
         energiesAttached.add(cardToAttach);
-    }
-
-    /**
-     * The removeEnergy method accepts an energy card to remove from a pokemon.
-     * @param cardToRemove The energy card the player would like to remove.
-     */
-    public void removeEnergy(Energy cardToRemove){
-        energiesAttached.remove(cardToRemove);
     }
 
 }
