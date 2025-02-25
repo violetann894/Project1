@@ -12,6 +12,7 @@ public class Player {
     private ArrayList<Card> bench;
     private Card activePokemon;
     private ArrayList<Card> discardPile;
+    private String playerName;
 
     /**
      * Default constructor
@@ -199,4 +200,19 @@ public class Player {
         return false;
     }
 
+    /**
+     * Getter for the player name variable
+     * @return The name of the player
+     */
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    /**
+     * Setter for the player name variable
+     * @param playerName The new name for the player
+     */
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
 }
