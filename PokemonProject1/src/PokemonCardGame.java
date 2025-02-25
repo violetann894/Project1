@@ -759,6 +759,7 @@ public class PokemonCardGame {
                     System.out.println();
                 } else {
                     System.out.println("You have already placed an energy this turn. Please choose another card.");
+                    System.out.println();
                 }
             }
 
@@ -819,6 +820,7 @@ public class PokemonCardGame {
                                 defendingPlayer.getActivePokemon());
 
                         System.out.println("Player attack complete . . .");
+                        System.out.println();
 
                         //
                         broke = true;

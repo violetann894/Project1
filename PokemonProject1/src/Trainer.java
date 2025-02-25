@@ -52,6 +52,7 @@ public class Trainer extends Card{
 
         if(getNameOfCard().equals("Cynthia")){
             System.out.println("Player used Cynthia");
+            System.out.println();
 
             ArrayList<Card> hand = playerWhoUsedCard.getHand();
             Deck playerDeck = playerWhoUsedCard.getDeck();
@@ -71,6 +72,7 @@ public class Trainer extends Card{
             playerWhoUsedCard.setDiscardPile(discardPile);
         }else if(getNameOfCard().equals("Poke Ball")){
             System.out.println("Player used Poke Ball");
+            System.out.println();
 
             Random random = new Random();
 
@@ -84,6 +86,7 @@ public class Trainer extends Card{
                 System.out.println("The coin shows heads");
 
                 System.out.println("Searching deck for pokemon . . .");
+                System.out.println();
 
                 Pokemon firstPokemon = deck.findFirstPokemon();
 
@@ -92,6 +95,7 @@ public class Trainer extends Card{
                 System.out.println("Player picked " + firstPokemon.getNameOfCard());
 
                 System.out.println("Player is adding it to their hand and shuffling their deck");
+                System.out.println();
 
                 hand.add(firstPokemon);
                 playerWhoUsedCard.setHand(hand);
@@ -100,6 +104,7 @@ public class Trainer extends Card{
 
             }else{
                 System.out.println("The coin shows tails. Card use failed");
+                System.out.println();
             }
 
             ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
@@ -108,6 +113,8 @@ public class Trainer extends Card{
             playerWhoUsedCard.setDiscardPile(discardPile);
         }else if(getNameOfCard().equals("X Speed")){
             System.out.println("Player used X Speed");
+            System.out.println();
+
             int retreatCost = playerWhoUsedCard.getActivePokemon().getRetreatCost();
             retreatCost -= 1;
             playerWhoUsedCard.getActivePokemon().setRetreatCost(retreatCost);
@@ -118,6 +125,7 @@ public class Trainer extends Card{
             discardPile.add(this);
         }else if(getNameOfCard().equals("Professor's Letter")){
             System.out.println("Player used Professor's Letter");
+            System.out.println();
             ArrayList<Card> hand = playerWhoUsedCard.getHand();
 
             Energy energyOne = playerWhoUsedCard.getDeck().findFirstEnergy();
@@ -135,6 +143,7 @@ public class Trainer extends Card{
             playerWhoUsedCard.getDeck().setDeckOfCards(deckArray);
 
             System.out.println("Player picked two energies: " + energyOne.getType() + " and " + energyTwo.getType());
+            System.out.println();
 
             hand.add(energyOne);
             hand.add(energyTwo);
@@ -147,6 +156,7 @@ public class Trainer extends Card{
         }else if(getNameOfCard().equals("Professor's Research")){
 
             System.out.println("Player used Professor's Research");
+            System.out.println();
 
             ArrayList<Card> hand = playerWhoUsedCard.getHand();
             ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
