@@ -131,12 +131,26 @@ public class Pokemon extends Card{
      * initiate the attack false - if the attack is not valid and the pokemon either does not have enough energies or
      * the right type of energies to attack
      */
-    public boolean checkIfAttackIsValid(){
+    public boolean checkIfAttackIsValid(Attack attack, ArrayList<Energy> energiesAttached){
 
+        //Initialize the ArrayLists that will hold all the energy states
         ArrayList<Energy> cardsRequired = new ArrayList<>();
         ArrayList<Energy> cardsGiven = new ArrayList<>();
 
-        return false;
+        //Make a copy of the ArrayLists from above so we do not change them in any way
+        cardsRequired.addAll(attack.getCostOfAttack());
+        cardsGiven.addAll(energiesAttached);
+
+        //Add actually checking here
+
+        cardsRequired.clear();
+
+        //If cardsRequired.isEmpty, then return true because all the requirements have been met for the attack
+        if(cardsRequired.isEmpty()){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     /**
@@ -146,14 +160,18 @@ public class Pokemon extends Card{
      * @param defendingPokemon The defensing pokemon that will be losing HP.
      */
     public void battle(Pokemon attackingPokemon, Attack pokemonAttack, Pokemon defendingPokemon){
+
         String type = attackingPokemon.getType();
+
         int damage = pokemonAttack.getDamage();
         int hp = defendingPokemon.getHp();
 
+        //
         if(type.equals(defendingPokemon.getWeakness())){
             damage = damage * 2;
         }
 
+        //
         hp -= damage;
         defendingPokemon.setHp(hp);
     }
