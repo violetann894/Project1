@@ -109,6 +109,14 @@ public class Pokemon extends Card{
     }
 
     /**
+     * The subtractOneRetreatCost method subtracts one from the retreatCost variable. Used once the player uses an
+     * X Speed trainer card.
+     */
+    public void subtractOneRetreatCost(){
+        retreatCost--;
+    }
+
+    /**
      * Getter for the energiesAttached variable
      * @return The ArrayList of energies attached to the pokemon
      */
