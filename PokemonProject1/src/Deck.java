@@ -17,7 +17,8 @@ public class Deck extends Card{
     }
 
     /**
-     * The generateDeck method generates a standard deck of cards with 20 pokemon, 10 trainer cards, and 30 energy cards
+     * The generateDeck method generates a standard deck of cards with 20 pokemon, 20 trainer cards,
+     * and 20 energy cards.
      */
     public void generateDeck(){
 
@@ -181,12 +182,19 @@ public class Deck extends Card{
      * @return The first Pokemon cards found in the deck.
      */
     public Pokemon findFirstPokemon(){
+
+        //Search for the first pokemon card
         for(Card c : this.getDeckOfCards()){
+
+            //Check if we found one
             if(c.getTypeOfCard().equals("Pokemon")){
+
+                //If we found one, return that pokemon object
                 return c.getPokemon();
             }
         }
 
+        //If we didn't find one, return null
         return null;
     }
 
@@ -195,12 +203,19 @@ public class Deck extends Card{
      * @return The first Energy card found in the deck.
      */
     public Energy findFirstEnergy(){
+
+        //Search for the first energy card
         for(Card c : this.getDeckOfCards()){
+
+            //Check if we found one
             if(c.getTypeOfCard().equals("Energy")){
+
+                //If we found one, return that energy object
                 return c.getEnergy();
             }
         }
 
+        //If we didn't find one, return null
         return null;
     }
 }

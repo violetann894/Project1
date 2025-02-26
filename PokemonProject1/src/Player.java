@@ -28,7 +28,7 @@ public class Player {
     }
 
     /**
-     * The createHand method creates a new hand for a player.
+     * The createHand method creates a new hand of 7 cards for a player.
      */
     public void createHand(){
         for(int i = 0; i < 7; i++){
@@ -37,7 +37,7 @@ public class Player {
     }
 
     /**
-     * The pickPrizeDeck method picks a prize deck for the player.
+     * The pickPrizeDeck method picks a prize deck of 6 cards for the player.
      */
     public void pickPrizeDeck(){
         for(int i = 0; i < 6; i++){
@@ -188,7 +188,7 @@ public class Player {
     }
 
     /**
-     * The isKnockedOut method checks to see if this instance of Pokemon is knocked out.
+     * The isKnockedOut method checks to see if this player's active pokemon is knocked out.
      * @return true - if the pokemon has no HP left, false - if the pokemon still has some HP left
      */
     public boolean isKnockedOut(){
