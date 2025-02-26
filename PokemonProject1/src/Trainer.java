@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -48,137 +47,248 @@ public class Trainer extends Card{
      */
     public void useAbility(Player playerWhoUsedCard){
 
-        //This method runs through all the available cards
-
+        //Check the name of the card
         if(getNameOfCard().equals("Cynthia")){
+
+            //If the card is Cynthia
+
+            //Tell the player
             System.out.println("Player used Cynthia");
             System.out.println();
 
-            ArrayList<Card> hand = playerWhoUsedCard.getHand();
-            Deck playerDeck = playerWhoUsedCard.getDeck();
+            //Remove this card because it has been used
+            playerWhoUsedCard.getHand().remove(this);
 
-            playerDeck.returnHandToDeck(hand);
-            hand.clear();
+            //Return the player's hand to their deck
+            playerWhoUsedCard.getDeck().returnHandToDeck(playerWhoUsedCard.getHand());
 
-            for(int i = 0; i < 6; i++) {
-                hand.add(playerDeck.pickTopCard());
+            //Check to see if there are enough cards in the deck
+            if(playerWhoUsedCard.getDeck().getDeckOfCards().size() < 6){
+
+                //If there are not enough cards in the deck
+
+                //Inform the player
+                System.out.println("You don't have enough cards in your deck!");
+                System.out.println("Giving all of the cards left in deck . . .");
+
+                //Give the player all of the cards left in their deck
+                for(Card card : playerWhoUsedCard.getDeck().getDeckOfCards()){
+                    playerWhoUsedCard.getHand().add(card);
+                }
+
+                //Clear the deck since all cards have been added to the player's hand
+                playerWhoUsedCard.getDeck().getDeckOfCards().clear();
+
+            }else {
+
+                //Give the player six cards back
+                for (int i = 0; i < 6; i++) {
+                    playerWhoUsedCard.addCardToHand();
+                }
+
             }
 
-            playerWhoUsedCard.setHand(hand);
-            playerWhoUsedCard.setDeck(playerDeck);
-
+            //Add this card to the discard pile because it has been used
             playerWhoUsedCard.addCardToDiscard(this);
+
         }else if(getNameOfCard().equals("Poke Ball")){
+
+            //If the card is Poke ball
+
+            //Inform the player
             System.out.println("Player used Poke Ball");
             System.out.println();
 
+            //Create a new random object for the coin flip
             Random random = new Random();
 
+            //Complete the coin flip and check if it is heads or tails
             int coinFace = random.nextInt(0, 2);
-
-            Deck deck = playerWhoUsedCard.getDeck();
-            ArrayList<Card> deckArray = playerWhoUsedCard.getDeck().getDeckOfCards();
-            ArrayList<Card> hand = playerWhoUsedCard.getHand();
-
             if(coinFace == 0){
-                System.out.println("The coin shows heads");
 
+                //If heads
+
+                //Inform the player
+                System.out.println("The coin shows heads");
                 System.out.println("Searching deck for pokemon . . .");
                 System.out.println();
 
-                Pokemon firstPokemon = deck.findFirstPokemon();
+                //Get the first pokemon from the deck
+                Pokemon firstPokemon = playerWhoUsedCard.getDeck().findFirstPokemon();
 
+                //If the pokemon object is null
                 if (firstPokemon == null) {
+
+                    //There are no pokemon left in the deck
+
+                    //Inform the player
                     System.out.println("You have no more pokemon left in your deck!");
                     System.out.println("Card discarded");
                     System.out.println();
                 }else {
 
-                    deckArray.remove(firstPokemon);
+                    //Else, there is pokemon left in the deck
 
+                    //Remove the pokemon from the deck
+                    playerWhoUsedCard.getDeck().getDeckOfCards().remove(firstPokemon);
+
+                    //Inform the player of the pokemon
                     System.out.println("Player picked " + firstPokemon.getNameOfCard());
-
                     System.out.println("Player is adding it to their hand and shuffling their deck");
                     System.out.println();
 
-                    hand.add(firstPokemon);
-                    playerWhoUsedCard.setHand(hand);
-                    playerWhoUsedCard.getDeck().setDeckOfCards(deckArray);
+                    //Add the pokemon to the player's hand
+                    playerWhoUsedCard.getHand().add(firstPokemon);
+
+                    //Shuffle the player's deck
                     playerWhoUsedCard.getDeck().shuffle();
 
                 }
             }else{
+
+                //Else, the copin flip is tails
+
+                //Inform the player
                 System.out.println("The coin shows tails. Card use failed");
                 System.out.println();
             }
 
-            ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
-            hand.remove(this);
-            discardPile.add(this);
-            playerWhoUsedCard.setDiscardPile(discardPile);
+            //Remove the card from the hand because it has been used and add it to the discardPile
+            playerWhoUsedCard.getHand().remove(this);
+            playerWhoUsedCard.addCardToDiscard(this);
+
         }else if(getNameOfCard().equals("X Speed")){
+
+            //If the card is X Speed
+
+            //Inform the player
             System.out.println("Player used X Speed");
             System.out.println();
 
-            int retreatCost = playerWhoUsedCard.getActivePokemon().getRetreatCost();
-            retreatCost -= 1;
-            playerWhoUsedCard.getActivePokemon().setRetreatCost(retreatCost);
+            //Subtract one from the activePokemon retreat cost
+            playerWhoUsedCard.getActivePokemon().subtractOneRetreatCost();
 
-            ArrayList<Card> hand = playerWhoUsedCard.getHand();
-            ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
-            hand.remove(this);
-            discardPile.add(this);
+            //Remove the card from the hand because it has been used and add it to the discardPile
+            playerWhoUsedCard.removeCardFromHand(this);
+            playerWhoUsedCard.addCardToDiscard(this);
+
         }else if(getNameOfCard().equals("Professor's Letter")){
+
+            //If the card is Professor's Letter
+
+            //Inform the player
             System.out.println("Player used Professor's Letter");
             System.out.println();
-            ArrayList<Card> hand = playerWhoUsedCard.getHand();
 
+            //Get the energies
             Energy energyOne = playerWhoUsedCard.getDeck().findFirstEnergy();
-
-            ArrayList<Card> deckArray = playerWhoUsedCard.getDeck().getDeckOfCards();
-
-            deckArray.remove(energyOne);
-
-            playerWhoUsedCard.getDeck().setDeckOfCards(deckArray);
-
             Energy energyTwo = playerWhoUsedCard.getDeck().findFirstEnergy();
 
-            deckArray.remove(energyTwo);
+            //Check if the energies are null
+            if(energyOne == null){
 
-            playerWhoUsedCard.getDeck().setDeckOfCards(deckArray);
+                //If energy one is null
 
-            System.out.println("Player picked two energies: " + energyOne.getType() + " and " + energyTwo.getType());
-            System.out.println();
+                //Then no more energies are in the deck
 
-            hand.add(energyOne);
-            hand.add(energyTwo);
+                //Inform the player
+                System.out.println("You have no more energies left in your deck!");
+                System.out.println("Discarding card . . .");
+                System.out.println();
+            }else if(energyTwo == null){
 
-            hand.remove(this);
-            ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
-            discardPile.add(this);
+                //If energy two is null
 
-            playerWhoUsedCard.setDiscardPile(discardPile);
+                //Then there is one energy in the deck
+
+                //Inform the player
+                System.out.println("You only have one energy left in your deck!");
+                System.out.println("Putting that card in your hand . . .");
+                System.out.println();
+
+                //Remove the energy from the deck
+                playerWhoUsedCard.getDeck().getDeckOfCards().remove(energyOne);
+
+                //Inform the player
+                System.out.println("Player picked one energy: " + energyOne.getType());
+                System.out.println();
+
+                //Give the player the one energy
+                playerWhoUsedCard.getHand().add(energyOne);
+
+            }else {
+
+                //Remove both energies from the deck
+                playerWhoUsedCard.getDeck().getDeckOfCards().remove(energyOne);
+                playerWhoUsedCard.getDeck().getDeckOfCards().remove(energyTwo);
+
+                //Inform the player
+                System.out.println("Player picked two energies: " + energyOne.getType() + " and " + energyTwo.getType());
+                System.out.println();
+
+                //Add both energies to the player's hand
+                playerWhoUsedCard.getHand().add(energyOne);
+                playerWhoUsedCard.getHand().add(energyTwo);
+            }
+
+            //Remove the card from the hand because it has been used and add it to the discardPile
+            playerWhoUsedCard.removeCardFromHand(this);
+            playerWhoUsedCard.addCardToDiscard(this);
+
         }else if(getNameOfCard().equals("Professor's Research")){
 
+            //If the card is Professor's Research
+
+            //Inform the player
             System.out.println("Player used Professor's Research");
             System.out.println();
 
-            ArrayList<Card> hand = playerWhoUsedCard.getHand();
-            ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
+            //Check how many cards are left in the deck
+            if(playerWhoUsedCard.getDeck().getDeckOfCards().size() >= 7) {
 
-            for(Card c : hand) {
-                discardPile.add(c);
+                //If the player has enough cards in the deck
+
+                //Use the card like normal
+
+                //Add all the cards from the player's hand to their discard pile
+                for (Card card : playerWhoUsedCard.getHand()) {
+                    playerWhoUsedCard.addCardToDiscard(card);
+                }
+
+                //Clear the player's hand
+                playerWhoUsedCard.getHand().clear();
+
+                //Create a new hand for the player
+                playerWhoUsedCard.createHand();
+
+            }else{
+
+                //Else, the player's deck does not have enough cards
+
+                //Inform the player
+                System.out.println("You don't have enough cards in your deck!");
+                System.out.println("Adding all of the cards you have left into your hand . . .");
+
+                //Add the cards from the player's hand to their discard pile
+                for (Card card : playerWhoUsedCard.getHand()) {
+                    playerWhoUsedCard.addCardToDiscard(card);
+                }
+
+                //Clear the player's hand
+                playerWhoUsedCard.getHand().clear();
+
+                //Give the player all the cards from their deck
+                for(Card card : playerWhoUsedCard.getDeck().getDeckOfCards()){
+                    playerWhoUsedCard.getHand().add(card);
+                }
+
+                //Clear the player's deck because it is now empty
+                playerWhoUsedCard.getDeck().getDeckOfCards().clear();
+
             }
 
-            playerWhoUsedCard.setDiscardPile(discardPile);
-
-            hand.clear();
-
-            Deck deck = playerWhoUsedCard.getDeck();
-
-            playerWhoUsedCard.createHand();
-
-            playerWhoUsedCard.setDeck(deck);
+            //Add this card to the discard pile because it has been used
+            playerWhoUsedCard.addCardToDiscard(this);
         }
     }
 
