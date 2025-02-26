@@ -154,9 +154,8 @@ public class Deck extends Card{
 
     /**
      * The returnHandToDeck method returns a hand of cards back to the deck.
-     * @param hand The hand of cards to be added back to the deck.
      */
-    public ArrayList<Card> returnHandToDeck(ArrayList<Card> hand){
+    public void returnHandToDeck(ArrayList<Card> hand){
         //Add the chosen cards back into the deck
         for(Card c : hand){
             this.getDeckOfCards().add(c);
@@ -166,15 +165,6 @@ public class Deck extends Card{
         this.shuffle();
 
         hand.clear();
-
-        //For the number of cards in a hand
-        for(int j = 0; j < 7; j++){
-
-            //Pick the top card from the deck and add it to the hand
-            hand.add(this.pickTopCard());
-        }
-
-        return hand;
     }
 
     /**
