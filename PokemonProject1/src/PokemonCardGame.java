@@ -108,14 +108,11 @@ public class PokemonCardGame {
      */
     public void mulligan(Player playerWithMulligan){
 
-        //
-        ArrayList<Card> hand = playerWithMulligan.getHand();
-
         System.out.println("Mulligan Detected, showing player's hand");
         System.out.println();
 
         //
-        for(Card card : hand){
+        for(Card card : playerWithMulligan.getHand()){
             System.out.println(card);
         }
 
@@ -124,7 +121,9 @@ public class PokemonCardGame {
         System.out.println();
 
         //
-        playerWithMulligan.setHand(playerWithMulligan.getDeck().returnHandToDeck(hand));
+        playerWithMulligan.getDeck().returnHandToDeck(playerWithMulligan.getHand());
+
+        playerWithMulligan.createHand();
     }
 
     /**
@@ -268,8 +267,9 @@ public class PokemonCardGame {
 
                         //
                         ArrayList<Card> allPokemon = new ArrayList<>();
-                        allPokemon.addAll(player1.getBench());
                         allPokemon.add(player1.getActivePokemon());
+                        allPokemon.addAll(player1.getBench());
+
 
                         //
                         broke = false;
@@ -279,9 +279,6 @@ public class PokemonCardGame {
                         while (true) {
 
                             String cardToFind = userInput.nextLine();
-
-                            //Added specialized case to check if more than one pokemon share the same name
-                            //if they do, add additional prompt that asks the user which one they want to give it to
 
                             //
                             for (Card card : allPokemon) {
@@ -629,7 +626,6 @@ public class PokemonCardGame {
      */
     public void runPlayerTurn(Player player) {
 
-        //
         int numberOfEnergiesUsed = 0;
         int numberOfSupporterCardsUsed = 0;
         boolean xSpeedUsed = false;
@@ -761,8 +757,9 @@ public class PokemonCardGame {
 
                     //
                     ArrayList<Card> allPokemon = new ArrayList<>();
-                    allPokemon.addAll(player.getBench());
                     allPokemon.add(player.getActivePokemon());
+                    allPokemon.addAll(player.getBench());
+
 
                     //
                     broke = false;
@@ -772,9 +769,6 @@ public class PokemonCardGame {
                     while (true) {
 
                         String cardToFind = userInput.nextLine();
-
-                        //Added specialized case to check if more than one pokemon share the same name
-                        //if they do, add additional prompt that asks the user which one they want to give it to
 
                         //
                         for (Card card : allPokemon) {
@@ -842,7 +836,7 @@ public class PokemonCardGame {
         System.out.println("Your active pokemon is: " + attackingPlayer.getActivePokemon());
 
         System.out.println("Energies attached to active pokemon: " +
-                attackingPlayer.getActivePokemon().getEnergiesAttached());
+                attackingPlayer.getActivePokemon().getEnergiesAttached().size());
 
         System.out.println();
 
@@ -869,12 +863,10 @@ public class PokemonCardGame {
                 if (attack.getAttackName().equalsIgnoreCase(attackChoice)) {
 
                     //
-                    if(attackingPlayer.getActivePokemon().checkIfAttackIsValid(attack,
-                            attackingPlayer.getActivePokemon().getEnergiesAttached())){
+                    if(attackingPlayer.getActivePokemon().checkIfAttackIsValid(attack)){
 
                         //
-                        attackingPlayer.getActivePokemon().battle(attackingPlayer.getActivePokemon(), attack,
-                                defendingPlayer.getActivePokemon());
+                        attackingPlayer.getActivePokemon().battle(attack, defendingPlayer.getActivePokemon());
 
                         System.out.println("Player attack complete . . .");
                         System.out.println();
