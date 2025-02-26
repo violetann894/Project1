@@ -67,9 +67,7 @@ public class Trainer extends Card{
             playerWhoUsedCard.setHand(hand);
             playerWhoUsedCard.setDeck(playerDeck);
 
-            ArrayList<Card> discardPile = playerWhoUsedCard.getDiscardPile();
-            discardPile.add(this);
-            playerWhoUsedCard.setDiscardPile(discardPile);
+            playerWhoUsedCard.addCardToDiscard(this);
         }else if(getNameOfCard().equals("Poke Ball")){
             System.out.println("Player used Poke Ball");
             System.out.println();
@@ -90,18 +88,25 @@ public class Trainer extends Card{
 
                 Pokemon firstPokemon = deck.findFirstPokemon();
 
-                deckArray.remove(firstPokemon);
+                if (firstPokemon == null) {
+                    System.out.println("You have no more pokemon left in your deck!");
+                    System.out.println("Card discarded");
+                    System.out.println();
+                }else {
 
-                System.out.println("Player picked " + firstPokemon.getNameOfCard());
+                    deckArray.remove(firstPokemon);
 
-                System.out.println("Player is adding it to their hand and shuffling their deck");
-                System.out.println();
+                    System.out.println("Player picked " + firstPokemon.getNameOfCard());
 
-                hand.add(firstPokemon);
-                playerWhoUsedCard.setHand(hand);
-                playerWhoUsedCard.getDeck().setDeckOfCards(deckArray);
-                playerWhoUsedCard.getDeck().shuffle();
+                    System.out.println("Player is adding it to their hand and shuffling their deck");
+                    System.out.println();
 
+                    hand.add(firstPokemon);
+                    playerWhoUsedCard.setHand(hand);
+                    playerWhoUsedCard.getDeck().setDeckOfCards(deckArray);
+                    playerWhoUsedCard.getDeck().shuffle();
+
+                }
             }else{
                 System.out.println("The coin shows tails. Card use failed");
                 System.out.println();
