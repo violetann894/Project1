@@ -131,48 +131,44 @@ public class Pokemon extends Card{
      * initiate the attack false - if the attack is not valid and the pokemon either does not have enough energies or
      * the right type of energies to attack
      */
-    public boolean checkIfAttackIsValid(Attack attack, ArrayList<Energy> energiesAttached){
+    public boolean checkIfAttackIsValid(Attack attack){
 
-        //Initialize the ArrayLists that will hold all the energy states
-        ArrayList<Energy> cardsRequired = new ArrayList<>();
-        ArrayList<Energy> cardsGiven = new ArrayList<>();
+        //Check to see if the pokemon has the same or more energies than required for the attack
+        if(this.getEnergiesAttached().size() >= attack.getCostOfAttack().size()){
 
-        //Make a copy of the ArrayLists from above so we do not change them in any way
-        cardsRequired.addAll(attack.getCostOfAttack());
-        cardsGiven.addAll(energiesAttached);
-
-        //Add actually checking here
-
-        cardsRequired.clear();
-
-        //If cardsRequired.isEmpty, then return true because all the requirements have been met for the attack
-        if(cardsRequired.isEmpty()){
+            //If the pokemon has enough energies, they can use the attack, return true
             return true;
-        }else {
-            return false;
         }
+
+        //If the pokemon does not have enough energies, they cannot use the attack, return false
+        return false;
     }
 
     /**
      * The battle method manages a battle between two pokemon.
-     * @param attackingPokemon The attacking pokemon.
      * @param pokemonAttack The Attack the attacking pokemon will use.
      * @param defendingPokemon The defensing pokemon that will be losing HP.
      */
-    public void battle(Pokemon attackingPokemon, Attack pokemonAttack, Pokemon defendingPokemon){
+    public void battle(Attack pokemonAttack, Pokemon defendingPokemon){
 
-        String type = attackingPokemon.getType();
+        //Get the type for the attacking pokemon
+        String type = this.getType();
 
+        //Get the damage for the attack and the hp of the defending pokemon
         int damage = pokemonAttack.getDamage();
         int hp = defendingPokemon.getHp();
 
-        //
+        //If the attacking pokemon has a type advantage
         if(type.equals(defendingPokemon.getWeakness())){
+
+            //Double the damage
             damage = damage * 2;
         }
 
-        //
+        //Subtract the damage for the defending pokemon's health
         hp -= damage;
+
+        //Set the defending pokemon's new hp
         defendingPokemon.setHp(hp);
     }
 
