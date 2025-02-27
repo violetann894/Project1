@@ -11,12 +11,14 @@ public class StatsTester {
         Permutation pTester = new Permutation();
         ProbabilityCalculations probTester = new ProbabilityCalculations();
         SetOperations setTester = new SetOperations();
+        BinomialDistribution bTester = new BinomialDistribution();
 
         sTester.tester();
         cTester.tester();
         pTester.tester();
         probTester.tester();
         setTester.tester();
+        bTester.tester();
     }
 
 }
