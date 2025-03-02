@@ -219,10 +219,18 @@ public class Player {
      * to take the old active pokemon's place.
      */
     public void retreatActivePokemon(){
-        if(this.activePokemon.checkForRetreat()){
+        if(this.activePokemon.checkForRetreat() && !bench.isEmpty()){
 
             if(activePokemon.getEnergiesAttached().size() == activePokemon.getRetreatCost()){
                 activePokemon.getEnergiesAttached().clear();
+
+                System.out.println("Energies have been successfully removed, retreating active Pokemon . . . ");
+
+                addCardToBench(activePokemon);
+
+                activePokemon = null;
+
+                System.out.println("Current Bench: " + this.bench);
 
                 pickPokemonFromBench();
 
@@ -243,7 +251,7 @@ public class Player {
                     Card cardToRemove = null;
 
                     for(Card card : activePokemon.getEnergiesAttached()){
-                        if(card.getEnergy().getType().equalsIgnoreCase(energyChoice)){
+                        if(card.getNameOfCard().equalsIgnoreCase(energyChoice)){
                             cardToRemove = card;
                             broke = true;
                             break;
@@ -254,24 +262,27 @@ public class Player {
                         activePokemon.getEnergiesAttached().remove(cardToRemove);
                         addCardToDiscard(cardToRemove);
                         retreatCost++;
+                    }else {
+                        System.out.println("That is not a valid energy, please choose another energy card.");
                     }
-
-                    System.out.println("That is not a valid energy, please choose another energy card.");
                 }
 
-                System.out.println("Energies have been successfully removed, retreating active Pokemon . . . ");
+                System.out.println("Retreating active Pokemon . . . ");
 
                 addCardToBench(activePokemon);
 
                 activePokemon = null;
+
+                System.out.println("Current Bench: " + this.bench);
 
                 pickPokemonFromBench();
             }
 
 
         }else{
-            System.out.println("Your active pokemon cannot be retreated because it does not have enough energies " +
-                    "attached!");
+            System.out.println("Your active pokemon cannot be retreated!");
+            System.out.println("Please pick another option for your turn.");
+            System.out.println();
         }
     }
 
@@ -319,7 +330,7 @@ public class Player {
             //If the player got to this point, they did not pick a valid option
 
             //Inform the player
-            System.out.println("You did not pick a valid option, please pick another card");
+            System.out.println("You did not pick a valid option, please pick another card from the bench");
         }
 
         //Inform the player of the action
