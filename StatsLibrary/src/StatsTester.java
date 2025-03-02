@@ -12,6 +12,7 @@ public class StatsTester {
         ProbabilityCalculations probTester = new ProbabilityCalculations();
         SetOperations setTester = new SetOperations();
         BinomialDistribution bTester = new BinomialDistribution();
+        GeometricDistribution gTester = new GeometricDistribution();
 
         sTester.tester();
         cTester.tester();
@@ -19,6 +20,7 @@ public class StatsTester {
         probTester.tester();
         setTester.tester();
         bTester.tester();
+        gTester.tester();
     }
 
 }
