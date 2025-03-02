@@ -61,6 +61,7 @@ public class GeometricDistribution {
         System.out.println("Expected value of the distribution: " + expectedValue(0.8));
         System.out.println("Variance of the distribution: " + variance(0.8));
         System.out.println("Standard deviation of the distribution: " + standardDeviation(variance(0.8)));
+        System.out.println();
     }
 
 }

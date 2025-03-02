@@ -85,6 +85,7 @@ public class BinomialDistribution {
         System.out.println("Variance of the distribution: " + variance(3, 0.8));
         System.out.println("Standard deviation of the distribution: "
                 + standardDeviation(variance(3, 0.8)));
+        System.out.println();
 
     }
 }
