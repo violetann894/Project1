@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * The Player class handles the state of the player.
@@ -10,9 +11,10 @@ public class Player {
     private ArrayList<Card> hand;
     private ArrayList<Card> prizeDeck;
     private ArrayList<Card> bench;
-    private Card activePokemon;
+    private Pokemon activePokemon;
     private ArrayList<Card> discardPile;
     private String playerName;
+    private final Scanner userInput = new Scanner(System.in);
 
     /**
      * Default constructor
@@ -192,12 +194,7 @@ public class Player {
      * @return true - if the pokemon has no HP left, false - if the pokemon still has some HP left
      */
     public boolean isKnockedOut(){
-
-        if(this.getActivePokemon().getHp() <= 0){
-            return true;
-        }
-
-        return false;
+        return this.getActivePokemon().getHp() <= 0;
     }
 
     /**
@@ -215,4 +212,123 @@ public class Player {
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
+
+    /**
+     * The retreatActivePokemon method checks to see if the active pokemon can be retreated to the bench, moves
+     * the active pokemon back to the bench, and then allows the player to pick a new pokemon from their bench
+     * to take the old active pokemon's place.
+     */
+    public void retreatActivePokemon(){
+        if(this.activePokemon.checkForRetreat()){
+
+            if(activePokemon.getEnergiesAttached().size() == activePokemon.getRetreatCost()){
+                activePokemon.getEnergiesAttached().clear();
+
+                pickPokemonFromBench();
+
+            }else{
+
+                int retreatCost = 1;
+
+                boolean broke = false;
+
+                while(retreatCost <= activePokemon.getRetreatCost()){
+
+                    System.out.println("Pick energy " + retreatCost + " to remove from your active pokemon.");
+
+                    System.out.println(activePokemon.getEnergiesAttached());
+
+                    String energyChoice = userInput.nextLine();
+
+                    Card cardToRemove = null;
+
+                    for(Card card : activePokemon.getEnergiesAttached()){
+                        if(card.getEnergy().getType().equalsIgnoreCase(energyChoice)){
+                            cardToRemove = card;
+                            broke = true;
+                            break;
+                        }
+                    }
+
+                    if(broke){
+                        activePokemon.getEnergiesAttached().remove(cardToRemove);
+                        addCardToDiscard(cardToRemove);
+                        retreatCost++;
+                    }
+
+                    System.out.println("That is not a valid energy, please choose another energy card.");
+                }
+
+                System.out.println("Energies have been successfully removed, retreating active Pokemon . . . ");
+
+                addCardToBench(activePokemon);
+
+                activePokemon = null;
+
+                pickPokemonFromBench();
+            }
+
+
+        }else{
+            System.out.println("Your active pokemon cannot be retreated because it does not have enough energies " +
+                    "attached!");
+        }
+    }
+
+    public void pickPokemonFromBench(){
+        //Inform the player of the action they need to take
+        System.out.println("Pick a pokemon from your bench to place in your active pokemon spot");
+
+        //Set the broke flag to false and initialize the variable to hold the pokemon object
+        boolean broke = false;
+        Pokemon pokemonToBeActive = null;
+
+        //Loop through until the player makes a valid choice
+        while (true) {
+
+            //Accept user input
+            String cardToUse = userInput.nextLine();
+
+            //Loop through the player's bench
+            for (Card card : this.getBench()) {
+
+                //Check to see if the player picked a card in their bench
+                if (card.getNameOfCard().equalsIgnoreCase(cardToUse)) {
+
+                    //If they did, check to make sure they picked a pokemon card
+                    if (card.getPokemon() != null) {
+
+                        //If they did pick a pokemon card
+
+                        //Set the card the player wants to use to the variable, set the broke flag to true and
+                        //break out of the loop
+                        pokemonToBeActive = card.getPokemon();
+                        broke = true;
+                        break;
+                    }
+                }
+            }
+
+            //Check the broke flag
+            if (broke) {
+
+                //If the loop above broke, break again
+                break;
+            }
+
+            //If the player got to this point, they did not pick a valid option
+
+            //Inform the player
+            System.out.println("You did not pick a valid option, please pick another card");
+        }
+
+        //Inform the player of the action
+        System.out.println("Placed " + pokemonToBeActive.getNameOfCard() + " in the active spot");
+        System.out.println();
+
+        //Set the player's active pokemon and remove the pokemon from their bench
+        this.setActivePokemon(pokemonToBeActive);
+        this.removeCardFromBench(pokemonToBeActive);
+    }
+
 }
