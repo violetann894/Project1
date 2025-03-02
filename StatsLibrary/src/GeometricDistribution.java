@@ -8,7 +8,7 @@ public class GeometricDistribution {
     /**
      * The geometricDistribution method calculates the probability of an event based off of a geometric distribution
      * formula.
-     * @param probOfSuccess The probability of success for a trial
+     * @param probOfSuccess The probability of a successful trial
      * @param numberOfFirstSuccess The trial where the first success happens
      * @return The probability of the event
      */
@@ -27,7 +27,7 @@ public class GeometricDistribution {
 
     /**
      * The expectedValue method calculates the expected value (mean) of a geometric distribution.
-     * @param probOfSuccess The probability of success
+     * @param probOfSuccess The probability of a successful trial
      * @return The expected value (mean) of the geometric distribution
      */
     public double expectedValue(double probOfSuccess){
@@ -36,7 +36,7 @@ public class GeometricDistribution {
 
     /**
      * The variance method calculates the variance of a geometric distribution.
-     * @param probOfSuccess The probability of success
+     * @param probOfSuccess The probability of a successful trial
      * @return The variance of the geometric distribution
      */
     public double variance(double probOfSuccess){

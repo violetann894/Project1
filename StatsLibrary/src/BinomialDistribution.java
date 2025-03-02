@@ -1,6 +1,5 @@
-
 /**
- * The BinomialDistribution Class handles the calculation of Binomial Distributions and all other statistical
+ * The BinomialDistribution class handles the calculation of Binomial Distributions and all other statistical
  * values associated with Binomial Distributions.
  * @author Rachel Hussmann
  */
@@ -19,7 +18,7 @@ public class BinomialDistribution {
         //Calculate the probability of a failed trial
         double probOfFail = 1 - probOfSuccess;
 
-        //Create a new combination object to gain access to the permutation method
+        //Create a new combination object to gain access to the combination method
         Combination combination = new Combination();
 
         //Get the combination of numberOfTrials and totalNumSuccess
@@ -42,7 +41,7 @@ public class BinomialDistribution {
     /**
      * The expectedValue method calculates the mean of a binomial distribution.
      * @param numberOfTrials The total number of trials.
-     * @param probOfSuccess The probability of success for a trial.
+     * @param probOfSuccess The probability of a successful trial.
      * @return The expected value (mean) of the binomial distribution.
      */
     public double expectedValue(int numberOfTrials, double probOfSuccess){
