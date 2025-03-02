@@ -169,14 +169,6 @@ public class PokemonCardGame {
             //Once we have reached this part of the code, the player has indicated that they have completed their
             //turn. Because we are in player1's first turn, we now go to player2's first turn
 
-            //Check to see if an XSpeed has been used
-            if(xSpeedUsed){
-
-                //If one has been used, now that it is the end of the player's turn, give the pokemon the retreat
-                //cost back
-                player1.getActivePokemon().addOneRetreatCost();
-            }
-
             //Set the firstTurnCheck to false
             firstTurnCheck = false;
 
