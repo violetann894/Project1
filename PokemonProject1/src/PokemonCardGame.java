@@ -477,59 +477,7 @@ public class PokemonCardGame {
 
         }
 
-        //Inform the player of the action they need to take
-        System.out.println("Pick a pokemon from your bench to place in your active pokemon spot");
-
-        //Set the broke flag to false and initialize the variable to hold the pokemon object
-        boolean broke = false;
-        Pokemon pokemonToBeActive = null;
-
-        //Loop through until the player makes a valid choice
-        while (true) {
-
-            //Accept user input
-            String cardToUse = userInput.nextLine();
-
-            //Loop through the player's bench
-            for (Card card : player.getBench()) {
-
-                //Check to see if the player picked a card in their bench
-                if (card.getNameOfCard().equalsIgnoreCase(cardToUse)) {
-
-                    //If they did, check to make sure they picked a pokemon card
-                    if (card.getPokemon() != null) {
-
-                        //If they did pick a pokemon card
-
-                        //Set the card the player wants to use to the variable, set the broke flag to true and
-                        //break out of the loop
-                        pokemonToBeActive = card.getPokemon();
-                        broke = true;
-                        break;
-                    }
-                }
-            }
-
-            //Check the broke flag
-            if (broke) {
-
-                //If the loop above broke, break again
-                break;
-            }
-
-            //If the player got to this point, they did not pick a valid option
-
-            //Inform the player
-            System.out.println("You did not pick a valid option, please pick another card");
-        }
-
-        //Inform the player of the action
-        System.out.println("Placed " + pokemonToBeActive.getNameOfCard() + " in the active spot");
-        System.out.println();
-
-        //Set the player's active pokemon and remove the pokemon from their bench
-        player.setActivePokemon(pokemonToBeActive);
-        player.removeCardFromBench(pokemonToBeActive);
+        player.pickPokemonFromBench();
     }
 
     /**
@@ -562,6 +510,8 @@ public class PokemonCardGame {
                         "phase)");
             }
 
+            System.out.println("You may also type retreat to retreat your active pokemon");
+
             //Set the broke flag to false and initialize the cardToBeUsed variable
             broke = false;
             Card cardToBeUsed = null;
@@ -591,46 +541,63 @@ public class PokemonCardGame {
                     done = true;
                     break;
 
-                }
+                }else if(cardToUse.equalsIgnoreCase("Retreat")){
 
-                //
-                //Loop through the player's hand
-                for (Card card : player.getHand()) {
+                    player.retreatActivePokemon();
 
-                    //Check to see if the card the player wants to use is in their hand
-                    if (card.getNameOfCard().equalsIgnoreCase(cardToUse)) {
+                    //Display the stats of the player
+                    displayPlayerStats(player);
 
-                        //If it is in their hand
+                    //Inform the player of the instructions
+                    if(firstTurnCheck){
+                        System.out.println("Pick a card to continue with your turn (Or type done to move on the next " +
+                                "player's turn)");
+                    }else {
+                        System.out.println("Pick a card to continue with your turn (Or type done to move on to the " +
+                                "battle phase)");
+                    }
 
-                        //Find the index of the card
-                        int indexOfCard = player.getHand().indexOf(card);
+                }else {
 
-                        //Use the variable from earlier to hold that Card object
-                        cardToBeUsed = player.getHand().get(indexOfCard);
+                    //
+                    //Loop through the player's hand
+                    for (Card card : player.getHand()) {
 
-                        //Set another flag (broke) equal to true
-                        broke = true;
+                        //Check to see if the card the player wants to use is in their hand
+                        if (card.getNameOfCard().equalsIgnoreCase(cardToUse)) {
 
-                        //Break out of the loop
+                            //If it is in their hand
+
+                            //Find the index of the card
+                            int indexOfCard = player.getHand().indexOf(card);
+
+                            //Use the variable from earlier to hold that Card object
+                            cardToBeUsed = player.getHand().get(indexOfCard);
+
+                            //Set another flag (broke) equal to true
+                            broke = true;
+
+                            //Break out of the loop
+                            break;
+                        }
+                    }
+
+                    //Because the code above is in a double while loop, we have to break out again
+                    if (broke) {
+
+                        //If the broke flag is true
+
+                        //Break again
                         break;
                     }
+
+                    //If the player gets to this point, it means they have not picked a valid response to break
+                    //them out of the loop
+
+                    //Inform the player of this
+                    System.out.println("You did not pick a valid option, please pick another card");
+                    System.out.println();
                 }
-
-                //Because the code above is in a double while loop, we have to break out again
-                if (broke) {
-
-                    //If the broke flag is true
-
-                    //Break again
-                    break;
-                }
-
-                //If the player gets to this point, it means they have not picked a valid response to break
-                //them out of the loop
-
-                //Inform the player of this
-                System.out.println("You did not pick a valid option, please pick another card");
-                System.out.println();
             }
 
             //Check the done flag
@@ -655,16 +622,16 @@ public class PokemonCardGame {
                 //Check to see if the player is using a supporter card and if they have used a supporter card
                 //already
                 if (cardToBeUsed.getTrainer().getTypeOfTrainerCard().equals("Supporter") &&
-                        numberOfSupporterCardsUsed < MAX_SUPPORTERS_USED) {
+                        numberOfSupporterCardsUsed < 1) {
 
                     //If the player is using a supporter card, and they have not used one before
 
                     //Use the ability of the card
-                    cardToBeUsed.getTrainer().useAbility(player1);
+                    cardToBeUsed.getTrainer().useAbility(player);
 
                     //Remove the card from the player's hand and add the card to the player's discard pile
-                    player1.removeCardFromHand(cardToBeUsed);
-                    player1.addCardToDiscard(cardToBeUsed);
+                    player.removeCardFromHand(cardToBeUsed);
+                    player.addCardToDiscard(cardToBeUsed);
 
                     //Increment the numberOfSupporterCardsUsed flag
                     numberOfSupporterCardsUsed++;
@@ -683,9 +650,9 @@ public class PokemonCardGame {
                     }
 
                     //Use the card's ability, remove the card from the player's hand and add it their discard pile
-                    cardToBeUsed.getTrainer().useAbility(player1);
-                    player1.removeCardFromHand(cardToBeUsed);
-                    player1.addCardToDiscard(cardToBeUsed);
+                    cardToBeUsed.getTrainer().useAbility(player);
+                    player.removeCardFromHand(cardToBeUsed);
+                    player.addCardToDiscard(cardToBeUsed);
 
                 } else {
 
@@ -701,8 +668,8 @@ public class PokemonCardGame {
                 //Else, if the card the player wants to use is a Pokemon
 
                 //Add the card to the player's bench and remove the card from the player's hand
-                player1.addCardToBench(cardToBeUsed);
-                player1.removeCardFromHand(cardToBeUsed);
+                player.addCardToBench(cardToBeUsed);
+                player.removeCardFromHand(cardToBeUsed);
 
                 //Inform the player
                 System.out.println("Added card to bench");
@@ -713,7 +680,7 @@ public class PokemonCardGame {
                 //Else, if the card the player wants to use is an energy
 
                 //Check to make sure the player has not already used an energy during this turn
-                if (numberOfEnergiesUsed < MAX_ENERGIES_PLACED) {
+                if (numberOfEnergiesUsed < 1) {
 
                     //If they have not used an energy yet
 
@@ -721,13 +688,13 @@ public class PokemonCardGame {
                     System.out.println("What pokemon do you want to add the energy to?");
 
                     //Show the player their active pokemon and the pokemon in their bench
-                    System.out.println("Active pokemon: " + player1.getActivePokemon() + " Benched pokemon: " +
-                            player1.getBench());
+                    System.out.println("Active pokemon: " + player.getActivePokemon() + " Benched pokemon: " +
+                            player.getBench());
 
                     //Create an ArrayList that holds all the pokemon in the player's active slot and in their bench
                     ArrayList<Card> allPokemon = new ArrayList<>();
-                    allPokemon.add(player1.getActivePokemon());
-                    allPokemon.addAll(player1.getBench());
+                    allPokemon.add(player.getActivePokemon());
+                    allPokemon.addAll(player.getBench());
 
 
                     //Set a flag and initialize variable to hold the card when found
