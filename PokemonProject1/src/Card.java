@@ -160,13 +160,7 @@ public class Card {
             }
         }
 
-        //If the loop broke, return true because a mulligan has been found
-        if(broke){
-            return true;
-        }
-
-        //Else return false
-        return false;
+        return broke;
     }
 
     /**
