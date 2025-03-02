@@ -1,12 +1,14 @@
 
 /**
- * The BinomialDistribution Class handles the calculation of Binomial Distributions.
+ * The BinomialDistribution Class handles the calculation of Binomial Distributions and all other statistical
+ * values associated with Binomial Distributions.
  * @author Rachel Hussmann
  */
 public class BinomialDistribution {
 
     /**
-     * The binomialDistribution method calculates a binomial distribution.
+     * The binomialDistribution method calculates the probability of an event based off of a binomial distribution
+     * formula.
      * @param numberOfTrials The number of trials to be run.
      * @param probOfSuccess The probability of a successful trial.
      * @param totalNumSuccess The total number of successes.
@@ -38,12 +40,12 @@ public class BinomialDistribution {
     }
 
     /**
-     * The expectedValueBinomial method calculates the mean of a binomial distribution.
+     * The expectedValue method calculates the mean of a binomial distribution.
      * @param numberOfTrials The total number of trials.
      * @param probOfSuccess The probability of success for a trial.
      * @return The expected value (mean) of the binomial distribution.
      */
-    public double expectedValueBinomial(int numberOfTrials, double probOfSuccess){
+    public double expectedValue(int numberOfTrials, double probOfSuccess){
         return numberOfTrials*probOfSuccess;
     }
 
@@ -72,14 +74,14 @@ public class BinomialDistribution {
     }
 
     /**
-     * The tester method shows the output of the binomialDistribution method.
+     * The tester method shows an example output of the methods within the BinomialDistribution class.
      */
     public void tester(){
 
         System.out.println("Binomial Distribution for n = 3, p = 0.8 and x = 2: " +
                 binomialDistribution(3, 0.8, 2));
         System.out.println("Expected value of the distribution: " +
-                expectedValueBinomial(3, 0.8));
+                expectedValue(3, 0.8));
         System.out.println("Variance of the distribution: " + variance(3, 0.8));
         System.out.println("Standard deviation of the distribution: "
                 + standardDeviation(variance(3, 0.8)));
