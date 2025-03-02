@@ -13,6 +13,8 @@ public class StatsTester {
         SetOperations setTester = new SetOperations();
         BinomialDistribution bTester = new BinomialDistribution();
         GeometricDistribution gTester = new GeometricDistribution();
+        NegativeBinomialDistribution nbTester = new NegativeBinomialDistribution();
+
 
         sTester.tester();
         cTester.tester();
@@ -21,6 +23,7 @@ public class StatsTester {
         setTester.tester();
         bTester.tester();
         gTester.tester();
+        nbTester.tester();
     }
 
 }
