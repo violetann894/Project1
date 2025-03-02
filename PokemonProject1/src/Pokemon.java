@@ -140,16 +140,7 @@ public class Pokemon extends Card{
      * the right type of energies to attack
      */
     public boolean checkIfAttackIsValid(Attack attack){
-
-        //Check to see if the pokemon has the same or more energies than required for the attack
-        if(this.getEnergiesAttached().size() >= attack.getCostOfAttack().size()){
-
-            //If the pokemon has enough energies, they can use the attack, return true
-            return true;
-        }
-
-        //If the pokemon does not have enough energies, they cannot use the attack, return false
-        return false;
+        return this.getEnergiesAttached().size() >= attack.getCostOfAttack().size();
     }
 
     /**
@@ -186,6 +177,15 @@ public class Pokemon extends Card{
      */
     public void attachEnergy(Energy cardToAttach){
         energiesAttached.add(cardToAttach);
+    }
+
+    /**
+     * The checkForRetreat method checks to see if this Pokemon object can retreat from active status.
+     * @return true - If the Pokemon has enough energies to retreat, false - If the Pokemon does not have enough
+     * energies to retreat
+     */
+    public boolean checkForRetreat(){
+        return this.getEnergiesAttached().size() >= retreatCost;
     }
 
 }
