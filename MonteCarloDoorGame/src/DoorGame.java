@@ -7,10 +7,7 @@ import java.util.Random;
  */
 public class DoorGame {
 
-    //Initializes the switchWins variable to hold how many wins happen when the choice is switched
     private int switchWins;
-
-    //Initializes the stayWins variable to hold how many wins happen when the choice is kept the same
     private int stayWins;
 
     /**
