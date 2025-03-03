@@ -23,27 +23,30 @@ public class Deck extends Card{
     public void generateDeck(){
 
         for(int i = 0; i < 4; i++){
-
             //Adds 20 pokemon cards to the deck
             deckOfCards.add(new Charmander());
             deckOfCards.add(new Lapras());
             deckOfCards.add(new Pikachu());
             deckOfCards.add(new Eevee());
             deckOfCards.add(new Skarmory());
+        }
 
-            //Adds 20 trainer cards to the deck
-            deckOfCards.add(new ProfsLetter());
-            deckOfCards.add(new ProfsResearch());
-            deckOfCards.add(new Cynthia());
-            deckOfCards.add(new PokeBall());
-            deckOfCards.add(new XSpeed());
-
-            //Adds 20 energy cards to the deck
+        for(int i = 0; i < 3; i++){
+            //Adds 15 energy cards
             deckOfCards.add(new Energy());
             deckOfCards.add(new Electric());
             deckOfCards.add(new Fire());
             deckOfCards.add(new Water());
             deckOfCards.add(new Steel());
+        }
+
+        for(int i = 0; i < 5; i++){
+            //Adds 25 trainer cards to the deck
+            deckOfCards.add(new ProfsLetter());
+            deckOfCards.add(new ProfsResearch());
+            deckOfCards.add(new Cynthia());
+            deckOfCards.add(new PokeBall());
+            deckOfCards.add(new XSpeed());
         }
     }
 
