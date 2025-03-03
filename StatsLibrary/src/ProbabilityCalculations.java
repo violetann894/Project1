@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * The ProbabilityCalculations class holds methods that calculate the probability of an event using various theorems
  * and rules.
- * @author Racghel Hussmann
+ * @author Rachel Hussmann
  */
 public class ProbabilityCalculations {
 
