@@ -76,8 +76,10 @@ public class ProbabilityCalculations {
      */
     public int multinomialCoefficient(int n, ArrayList<Integer> listOfSets){
 
+        Combination combination = new Combination();
+
         //Initialize the numerator with the factorial of n
-        int numerator = factorial(n);
+        int numerator = combination.factorial(n);
 
         //Initialize the denominator
         int denominator = 1;
@@ -86,7 +88,7 @@ public class ProbabilityCalculations {
         for(Integer i : listOfSets){
 
             //Find the factorial of i and then add it to the denominator
-            denominator = denominator*factorial(i);
+            denominator = denominator*combination.factorial(i);
         }
 
         //Return the double value of the numerator divided by the denominator
@@ -102,8 +104,10 @@ public class ProbabilityCalculations {
      */
     public BigInteger multinomialCoefficient(BigInteger n, ArrayList<BigInteger> listOfSets){
 
+        Combination combination = new Combination();
+
         //Initialize the numerator with the factorial of n
-        BigInteger numerator = factorial(n);
+        BigInteger numerator = combination.factorial(n);
 
         //Initialize the denominator
         BigInteger denominator = BigInteger.valueOf(1);
@@ -112,7 +116,7 @@ public class ProbabilityCalculations {
         for(BigInteger i : listOfSets){
 
             //Find the factorial of i and then add it to the denominator
-            denominator = denominator.multiply(factorial(i));
+            denominator = denominator.multiply(combination.factorial(i));
         }
 
         //Return the BigInteger value of the numerator divided by the denominator
@@ -169,54 +173,6 @@ public class ProbabilityCalculations {
      */
     public double findingAUsingAInverse(double probAInverse){
         return 1.0-probAInverse;
-    }
-
-    /**
-     * The factorial method calculates the number equal to 1 * 2 * 3 * . . . * n-1 * n (noted usually as n!).
-     * @param n The number to find the factorial of.
-     * @return The number equal to the factorial of n as an integer.
-     */
-    public int factorial(int n){
-
-        //Create the starting point for the calculation
-        int f = 1;
-
-        //Use for loop to multiply the variable f by all the numbers in front of it up to and including n.
-        for(int j = 1; j <= n; j++){
-
-            //Multiply f by the current number in the loop
-            f = f * j;
-        }
-
-        //Return the factorial of n
-        return f;
-    }
-
-    /**
-     * The factorial method calculates the number equal to 1 * 2 * 3 * . . . * n-1 * n (noted usually as n!).
-     * @param n The BigInteger object to find the factorial of.
-     * @return A BigInteger object equal to the factorial of n.
-     */
-    public BigInteger factorial(BigInteger n){
-
-        //Create the starting point for the calculation
-        BigInteger f = BigInteger.valueOf(1);
-
-        //Create the count variable for the while loop used later
-        BigInteger count = BigInteger.valueOf(1);
-
-        //Use the loop to multiply the variable f by all the numbers in front of it up to and including n.
-        while(count.compareTo(n) < 1){
-
-            //Multiply f by the current number in the loop
-            f = f.multiply(count);
-
-            //Increment the loop counter
-            count = count.add(BigInteger.valueOf(1));
-        }
-
-        //Return the BigInteger object equal to the factorial of n
-        return f;
     }
 
     /**
@@ -344,5 +300,7 @@ public class ProbabilityCalculations {
         System.out.println();
 
         System.out.println("Finding P(A) using P(A'), where P(A') = 0.2: P(A) = " + findingAUsingAInverse(0.2));
+
+        System.out.println();
     }
 }
