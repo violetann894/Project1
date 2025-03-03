@@ -5,7 +5,6 @@ import java.util.Collections;
 /**
  * The StatsLibrary class is a collection of statistical calculations that I have learned in my Probability and
  * Applied Statistics class.
- *
  * @author Rachel Hussmann
  */
 
