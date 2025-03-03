@@ -14,17 +14,17 @@ public class Factorial {
     public int factorial(int n){
 
         //Create the starting point for the calculation
-        int f = 1;
+        int factorial = 1;
 
         //Use for loop to multiply the variable f by all the numbers in front of it up to and including n.
         for(int j = 1; j <= n; j++){
 
             //Multiply f by the current number in the loop
-            f = f * j;
+            factorial = factorial * j;
         }
 
         //Return the factorial of n
-        return f;
+        return factorial;
     }
 
     /**
@@ -35,7 +35,7 @@ public class Factorial {
     public BigInteger factorial(BigInteger n){
 
         //Create the starting point for the calculation
-        BigInteger f = BigInteger.valueOf(1);
+        BigInteger factorial = BigInteger.valueOf(1);
 
         //Create the count variable for the while loop used later
         BigInteger count = BigInteger.valueOf(1);
@@ -44,14 +44,14 @@ public class Factorial {
         while(count.compareTo(n) < 1){
 
             //Multiply f by the current number in the loop
-            f = f.multiply(count);
+            factorial = factorial.multiply(count);
 
             //Increment the loop counter
             count = count.add(BigInteger.valueOf(1));
         }
 
         //Return the BigInteger object equal to the factorial of n
-        return f;
+        return factorial;
     }
 
 }
