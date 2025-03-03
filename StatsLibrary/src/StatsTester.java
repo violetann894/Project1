@@ -14,7 +14,7 @@ public class StatsTester {
         BinomialDistribution bTester = new BinomialDistribution();
         GeometricDistribution gTester = new GeometricDistribution();
         NegativeBinomialDistribution nbTester = new NegativeBinomialDistribution();
-
+        RandomVariableCalculations rvTester = new RandomVariableCalculations();
 
         sTester.tester();
         cTester.tester();
@@ -24,6 +24,7 @@ public class StatsTester {
         bTester.tester();
         gTester.tester();
         nbTester.tester();
+        rvTester.tester();
     }
 
 }
