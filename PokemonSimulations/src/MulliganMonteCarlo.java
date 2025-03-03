@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 
 /**
- * The MulliganMonteCarlo class is responsible for running simulations about how likely a player will draw a hand '
- * without a pokemon in it when there is 1-60 pokemon in the deck.
+ * The MulliganMonteCarlo class is responsible for running simulations about how likely a player will draw a hand
+ * without a pokemon in it when there is 1-60 pokemon in the deck. Class has a dependency on the PokemonProject1
+ * classes.
  * @author Rachel Hussmann
  */
 public class MulliganMonteCarlo {

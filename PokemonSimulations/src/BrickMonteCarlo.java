@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 /**
  * The BrickMonteCarlo class is responsible for running simulations about how likely a player will get stuck (brick)
- * when all of their rare candies are in their prize pile.
+ * when all of their rare candies are in their prize pile. Class has a dependency on the PokemonProject1
+ * classes.
  * @author Rachel Hussmann
  */
 public class BrickMonteCarlo {
