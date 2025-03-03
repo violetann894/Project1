@@ -76,10 +76,10 @@ public class ProbabilityCalculations {
      */
     public int multinomialCoefficient(int n, ArrayList<Integer> listOfSets){
 
-        Combination combination = new Combination();
+        Factorial factorial = new Factorial();
 
         //Initialize the numerator with the factorial of n
-        int numerator = combination.factorial(n);
+        int numerator = factorial.factorial(n);
 
         //Initialize the denominator
         int denominator = 1;
@@ -88,7 +88,7 @@ public class ProbabilityCalculations {
         for(Integer i : listOfSets){
 
             //Find the factorial of i and then add it to the denominator
-            denominator = denominator*combination.factorial(i);
+            denominator = denominator*factorial.factorial(i);
         }
 
         //Return the double value of the numerator divided by the denominator
@@ -104,10 +104,10 @@ public class ProbabilityCalculations {
      */
     public BigInteger multinomialCoefficient(BigInteger n, ArrayList<BigInteger> listOfSets){
 
-        Combination combination = new Combination();
+        Factorial factorial = new Factorial();
 
         //Initialize the numerator with the factorial of n
-        BigInteger numerator = combination.factorial(n);
+        BigInteger numerator = factorial.factorial(n);
 
         //Initialize the denominator
         BigInteger denominator = BigInteger.valueOf(1);
@@ -116,7 +116,7 @@ public class ProbabilityCalculations {
         for(BigInteger i : listOfSets){
 
             //Find the factorial of i and then add it to the denominator
-            denominator = denominator.multiply(combination.factorial(i));
+            denominator = denominator.multiply(factorial.factorial(i));
         }
 
         //Return the BigInteger value of the numerator divided by the denominator
