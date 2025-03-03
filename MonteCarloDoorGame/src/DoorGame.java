@@ -57,6 +57,22 @@ public class DoorGame {
      */
     public ArrayList<Double> runGame(int trials){
 
+        //Run the stay trials
+        stayTrials(trials);
+
+        //Run the switch trials
+        switchTrials(trials);
+
+        /* After all the trials are over, call the calculatePercentages() method to calculate the percentages for the
+           trials */
+        return calculatePercentages(stayWins, switchWins, trials);
+    }
+
+    /**
+     * The stayTrials method runs the trials where the person keeps their original choice every time.
+     * @param trials The number of trials to be run
+     */
+    public void stayTrials(int trials){
         //Stay trials
         for(int i = 0; i < trials; i++){
 
@@ -106,7 +122,13 @@ public class DoorGame {
                 stayWins++;
             }
         }
+    }
 
+    /**
+     * The switchTrials method runs the trials where the person switches their choice every time.
+     * @param trials The number of trials to be run
+     */
+    public void switchTrials(int trials){
         //Switch trials
         for(int i = 0; i < trials; i++){
 
@@ -159,10 +181,6 @@ public class DoorGame {
                 switchWins++;
             }
         }
-
-        /* After all the trials are over, call the calculatePercentages() method to calculate the percentages for the
-           trials */
-        return calculatePercentages(stayWins, switchWins, trials);
     }
 
     /**
