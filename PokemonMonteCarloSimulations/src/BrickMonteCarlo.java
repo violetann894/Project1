@@ -125,7 +125,7 @@ public class BrickMonteCarlo {
             }
 
             //If the number of candies in the prize pool are the same as the number of trainer cards (which are all
-            // rare candies)
+            //rare candies)
             if (candiesInPrize == numOfTrainer){
 
                 //Then increment the numberofBricks variable because the player is stuck
