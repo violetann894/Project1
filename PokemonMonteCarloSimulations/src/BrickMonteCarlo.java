@@ -52,36 +52,36 @@ public class BrickMonteCarlo {
 
         //Initializes the variables that will be used for the simulations
         int numberOfBricks = 0;
-        Deck d = new Deck();
+        Deck deck = new Deck();
         Card tester = new Card();
 
         //Run the simulation for the designated number of trials
         for (int i = 0; i < numOfTrials; i++){
 
             //Use the generateDeckRareCandy method to create the deck needed for the trial
-            d.generateDeckRareCandy(numOfPokemon, numOfEnergies, numOfTrainer);
+            deck.generateDeckRareCandy(numOfPokemon, numOfEnergies, numOfTrainer);
 
             //Use the shuffle method to shuffle the created deck
-            d.shuffle();
+            deck.shuffle();
 
             ArrayList<Card> hand = new ArrayList<>();
             //For the number of cards in a hand
             for(int j = 0; j < 7; j++){
 
                 //Pick the top card from the deck and add it to the hand
-                hand.add(d.pickTopCard());
+                hand.add(deck.pickTopCard());
             }
 
             //Checks for a mulligan
             while(!tester.checkForMulligan(hand)){
 
                 //Add the chosen cards back into the deck
-                for(Card c : hand){
-                    d.getDeckOfCards().add(c);
+                for(Card card : hand){
+                    deck.getDeckOfCards().add(card);
                 }
 
                 //Shuffle the deck again
-                d.shuffle();
+                deck.shuffle();
 
                 hand.clear();
 
@@ -89,7 +89,7 @@ public class BrickMonteCarlo {
                 for(int j = 0; j < 7; j++){
 
                     //Pick the top card from the deck and add it to the hand
-                    hand.add(d.pickTopCard());
+                    hand.add(deck.pickTopCard());
                 }
 
             }
@@ -97,21 +97,21 @@ public class BrickMonteCarlo {
             ArrayList<Card> prizePool = new ArrayList<>();
             //Add cards to the prize pool
             for(int j = 0; j < 6; j++){
-                prizePool.add(d.pickTopCard());
+                prizePool.add(deck.pickTopCard());
             }
 
             //Initialize the variable to count how many rare candies are in the prize pool
             int candiesInPrize = 0;
 
             //Iterate through the prizepool
-            for (Card c: prizePool){
+            for (Card card : prizePool){
 
-                String type = c.getTypeOfCard();
+                String type = card.getTypeOfCard();
 
                 //Check if the current card is a trainer card
                 if(type.equals("Trainer")){
 
-                    Trainer t = c.getTrainer();
+                    Trainer t = card.getTrainer();
 
                     String nameOfCard = t.getNameOfCard();
 
