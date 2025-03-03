@@ -1,5 +1,9 @@
 import java.math.BigInteger;
 
+/**
+ * The Combination class holds methods that handle the calculation of combinations.
+ * @author Rachel Hussmann
+ */
 public class Combination {
 
     /**

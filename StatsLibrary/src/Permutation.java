@@ -1,5 +1,9 @@
 import java.math.BigInteger;
 
+/**
+ * The Permutation class holds methods that handle the calculation of permutations.
+ * @author Rachel Hussmann
+ */
 public class Permutation {
 
     /**
