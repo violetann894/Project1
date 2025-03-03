@@ -25,13 +25,25 @@ public class ProbabilityCalculations {
     }
 
     /**
-     * The independence method checks to see if the two events are independent.
+     * The independenceUsingAGivenB method checks to see if the two events are independent using the probability of A
+     * given B and the probability of A.
      * @param probAgivenB The probability of event A given B happened.
      * @param probA The probability of event A.
      * @return True - if the two events are independent, false - if the events are dependent
      */
-    public boolean independence(double probAgivenB, double probA){
+    public boolean independenceUsingAGivenB(double probAgivenB, double probA){
         return probAgivenB == probA;
+    }
+
+    /**
+     * The independenceUsingBGivenA method checks to see if the two events are independent using the probability of B
+     * given A and the probability of B.
+     * @param probBgivenA The probability of B given A
+     * @param probB The probability of B
+     * @return true - if the two events are independent, false - if the events are dependent
+     */
+    public boolean independenceUsingBGivenA(double probBgivenA, double probB){
+        return probBgivenA == probB;
     }
 
     /**
@@ -118,7 +130,7 @@ public class ProbabilityCalculations {
     public double multiplicativeProbability(double probA, double probB, double probAgivenB){
 
         //Check to see if the events are independent
-        if (independence(probAgivenB, probA)){
+        if (independenceUsingAGivenB(probAgivenB, probA)){
 
             //if they are return the probability of A times the probability of B
             return probA*probB;
@@ -148,6 +160,15 @@ public class ProbabilityCalculations {
 
         //Else return the probability of A time the probability of B minus the probability of A and B
         return probA + probB - probAandB;
+    }
+
+    /**
+     * The findingAUsingAInverse method finds the probability of A using the probability of A inverse.
+     * @param probAInverse The probability of A inverse.
+     * @return The probability of A
+     */
+    public double findingAUsingAInverse(double probAInverse){
+        return 1.0-probAInverse;
     }
 
     /**
@@ -248,11 +269,12 @@ public class ProbabilityCalculations {
 
         System.out.println();
 
-        //Testing the different forms of independence
-        System.out.println("Independence of P(A) = .40, P(B) = .37, P(A and B): " +
+        //Testing the different forms of independenceUsingAGivenB
+        System.out.println("Independence of P(A) = .40, P(B) = .37, P(A and B) = 0.10: " +
                 this.independence(.40, .37, .10));
         System.out.println("Independence of P(A) = .40 and P(A|B) = 0.27: " +
-                this.independence(0.27, .40));
+                this.independenceUsingAGivenB(0.27, .40));
+        System.out.println("Independence of P(B) = .5 and P(B|A) = .5: " + independenceUsingBGivenA(.5, .5));
 
         System.out.println();
 
@@ -320,5 +342,7 @@ public class ProbabilityCalculations {
         System.out.println("Final calculation: " + (1.0 - bayesRule(AgivenBi, Bi, AgivenB, B)));
 
         System.out.println();
+
+        System.out.println("Finding P(A) using P(A'), where P(A') = 0.2: P(A) = " + findingAUsingAInverse(0.2));
     }
 }
