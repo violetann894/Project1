@@ -15,7 +15,7 @@ public class Door {
     }
 
     /**
-     * Getter for the behhindDoor variable
+     * Getter for the behindDoor variable
      * @return The string of what is behind the door
      */
     public String getBehindDoor(){
