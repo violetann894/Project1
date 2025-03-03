@@ -28,10 +28,8 @@ public class StatsLibrary {
         }
 
         //Divides the sum by the length of the dataset to find the mean
-        double mean = (sum / values.length);
-
         //Method returns the mean value of the dataset
-        return mean;
+        return (sum / values.length);
     }
 
     /**
@@ -51,10 +49,8 @@ public class StatsLibrary {
         }
 
         //Divides the sum by the length of the dataset to find the mean
-        double mean = (double)(sum / values.length);
-
         //Method returns the mean value of the dataset
-        return mean;
+        return (double)(sum / values.length);
     }
 
     /**
@@ -74,10 +70,8 @@ public class StatsLibrary {
         }
 
         //Divides the sum by the size of the dataset to find the mean
-        double mean = sum / values.size();
-
         //Method returns the mean value of the dataset
-        return mean;
+        return sum / values.size();
     }
 
     /**
@@ -97,10 +91,8 @@ public class StatsLibrary {
         }
 
         //Divides the sum by the size of the dataset to find the mean
-        double mean = (double)(sum / values.size());
-
         //Method returns the mean value of the dataset
-        return mean;
+        return (double)(sum / values.size());
     }
 
     /**
@@ -123,11 +115,8 @@ public class StatsLibrary {
             //Find the index of the middle value, which is just the ceiling value of the dataset divided by 2
             int index = (int)Math.ceil(values.length / 2);
 
-            //Grab the value of the median
-            double median = values[index];
-
             //Method returns the median
-            return median;
+            return values[index];
         }else {
 
             //If dataset is even
@@ -142,10 +131,8 @@ public class StatsLibrary {
             double secondValue = values[index + 1];
 
             //Find the average of the two values to find the median
-            double median = (firstValue + secondValue) / 2.0;
-
             //Method returns the median
-            return median;
+            return (firstValue + secondValue) / 2.0;
         }
     }
 
@@ -170,10 +157,8 @@ public class StatsLibrary {
             int index = (int)Math.ceil(values.length / 2);
 
             //Grab the value of the median
-            double median = values[index];
-
             //Method returns the median
-            return median;
+            return values[index];
         }else{
 
             //If dataset is even
@@ -188,10 +173,8 @@ public class StatsLibrary {
             double secondValue = values[index + 1];
 
             //Find the average of the two values to find the median
-            double median = (firstValue + secondValue) / 2.0;
-
             //Method returns the median
-            return median;
+            return (firstValue + secondValue) / 2.0;
         }
     }
 
@@ -217,10 +200,8 @@ public class StatsLibrary {
             int index = (int)Math.ceil(values.size() / 2);
 
             //Grab the value of the median
-            double median = values.get(index);
-
             //Method returns the median
-            return median;
+            return values.get(index);
         }else{
 
             //If dataset is even
@@ -235,10 +216,8 @@ public class StatsLibrary {
             double secondValue = values.get(index + 1);
 
             //Find the average of the two values to find the median
-            double median = (firstValue + secondValue) / 2.0;
-
             //Method returns the median
-            return median;
+            return (firstValue + secondValue) / 2.0;
         }
 
     }
@@ -265,10 +244,8 @@ public class StatsLibrary {
             int index = (int)Math.ceil(values.size() / 2);
 
             //Grab the value of the median
-            double median = values.get(index);
-
             //Method returns the median
-            return median;
+            return (double) values.get(index);
         }else{
 
             //If dataset is even
@@ -283,10 +260,8 @@ public class StatsLibrary {
             double secondValue = values.get(index + 1);
 
             //Find the average of the two values to find the median
-            double median = (firstValue + secondValue) / 2.0;
-
             //Method returns the median
-            return median;
+            return (firstValue + secondValue) / 2.0;
         }
     }
 
@@ -661,12 +636,11 @@ public class StatsLibrary {
     }
 
     /**
-     * getStandardDeviationDouble accepts an array of doubles and returns the standard deviation of the data.
-     *
-     * @param values This method accepts an array of doubles that the user would like the standard deviation found for.
-     * @return This method returns a double value equal to standard deviation of the data set.
+     * The getVarianceDouble method accepts an array of doubles and returns the variance.
+     * @param values The array of double holding the dataset
+     * @return The variance of the array
      */
-    public double getStandardDeviationDouble(double[] values){
+    public double getVarianceDouble(double[] values){
 
         //Initializes the variable and calls the getMeanDouble() method to find the mean of the dataset
         double mean = getMeanDouble(values);
@@ -689,20 +663,15 @@ public class StatsLibrary {
 
         /* Finds the variance of the dataset by taking the sum of the squares
            and dividing it by one less than the total number of values */
-        double variance = sumOfSquares / (values.length - 1);
-
-        //Returns the square root of the variance, which is the standard deviation of the dataset
-        return Math.sqrt(variance);
+        return sumOfSquares / (values.length - 1);
     }
 
     /**
-     * getStandardDeviationInt accepts an array of integers and returns the standard deviation of the data.
-     *
-     * @param values This method accept an array of integers that the user would like the standard deviation found for.
-     * @return This method returns a double value equal to the standard deviation of the data set.
+     * The getVarianceInt method accepts an array of integers and returns the variance.
+     * @param values The array of integers holding the dataset
+     * @return The variance of the array
      */
-    public double getStandardDeviationInt(int[] values){
-
+    public double getVarianceInt(int[] values){
         //Initializes the variable and calls the getMeanInt() method to find the mean of the dataset
         double mean = getMeanInt(values);
 
@@ -724,21 +693,15 @@ public class StatsLibrary {
 
         /* Finds the variance of the dataset by taking the sum of the squares
            and dividing it by one less than the total number of values */
-        double variance = sumOfSquares / (values.length - 1);
-
-        //Returns the square root of the variance, which is the standard deviation of the dataset
-        return Math.sqrt(variance);
+        return sumOfSquares / (values.length - 1);
     }
 
     /**
-     * getStandardDeviationDouble accepts an ArrayList of doubles and returns the standard deviation of the data.
-     *
-     * @param values This method accept an ArrayList of doubles that the user would like the standard deviation
-     *               found for.
-     * @return This method returns a double value equal to the standard deviation of the data set.
+     * The getVarianceDouble method accepts an ArrayList of doubles and returns the variance.
+     * @param values The ArrayList of doubles holding the dataset
+     * @return The variance of the ArrayList
      */
-    public double getStandardDeviationDouble(ArrayList<Double> values){
-
+    public double getVarianceDouble(ArrayList<Double> values){
         //Initializes the variable and calls the getMeanDouble() method to find the mean of the dataset
         double mean = getMeanDouble(values);
 
@@ -760,21 +723,15 @@ public class StatsLibrary {
 
         /* Finds the variance of the dataset by taking the sum of the squares
            and dividing it by one less than the total number of values */
-        double variance = sumOfSquares / (values.size() - 1);
-
-        //Returns the square root of the variance, which is the standard deviation of the dataset
-        return Math.sqrt(variance);
+        return sumOfSquares / (values.size() - 1);
     }
 
     /**
-     * getStandardDeviationDouble accepts an ArrayList of integers and returns the standard deviation of the data.
-     *
-     * @param values This method accept an ArrayList of integers that the user would like the standard deviation
-     *               found for.
-     * @return This method returns a double value equal to the standard deviation of the data set.
+     * The getVarianceInt method accepts and ArrayList of integers and returns the variance.
+     * @param values The ArrayList of integers holding the dataset
+     * @return The variance of the ArrayList
      */
-    public double getStandardDeviationInt(ArrayList<Integer> values){
-
+    public double getVarianceInt(ArrayList<Integer> values){
         //Initializes the variable and calls the getMeanInt() method to find the mean of the dataset
         double mean = getMeanInt(values);
 
@@ -796,9 +753,16 @@ public class StatsLibrary {
 
         /* Finds the variance of the dataset by taking the sum of the squares
            and dividing it by one less than the total number of values */
-        double variance = sumOfSquares / (values.size() - 1);
+        return sumOfSquares / (values.size() - 1);
+    }
 
-        //Returns the square root of the variance, which is the standard deviation of the dataset
+    /**
+     * The getStandardDeviation method accepts the variance of a dataset and returns the standard deviation of the
+     * dataset.
+     * @param variance The variance of the dataset
+     * @return The standard deviation of the dataset
+     */
+    public double getStandardDeviation(double variance){
         return Math.sqrt(variance);
     }
 
@@ -905,13 +869,13 @@ public class StatsLibrary {
 
         //Prints out the results of the getStandardDeviationDouble() and getStandardDeviationInt() methods
         System.out.println("Result of standard deviation (using double array): " +
-                this.getStandardDeviationDouble(doubleValuesOdd));
+                this.getStandardDeviation(getVarianceDouble(doubleValuesOdd)));
         System.out.println("Result of standard deviation (using ArrayList<Double>): " +
-                this.getStandardDeviationDouble(doubleArrayListOdd));
+                this.getStandardDeviation(getVarianceDouble(doubleArrayListOdd)));
         System.out.println("Result of standard deviation (using int array) : " +
-                this.getStandardDeviationInt(intValuesOdd));
+                this.getStandardDeviation(getVarianceInt(intValuesOdd)));
         System.out.println("Result of standard deviation (using ArrayList<Integer>): " +
-                this.getStandardDeviationInt(intArrayListOdd));
+                this.getStandardDeviation(getVarianceInt(intArrayListOdd)));
 
         System.out.println();
     }
