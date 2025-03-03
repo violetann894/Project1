@@ -61,9 +61,9 @@ public class NegativeBinomialDistribution {
     }
 
     /**
-     * The tester method displays an example output of the methods within the NegativeBinomialDistribution class.
+     * The testerOutput method displays an example output of the methods within the NegativeBinomialDistribution class.
      */
-    public void tester(){
+    public void testerOutput(){
         System.out.println("Negative Binomial Distribution for r=3, y = 5 and p = 0.2: " +
                 negativeBinomialDistribution(5, 3, 0.2));
         System.out.println("Expected value of the distribution: " + expectedValue(3, 0.2));

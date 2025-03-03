@@ -73,9 +73,9 @@ public class BinomialDistribution {
     }
 
     /**
-     * The tester method shows an example output of the methods within the BinomialDistribution class.
+     * The testerOutput method shows an example output of the methods within the BinomialDistribution class.
      */
-    public void tester(){
+    public void testerOutput(){
 
         System.out.println("Binomial Distribution for n = 3, p = 0.8 and x = 2: " +
                 binomialDistribution(3, 0.8, 2));

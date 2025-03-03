@@ -6,6 +6,7 @@ public class StatsTester {
 
     public static void main(String[] args) {
 
+        //Initialize all the classes
         StatsLibrary sTester = new StatsLibrary();
         Combination cTester = new Combination();
         Permutation pTester = new Permutation();
@@ -16,15 +17,16 @@ public class StatsTester {
         NegativeBinomialDistribution nbTester = new NegativeBinomialDistribution();
         RandomVariableCalculations rvTester = new RandomVariableCalculations();
 
-        sTester.tester();
-        cTester.tester();
-        pTester.tester();
-        probTester.tester();
-        setTester.tester();
-        bTester.tester();
-        gTester.tester();
-        nbTester.tester();
-        rvTester.tester();
+        //Test the classes
+        sTester.testerOutput();
+        cTester.testerOutput();
+        pTester.testerOutput();
+        probTester.testerOutput();
+        setTester.testerOutput();
+        bTester.testerOutput();
+        gTester.testerOutput();
+        nbTester.testerOutput();
+        rvTester.testerOutput();
     }
 
 }

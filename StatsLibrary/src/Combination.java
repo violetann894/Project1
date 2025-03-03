@@ -93,9 +93,9 @@ public class Combination {
     }
 
     /**
-     * The tester method is used to test the methods that have been developed in this class.
+     * The testerOutput method is used to test the methods that have been developed in this class.
      */
-    public void tester(){
+    public void testerOutput(){
         //Initializes some BigInteger objects for test cases
         BigInteger n = BigInteger.valueOf(6);
         BigInteger r = BigInteger.valueOf(2);

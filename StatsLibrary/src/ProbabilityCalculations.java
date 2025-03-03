@@ -251,9 +251,9 @@ public class ProbabilityCalculations {
     }
 
     /**
-     * The tester method is used to test the methods that have been developed in this class.
+     * The testerOutput method is used to test the methods that have been developed in this class.
      */
-    public void tester(){
+    public void testerOutput(){
 
         //Initialize ArrayList for testing
         ArrayList<Integer> intArrayList = new ArrayList<>();

@@ -53,9 +53,9 @@ public class GeometricDistribution {
     }
 
     /**
-     * The tester method displays an example output of the methods within the GeometricDistribution class.
+     * The testerOutput method displays an example output of the methods within the GeometricDistribution class.
      */
-    public void tester(){
+    public void testerOutput(){
         System.out.println("Geometric Distribution for p = 0.8 and y = 4: " +
                 geometricDistribution(0.8, 4));
         System.out.println("Expected value of the distribution: " + expectedValue(0.8));

@@ -83,9 +83,9 @@ public class RandomVariableCalculations {
     }
 
     /**
-     * The tester method is used to test the methods that have been developed in this class.
+     * The testerOutput method is used to test the methods that have been developed in this class.
      */
-    public void tester(){
+    public void testerOutput(){
 
         //Set up the arraylists
         ArrayList<Integer> valuesOfY = new ArrayList<>();
