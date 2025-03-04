@@ -21,7 +21,7 @@ public class TestPokemon {
         Pikachu hello = new Pikachu(70, 10, 6, 40);
 
         //Battle the pokemon
-        tester.battle(hi, hello);
+        tester.battle(hello, hi);
 
     }
 }
