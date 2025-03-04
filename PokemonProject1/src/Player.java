@@ -812,7 +812,7 @@ public class Player {
             //Else, if the card the player wants to use is a Pokemon
 
             //Check if the player's bench is full
-            if(this.getBench().size() > 5){
+            if(bench.size() >= 5){
 
                 //If it is full, inform the player
                 System.out.println("You can't place anymore pokemon because your bench is full!");
