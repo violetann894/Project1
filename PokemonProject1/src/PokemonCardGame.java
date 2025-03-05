@@ -120,7 +120,9 @@ public class PokemonCardGame {
     }
 
     /**
-     * The mulligan method handles when a mulligan is found.
+     * The mulligan method takes the hand of the player with a mulligan, returns it to their deck, and picks them a
+     * new hand.
+     * @param playerWithMulligan The Player that has the mulligan
      */
     public void mulligan(Player playerWithMulligan){
 
