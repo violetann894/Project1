@@ -1,4 +1,6 @@
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.MathContext;
 
 /**
  * The HypergeometricDistribution class handles the calculation of Hypergeometric distributions and all other
@@ -44,7 +46,7 @@ public class HypergeometricDistribution {
      * @param r The number of items in the sample
      * @return The probability of the event
      */
-    public double hypergeometricDistribution(BigInteger N, BigInteger n, BigInteger y, BigInteger r){
+    public BigDecimal hypergeometricDistribution(BigInteger N, BigInteger n, BigInteger y, BigInteger r){
 
         //Create the combination object
         Combination combination = new Combination();
@@ -54,16 +56,13 @@ public class HypergeometricDistribution {
         BigInteger numerator2 = combination.getCombination(N.subtract(r), n.subtract(y));
 
         //Calculate the denominator
-        BigInteger denominator = combination.getCombination(N, n);
+        BigDecimal denominator = new BigDecimal(combination.getCombination(N, n));
 
         //Calculate the numerator
-        BigInteger numerator = numerator1.multiply(numerator2);
-
-        //Calculate the probability
-        BigInteger probability = numerator.divide(denominator);
+        BigDecimal numerator = new BigDecimal(numerator1.multiply(numerator2));
 
         //Return the probability of the event
-        return probability.doubleValue();
+        return numerator.divide(denominator);
     }
 
     /**
@@ -84,10 +83,16 @@ public class HypergeometricDistribution {
      * @param N The total number of items in the population
      * @return The expected value of the distribution
      */
-    public double expectedValue(BigInteger n, BigInteger r, BigInteger N){
-        BigInteger numerator = n.multiply(r);
-        BigInteger mean = numerator.divide(N);
-        return mean.doubleValue();
+    public BigDecimal expectedValue(BigInteger n, BigInteger r, BigInteger N){
+
+        //Convert n times r into a BigDecimal
+        BigDecimal nr = new BigDecimal(n.multiply(r));
+
+        //Convert N into a BigDecimal
+        BigDecimal decimalN = new BigDecimal(N);
+
+        //Return nr/N
+        return nr.divide(decimalN);
     }
 
     /**
@@ -119,22 +124,22 @@ public class HypergeometricDistribution {
      *@param N The total number of items in the population
      *@return The variance of the distribution
      */
-    public double variance(BigInteger n, BigInteger r, BigInteger N){
+    public BigDecimal variance(BigInteger n, BigInteger r, BigInteger N){
 
         //Calculate the firstFraction of the formula
-        BigInteger firstFraction = r.divide(N);
+        BigDecimal firstFraction = new BigDecimal(r.divide(N));
 
         //Calculate the secondFraction of the formula
-        BigInteger secondFraction = (N.subtract(r)).divide(N);
+        BigDecimal secondFraction = new BigDecimal(((N.subtract(r)).divide(N)));
 
         //Calculate the thirdFraction of the formula
-        BigInteger thirdFraction = (N.subtract(n)).divide((N.subtract(BigInteger.ONE)));
+        BigDecimal thirdFraction = new BigDecimal((N.subtract(n)).divide(N.subtract(BigInteger.ONE)));
 
-        //Calculate the variance of the distribution
-        BigInteger variance = n.multiply(firstFraction).multiply(secondFraction).multiply(thirdFraction);
+        //Convert the BigInteger into a BigDecimal
+        BigDecimal nDecimal = new BigDecimal(n);
 
         //Return the variance of the distribution
-        return variance.doubleValue();
+        return nDecimal.multiply(firstFraction).multiply(secondFraction).multiply(thirdFraction);
     }
 
     /**
@@ -144,6 +149,15 @@ public class HypergeometricDistribution {
      */
     public double standardDeviation(double variance){
         return Math.sqrt(variance);
+    }
+
+    /**
+     * The standardDeviation method calculates the standard deviation of the hypergeometric distribution.
+     * @param variance The variance of the hypergeometric distribution.
+     * @return The standard deviation of the hypergeometric distribution.
+     */
+    public BigDecimal standardDeviation(BigDecimal variance){
+        return variance.sqrt(MathContext.UNLIMITED);
     }
 
     /**
