@@ -50,10 +50,11 @@ public class BinomialDistribution {
      * @param totalNumSuccess The total number of successes.
      * @return The probability of the event.
      */
-    public BigDecimal binomialDistribution(BigInteger numberOfTrials, double probOfSuccess, BigInteger totalNumSuccess){
+    public BigDecimal binomialDistribution(BigInteger numberOfTrials, BigDecimal probOfSuccess,
+                                           BigInteger totalNumSuccess){
 
         //Calculate the probability of a failed trial
-        BigDecimal probOfFail = BigDecimal.valueOf(1 - probOfSuccess);
+        BigDecimal probOfFail = BigDecimal.ONE.subtract(probOfSuccess);
 
         //Create a new combination object to gain access to the combination method
         Combination combination = new Combination();
@@ -62,7 +63,7 @@ public class BinomialDistribution {
         BigDecimal comb = new BigDecimal(combination.getCombination(numberOfTrials, totalNumSuccess));
 
         //Find the probability of success raised to the total number of successes
-        BigDecimal py = BigDecimal.valueOf(Math.pow(probOfSuccess, totalNumSuccess.doubleValue()));
+        BigDecimal py = probOfSuccess.pow(totalNumSuccess.intValue());
 
         //Find the number of trials minus the total number of successes
         BigInteger nMinusY = numberOfTrials.subtract(totalNumSuccess);
@@ -90,14 +91,13 @@ public class BinomialDistribution {
      * @param probOfSuccess The probability of a successful trial.
      * @return The expected value (mean) of the binomial distribution.
      */
-    public BigDecimal expectedValue(BigInteger numberOfTrials, double probOfSuccess){
+    public BigDecimal expectedValue(BigInteger numberOfTrials, BigDecimal probOfSuccess){
 
         //Convert the inputs into BigDecimals to be able to complete the calculation
         BigDecimal numOfTrials = new BigDecimal(numberOfTrials);
-        BigDecimal probabilityOfSuccess = BigDecimal.valueOf(probOfSuccess);
 
         //Return the calculation
-        return numOfTrials.multiply(probabilityOfSuccess);
+        return numOfTrials.multiply(probOfSuccess);
     }
 
     /**
@@ -121,17 +121,16 @@ public class BinomialDistribution {
      * @param probOfSuccess The probability of success for a trial.
      * @return The variance of the binomial distribution.
      */
-    public BigDecimal variance(BigInteger numberOfTrials, double probOfSuccess){
+    public BigDecimal variance(BigInteger numberOfTrials, BigDecimal probOfSuccess){
 
         //Convert the inputs into BigDecimals to be able to complete the calculation
         BigDecimal numOfTrials = new BigDecimal(numberOfTrials);
-        BigDecimal probabilityOfSuccess = BigDecimal.valueOf(probOfSuccess);
 
         //Calculate the probability of failure
-        BigDecimal probOfFail = BigDecimal.valueOf(1-probOfSuccess);
+        BigDecimal probOfFail = BigDecimal.ONE.subtract(probOfSuccess);
 
         //Return the number of trials times the probability of success times the probability of failure
-        return numOfTrials.multiply(probabilityOfSuccess).multiply(probOfFail);
+        return numOfTrials.multiply(probOfSuccess).multiply(probOfFail);
     }
 
     /**
