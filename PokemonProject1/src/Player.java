@@ -696,6 +696,10 @@ public class Player {
         }
     }
 
+    /**
+     * The pickPokemonFromBench method allows the player to pick a pokemon from their bench, typically after their
+     * active pokemon has been knocked out.
+     */
     public void pickPokemonFromBench(){
         //Inform the player of the action they need to take
         System.out.println("Pick a pokemon from your bench to place in your active pokemon spot");
