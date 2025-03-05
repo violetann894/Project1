@@ -35,6 +35,11 @@ public class Energy extends Card{
         this.type = type;
     }
 
+    /**
+     * The useEnergy method allows the player to use an energy and add it to one of their pokemon (either active or
+     * benched)
+     * @param player The player who placed the energy
+     */
     public void useEnergy(Player player){
         //Ask the player which pokemon they want to give it to
         System.out.println("What pokemon do you want to add the energy to?");
