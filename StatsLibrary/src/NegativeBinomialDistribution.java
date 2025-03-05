@@ -1,3 +1,7 @@
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.MathContext;
+
 /**
  * The NegativeBinomialDistribution class handles the calculation of Negative Binomial Distribution and all other
  * statistical values associated with Negative Binomial Distribution.
@@ -32,13 +36,53 @@ public class NegativeBinomialDistribution {
     }
 
     /**
+     * The negativeBinomialDistribution method calculates the probability of an event based off of a negative
+     *  binomial distribution formula.
+     * @param trialWithSuccess The trial number that had the successful result
+     * @param numberOfSuccesses The total number of successful trials
+     * @param probOfSuccess The probability of a successful trial
+     * @return The probability of an event
+     */
+    public BigDecimal negativeBinomialDistribution(BigInteger trialWithSuccess, BigInteger numberOfSuccesses,
+                                                   BigDecimal probOfSuccess){
+        //Create a new combination object to gain access to the combination method
+        Combination combination = new Combination();
+
+        //Get the combination of trialsWithSuccess minus one and numberOfSuccesses
+        BigDecimal comb = new BigDecimal(combination.getCombination(trialWithSuccess.subtract(BigInteger.ONE),
+                numberOfSuccesses.subtract(BigInteger.ONE)));
+
+        //Find the probability of success raised to the number of successes
+        BigDecimal pR = probOfSuccess.pow(numberOfSuccesses.intValue());
+
+        //Find the probability of failure raised to the successful trial minus the number of successes
+        BigDecimal qYMinusR = BigDecimal.ONE.subtract(probOfSuccess).pow(trialWithSuccess.subtract
+                (numberOfSuccesses).intValue());
+
+        //Return the calculation
+        return comb.multiply(pR).multiply(qYMinusR);
+    }
+
+    /**
      * The expectedValue method calculates the expected value (mean) of a negative binomial distribution.
      * @param numberOfSuccesses The total number of successes
      * @param probOfSuccess The probability of a successful trial
-     * @return The expected value (mean) of the negative binomial distribution.
+     * @return The expected value (mean) of the negative binomial distribution
      */
     public double expectedValue(int numberOfSuccesses, double probOfSuccess){
         return numberOfSuccesses/probOfSuccess;
+    }
+
+    /**
+     * The expectedValue method calculates the expected value (mean) of a negative binomial distribution.
+     * @param numberOfSuccesses The total number of successes
+     * @param probOfSuccess The probability of a successful trial
+     * @return The expected value (mean) of the negative binomial distribution
+     */
+    public BigDecimal expectedValue(BigInteger numberOfSuccesses, BigDecimal probOfSuccess){
+        BigDecimal numOfSuccess = new BigDecimal(numberOfSuccesses);
+
+        return numOfSuccess.divide(probOfSuccess);
     }
 
     /**
@@ -52,12 +96,42 @@ public class NegativeBinomialDistribution {
     }
 
     /**
+     * The variance method calculates the variance of a negative binomial distribution.
+     * @param numberOfSuccesses The total number of successes
+     * @param probOfSuccess The probability of a successful trial
+     * @return The variance of the negative binomial distribution
+     */
+    public BigDecimal variance(BigInteger numberOfSuccesses, BigDecimal probOfSuccess){
+
+        //Convert the BigInteger object into a BigDecimal object
+        BigDecimal numOfSuccess = new BigDecimal(numberOfSuccesses);
+
+        //Calculate the probability of failure
+        BigDecimal probOfFail = BigDecimal.ONE.subtract(probOfSuccess);
+
+        //Calculate the denominator
+        BigDecimal denominator = probOfSuccess.pow(2);
+
+        //Return the variance of the distribution
+        return (numOfSuccess.multiply(probOfFail)).divide(denominator);
+    }
+
+    /**
      * The standardDeviation method calculates the standard deviation of the negative binomial distribution.
      * @param variance The variance of the distribution
      * @return The standard deviation of the negative binomial distribution.
      */
     public double standardDeviation(double variance){
         return Math.sqrt(variance);
+    }
+
+    /**
+     * The standardDeviation method calculates the standard deviation of the negative binomial distribution.
+     * @param variance The variance of the negative binomial distribution.
+     * @return The standard deviation of the negative binomial distribution.
+     */
+    public BigDecimal standardDeviation(BigDecimal variance){
+        return variance.sqrt(MathContext.UNLIMITED);
     }
 
     /**
