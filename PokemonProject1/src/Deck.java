@@ -157,6 +157,7 @@ public class Deck extends Card{
 
     /**
      * The returnHandToDeck method returns a hand of cards back to the deck.
+     * @param hand The hand of Cards that the player needs to return to the deck
      */
     public void returnHandToDeck(ArrayList<Card> hand){
         //Add the chosen cards back into the deck
