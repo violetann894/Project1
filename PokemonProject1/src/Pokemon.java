@@ -133,8 +133,9 @@ public class Pokemon extends Card{
     }
 
     /**
-     * The checkIfAttackIsValid method checks to see if the player can use that attack by checking the number and type
-     * of energies required for the attack.
+     * The checkIfAttackIsValid method checks to see if the player can use that attack by checking the number of
+     * energies required for the attack.
+     * @param attack The Attack that the player would like the pokemon to use.
      * @return true - if the attack is valid and the pokemon has the correct energies and number of energies to
      * initiate the attack false - if the attack is not valid and the pokemon either does not have enough energies or
      * the right type of energies to attack
