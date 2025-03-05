@@ -36,16 +36,16 @@ public class GeometricDistribution {
      * @param numberOfFirstSuccess The trial where the first success happens
      * @return The probability of the event
      */
-    public BigDecimal geometricDistribution(double probOfSuccess, BigInteger numberOfFirstSuccess){
+    public BigDecimal geometricDistribution(BigDecimal probOfSuccess, BigInteger numberOfFirstSuccess){
 
         //Calculate the probability of failure
-        BigDecimal probOfFail = BigDecimal.ONE.subtract(BigDecimal.valueOf(probOfSuccess));
+        BigDecimal probOfFail = BigDecimal.ONE.subtract(probOfSuccess);
 
         //Find the probability of failure raised to the number of the trial with the first success minus one
         BigDecimal qYMinusOne = probOfFail.pow(numberOfFirstSuccess.subtract(BigInteger.ONE).intValue());
 
         //Return the value of the above calculation multiplied by the probability of success
-        return qYMinusOne.multiply(BigDecimal.valueOf(probOfSuccess));
+        return qYMinusOne.multiply(probOfSuccess);
     }
 
     /**
