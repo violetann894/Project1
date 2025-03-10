@@ -1,5 +1,5 @@
 /**
- * The StatsTester class is used to test the class StatsLibrary and its associated methods.
+ * The StatsTester class is used to test the classes contained within the StatsLibrary project.
  * @author Rachel Hussmann
  */
 public class StatsTester {
