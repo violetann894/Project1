@@ -11,7 +11,7 @@ public class Combination {
      * are possible.
      * @param n The size of the set to choose from.
      * @param r The number of choices to be made from the set.
-     * @return The total number of combinations that can be made from n and k as an integer.
+     * @return The total number of combinations that can be made from n and r as an integer.
      */
     public int getCombination(int n, int r){
 
@@ -34,7 +34,7 @@ public class Combination {
      * combinations that are possible.
      * @param n The size of the set to choose from.
      * @param r The number of choices to be made from the set.
-     * @return The total number of combinations that can be made from n and k as a BigInteger object.
+     * @return The total number of combinations that can be made from n and r as a BigInteger object.
      */
     public BigInteger getCombination(BigInteger n, BigInteger r){
 
