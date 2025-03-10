@@ -3,8 +3,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- * The StatsLibrary class is a collection of statistical calculations that I have learned in my Probability and
- * Applied Statistics class.
+ * The StatsLibrary class is a collection of basic statistical calculations such as mean, median and mode of a dataset.
  * @author Rachel Hussmann
  */
 
