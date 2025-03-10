@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * The SetOperations class holds methods that perform operation on a set such as union, intersection and complement.
+ * The SetOperations class holds methods that perform operations on a set such as union, intersection and complement.
  * @author Rachel Hussmann
  */
 public class SetOperations {
