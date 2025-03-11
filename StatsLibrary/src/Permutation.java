@@ -11,7 +11,7 @@ public class Permutation {
      * are possible.
      * @param n The size of the set to choose from.
      * @param r The number of choices to be made from the set.
-     * @return The total number of groups that can be made from n and k as an integer.
+     * @return The total number of groups that can be made from n and r as an integer.
      */
     public int getPermutation(int n, int r){
 
