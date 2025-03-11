@@ -17,7 +17,7 @@ public class Deck extends Card{
     }
 
     /**
-     * The generateDeck method generates a standard deck of cards with 20 pokemon, 20 trainer cards,
+     * The generateDeck method generates a standard deck of cards with 20 pokemon, 15 trainer cards,
      * and 20 energy cards.
      */
     public void generateDeck(){
