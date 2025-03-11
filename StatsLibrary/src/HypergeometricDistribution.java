@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.math.RoundingMode;
 
 /**
  * The HypergeometricDistribution class handles the calculation of Hypergeometric distributions and all other
@@ -62,7 +63,7 @@ public class HypergeometricDistribution {
         BigDecimal numerator = new BigDecimal(numerator1.multiply(numerator2));
 
         //Return the probability of the event
-        return numerator.divide(denominator);
+        return numerator.divide(denominator, 4, RoundingMode.UP);
     }
 
     /**
@@ -92,7 +93,7 @@ public class HypergeometricDistribution {
         BigDecimal decimalN = new BigDecimal(N);
 
         //Return nr/N
-        return nr.divide(decimalN);
+        return nr.divide(decimalN, 4, RoundingMode.UP);
     }
 
     /**
@@ -126,17 +127,20 @@ public class HypergeometricDistribution {
      */
     public BigDecimal variance(BigInteger n, BigInteger r, BigInteger N){
 
+        //Convert the numbers for use with BigDecimals
+        BigDecimal rDecimal = new BigDecimal(r);
+        BigDecimal NDecimal = new BigDecimal(N);
+        BigDecimal nDecimal = new BigDecimal(n);
+
         //Calculate the firstFraction of the formula
-        BigDecimal firstFraction = new BigDecimal(r.divide(N));
+        BigDecimal firstFraction = rDecimal.divide(NDecimal, 5, RoundingMode.UP);
 
         //Calculate the secondFraction of the formula
-        BigDecimal secondFraction = new BigDecimal(((N.subtract(r)).divide(N)));
+        BigDecimal secondFraction = (NDecimal.subtract(rDecimal)).divide(NDecimal, 5, RoundingMode.UP);
 
         //Calculate the thirdFraction of the formula
-        BigDecimal thirdFraction = new BigDecimal((N.subtract(n)).divide(N.subtract(BigInteger.ONE)));
-
-        //Convert the BigInteger into a BigDecimal
-        BigDecimal nDecimal = new BigDecimal(n);
+        BigDecimal thirdFraction = (NDecimal.subtract(nDecimal)).divide(NDecimal.subtract(BigDecimal.ONE),
+                5, RoundingMode.UP);
 
         //Return the variance of the distribution
         return nDecimal.multiply(firstFraction).multiply(secondFraction).multiply(thirdFraction);
@@ -157,7 +161,7 @@ public class HypergeometricDistribution {
      * @return The standard deviation of the hypergeometric distribution.
      */
     public BigDecimal standardDeviation(BigDecimal variance){
-        return variance.sqrt(MathContext.UNLIMITED);
+        return variance.sqrt(MathContext.DECIMAL32);
     }
 
     /**
@@ -165,6 +169,27 @@ public class HypergeometricDistribution {
      */
     public void testerOutput(){
 
-    }
+        //Used problem 3.103 to test methods
+        System.out.println("Hypergeometric distribution formula using N = 10, n = 5, y = 5 and r = 6: " +
+                hypergeometricDistribution(10, 5, 5, 6));
+        System.out.println("Expected value of the distribution: " + expectedValue(5, 6, 10));
+        System.out.println("Variance of the distribution: " + variance(5, 6, 10));
+        System.out.println("Standard deviation of the distribution: " + standardDeviation(variance(5, 6, 10)));
 
+        System.out.println();
+
+        //Used same problem but with BigInteger objects
+        BigInteger N = BigInteger.valueOf(10);
+        BigInteger n = BigInteger.valueOf(5);
+        BigInteger y = BigInteger.valueOf(5);
+        BigInteger r = BigInteger.valueOf(6);
+        System.out.println("Hypergeometric distribution fomrula using BigInteger, N = 10, n = 5, y = 5 and r = 4: "
+                + hypergeometricDistribution(N, n, y, r));
+        System.out.println("Expected value of the distribution using BigInteger: " + expectedValue(n, r, N));
+        System.out.println("Variance of the distribution using BigInteger: " + variance(n, r, N));
+        System.out.println("Standard deviation of the distribution using BigInteger: " +
+                standardDeviation(variance(n, r, N)));
+
+        System.out.println();
+    }
 }
