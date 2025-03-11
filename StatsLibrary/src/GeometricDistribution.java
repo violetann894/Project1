@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.math.RoundingMode;
 
 /**
  * The GeometricDistribution class handles the calculation of Geometric Distributions and all other statistical values
@@ -63,7 +64,7 @@ public class GeometricDistribution {
      * @return The expected value (mean) of the geometric distribution
      */
     public BigDecimal expectedValue(BigDecimal probOfSuccess){
-        return BigDecimal.ONE.divide(probOfSuccess);
+        return BigDecimal.ONE.divide(probOfSuccess, 2, RoundingMode.UP);
     }
 
     /**
@@ -83,7 +84,7 @@ public class GeometricDistribution {
     public BigDecimal variance(BigDecimal probOfSuccess){
         BigDecimal probOfFail = BigDecimal.ONE.subtract(probOfSuccess);
 
-        return probOfFail.divide(probOfSuccess);
+        return probOfFail.divide(probOfSuccess, 2, RoundingMode.UP);
     }
 
     /**
@@ -101,19 +102,33 @@ public class GeometricDistribution {
      * @return The standard deviation of the geometric distribution.
      */
     public BigDecimal standardDeviation(BigDecimal variance){
-        return variance.sqrt(MathContext.UNLIMITED);
+        return variance.sqrt(MathContext.DECIMAL32);
     }
 
     /**
      * The testerOutput method displays an example output of the methods within the GeometricDistribution class.
      */
-    public void testerOutput(){
-        System.out.println("Geometric Distribution for p = 0.8 and y = 4: " +
-                geometricDistribution(0.8, 4));
-        System.out.println("Expected value of the distribution: " + expectedValue(0.8));
-        System.out.println("Variance of the distribution: " + variance(0.8));
-        System.out.println("Standard deviation of the distribution: " + standardDeviation(variance(0.8)));
+    public void testerOutput() {
+
+        System.out.println("Geometric distribution formula using p = 0.3 and y = 5: " +
+                geometricDistribution(0.3, 5));
+        System.out.println("Expected value of the distribution: " + expectedValue(0.3));
+        System.out.println("Variance of the distribution: " + variance(0.3));
+        System.out.println("Standard deviation of the distribution: " + standardDeviation(variance(0.3)));
+
         System.out.println();
+
+        BigInteger y = BigInteger.valueOf(5);
+        BigDecimal p = BigDecimal.valueOf(0.3);
+        System.out.println("Geometric distribution formula using BigInteger, BigDecimal, p = 0.3 and y = 5: "
+                + geometricDistribution(p, y));
+        System.out.println("Expected value of the distribution using BigDecimal: " + expectedValue(p));
+        System.out.println("Variance of the distribution using BigDecimal: " + variance(p));
+        System.out.println("Standard deviation of the distribution using BigDecimal: " +
+                standardDeviation(variance(p)));
+
+        System.out.println();
+
     }
 
 }
