@@ -16,6 +16,7 @@ public class StatsTester {
         GeometricDistribution gTester = new GeometricDistribution();
         NegativeBinomialDistribution nbTester = new NegativeBinomialDistribution();
         RandomVariableCalculations rvTester = new RandomVariableCalculations();
+        HypergeometricDistribution hgTester = new HypergeometricDistribution();
 
         //Test the classes
         sTester.testerOutput();
@@ -23,10 +24,11 @@ public class StatsTester {
         pTester.testerOutput();
         probTester.testerOutput();
         setTester.testerOutput();
+        rvTester.testerOutput();
         bTester.testerOutput();
         gTester.testerOutput();
         nbTester.testerOutput();
-        rvTester.testerOutput();
+        hgTester.testerOutput();
     }
 
 }
