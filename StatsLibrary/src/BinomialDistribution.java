@@ -156,14 +156,25 @@ public class BinomialDistribution {
      */
     public void testerOutput(){
 
-        System.out.println("Binomial Distribution for n = 3, p = 0.8 and x = 2: " +
-                binomialDistribution(3, 0.8, 2));
-        System.out.println("Expected value of the distribution: " +
-                expectedValue(3, 0.8));
-        System.out.println("Variance of the distribution: " + variance(3, 0.8));
-        System.out.println("Standard deviation of the distribution: "
-                + standardDeviation(variance(3, 0.8)));
+        //Using Problem 3.39 a to test out methods
+        System.out.println("Binomial distribution formula using p = 0.8, n = 4, y = 2: " +
+                binomialDistribution(4, 0.8, 2));
+        System.out.println("Expected value of this distribution: " + expectedValue(4, 0.8));
+        System.out.println("Variance of this distribution: " + variance(4, 0.8));
+        System.out.println("Standard deviation of this distribution: " + standardDeviation(variance(4, 0.8)));
+
         System.out.println();
 
+        BigInteger n = BigInteger.valueOf(4);
+        BigInteger y = BigInteger.valueOf(2);
+        BigDecimal p = BigDecimal.valueOf(0.8);
+        System.out.println("Binomial distribution formula using BigInteger, BigDecimal, p = 0.8, n = 4, y = 2: "
+                + binomialDistribution(n, p, y));
+        System.out.println("Expected value of this distribution using BigInteger & BigDecimal: " + expectedValue(n, p));
+        System.out.println("Variance of this distribution using BigInteger & BigDecimal: " + variance(n, p));
+        System.out.println("Standard deviation of this distribution using BigInteger & BigDecimal: "
+                + standardDeviation(variance(n, p)));
+
+        System.out.println();
     }
 }
