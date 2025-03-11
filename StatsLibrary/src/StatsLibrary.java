@@ -836,41 +836,41 @@ public class StatsLibrary {
         intArrayListMode.add(9);
 
         //Prints out the results of the getMeanDouble() and getMeanInt() methods
-        System.out.println("Result of mean (using double array): " + this.getMeanDouble(doubleValuesOdd));
+        System.out.println("Result of mean (using double[]): " + this.getMeanDouble(doubleValuesOdd));
         System.out.println("Result of mean (using ArrayList<Double>): " + this.getMeanDouble(doubleArrayListOdd));
-        System.out.println("Result of mean (using int array): " + this.getMeanInt(intValuesOdd));
+        System.out.println("Result of mean (using int[]): " + this.getMeanInt(intValuesOdd));
         System.out.println("Result of mean (using ArrayList<Integer>): " + this.getMeanInt(intArrayListOdd));
 
         System.out.println();
 
         //Prints out the results of the getMedianDouble() and getMedianInt() methods
-        System.out.println("Result of median (using odd double array): " + this.getMedianDouble(doubleValuesOdd));
-        System.out.println("Result of median (using even double array): " + this.getMedianDouble(doubleValuesEven));
+        System.out.println("Result of median (using odd double[]): " + this.getMedianDouble(doubleValuesOdd));
+        System.out.println("Result of median (using even double[]): " + this.getMedianDouble(doubleValuesEven));
         System.out.println("Result of median (using odd ArrayList<Double>): " +
                 this.getMedianDouble(doubleArrayListOdd));
         System.out.println("Result of median (using even ArrayList<Double>): " +
                 this.getMedianDouble(doubleArrayListEven));
-        System.out.println("Result of median (using odd int array): " + this.getMedianInt(intValuesOdd));
-        System.out.println("Result of median (using even int array): " + this.getMedianInt(intValuesEven));
+        System.out.println("Result of median (using odd int[]): " + this.getMedianInt(intValuesOdd));
+        System.out.println("Result of median (using even int[]): " + this.getMedianInt(intValuesEven));
         System.out.println("Result of median (using odd ArrayList<Integer>): " + this.getMedianInt(intArrayListOdd));
         System.out.println("Result of median (using even ArrayList<Integer>): " + this.getMedianInt(intArrayListEven));
 
         System.out.println();
 
         //Prints out the results of the getModeDouble() and getModeInt() methods
-        System.out.println("Result of mode (using double array): " + this.getModeDouble(doubleValuesMode));
+        System.out.println("Result of mode (using double[]): " + this.getModeDouble(doubleValuesMode));
         System.out.println("Result of mode (using ArrayList<Double>): " + this.getModeDouble(doubleArrayListMode));
-        System.out.println("Result of mode (using int array): " + this.getModeInt(intValuesMode));
+        System.out.println("Result of mode (using int[]): " + this.getModeInt(intValuesMode));
         System.out.println("Result of mode (using ArrayList<Integer>): " + this.getModeInt(intArrayListMode));
 
         System.out.println();
 
         //Prints out the results of the getStandardDeviationDouble() and getStandardDeviationInt() methods
-        System.out.println("Result of standard deviation (using double array): " +
+        System.out.println("Result of standard deviation (using double[]): " +
                 this.getStandardDeviation(getVarianceDouble(doubleValuesOdd)));
         System.out.println("Result of standard deviation (using ArrayList<Double>): " +
                 this.getStandardDeviation(getVarianceDouble(doubleArrayListOdd)));
-        System.out.println("Result of standard deviation (using int array) : " +
+        System.out.println("Result of standard deviation (using int[]) : " +
                 this.getStandardDeviation(getVarianceInt(intValuesOdd)));
         System.out.println("Result of standard deviation (using ArrayList<Integer>): " +
                 this.getStandardDeviation(getVarianceInt(intArrayListOdd)));
