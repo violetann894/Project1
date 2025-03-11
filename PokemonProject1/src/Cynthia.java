@@ -11,7 +11,7 @@ public class Cynthia extends Trainer{
         setNameOfCard("Cynthia");
         setTypeOfCard("Trainer");
         setTypeOfTrainerCard("Supporter");
-        setDescriptionOfCard("Shuffle your hand into your deck. Then, draw 6 cards");
+        setDescriptionOfCard("Shuffle your hand into your deck. Then, draw 6 cards.");
         setTrainer(this);
     }
 
