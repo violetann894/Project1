@@ -73,7 +73,7 @@ public class GeometricDistribution {
      * @return The variance of the geometric distribution
      */
     public double variance(double probOfSuccess){
-        return (1-probOfSuccess)/probOfSuccess;
+        return (1-probOfSuccess)/Math.pow(probOfSuccess, 2);
     }
 
     /**
@@ -84,7 +84,9 @@ public class GeometricDistribution {
     public BigDecimal variance(BigDecimal probOfSuccess){
         BigDecimal probOfFail = BigDecimal.ONE.subtract(probOfSuccess);
 
-        return probOfFail.divide(probOfSuccess, 2, RoundingMode.UP);
+        BigDecimal denominator = probOfSuccess.pow(2);
+
+        return probOfFail.divide(denominator, 2, RoundingMode.UP);
     }
 
     /**
