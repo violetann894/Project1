@@ -140,7 +140,7 @@ public class SetOperations {
      * are not in the subset.
      *
      * @param subset This parameter accepts an ArrayList of strings that contains a part of the full dataset.
-     * @param sample This parameter accepts an ArrayList of strings that is a sample of the full dataset.
+     * @param sample This parameter accepts an ArrayList of strings that is a sample of the subset dataset.
      * @return This method returns an ArrayList of strings that contains all the values not in the given subset.
      */
     public ArrayList<String> complement(ArrayList<String> subset, ArrayList<String> sample){
