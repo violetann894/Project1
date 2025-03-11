@@ -147,7 +147,7 @@ public class Pokemon extends Card{
     /**
      * The battle method manages a battle between two pokemon.
      * @param pokemonAttack The Attack the attacking pokemon will use.
-     * @param defendingPokemon The defensing pokemon that will be losing HP.
+     * @param defendingPokemon The defending pokemon that will be losing HP.
      */
     public void battle(Attack pokemonAttack, Pokemon defendingPokemon){
 
@@ -173,7 +173,7 @@ public class Pokemon extends Card{
     }
 
     /**
-     * The attachEnergy method accepts an energy card the that player would like to attack to a pokemon.
+     * The attachEnergy method accepts an energy card the that player would like to attach to a pokemon.
      * @param cardToAttach The energy to attach to the pokemon.
      */
     public void attachEnergy(Energy cardToAttach){
