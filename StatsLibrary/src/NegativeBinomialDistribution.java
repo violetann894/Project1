@@ -150,6 +150,7 @@ public class NegativeBinomialDistribution {
 
         System.out.println();
 
+        //Using same problem but using BigInteger and BigDecimal objects
         BigInteger r = BigInteger.valueOf(3);
         BigInteger y = BigInteger.valueOf(10);
         BigDecimal p = BigDecimal.valueOf(0.4);
