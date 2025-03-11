@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.math.RoundingMode;
 
 /**
  * The NegativeBinomialDistribution class handles the calculation of Negative Binomial Distribution and all other
@@ -82,7 +83,7 @@ public class NegativeBinomialDistribution {
     public BigDecimal expectedValue(BigInteger numberOfSuccesses, BigDecimal probOfSuccess){
         BigDecimal numOfSuccess = new BigDecimal(numberOfSuccesses);
 
-        return numOfSuccess.divide(probOfSuccess);
+        return numOfSuccess.divide(probOfSuccess, 2, RoundingMode.UP);
     }
 
     /**
@@ -113,7 +114,7 @@ public class NegativeBinomialDistribution {
         BigDecimal denominator = probOfSuccess.pow(2);
 
         //Return the variance of the distribution
-        return (numOfSuccess.multiply(probOfFail)).divide(denominator);
+        return (numOfSuccess.multiply(probOfFail)).divide(denominator, 2, RoundingMode.UP);
     }
 
     /**
@@ -131,19 +132,34 @@ public class NegativeBinomialDistribution {
      * @return The standard deviation of the negative binomial distribution.
      */
     public BigDecimal standardDeviation(BigDecimal variance){
-        return variance.sqrt(MathContext.UNLIMITED);
+        return variance.sqrt(MathContext.DECIMAL32);
     }
 
     /**
      * The testerOutput method displays an example output of the methods within the NegativeBinomialDistribution class.
      */
     public void testerOutput(){
-        System.out.println("Negative Binomial Distribution for r=3, y = 5 and p = 0.2: " +
-                negativeBinomialDistribution(5, 3, 0.2));
-        System.out.println("Expected value of the distribution: " + expectedValue(3, 0.2));
-        System.out.println("Variance of the distribution: " + variance(3, 0.2));
-        System.out.println("Standard deviation of the distribution: " +
-                standardDeviation(variance(3, 0.2)));
+
+        //Using problem 3.90 to test methods
+        System.out.println("Negative Binomial Distribution formula using p = 0.4, r = 3, y = 10: " +
+                negativeBinomialDistribution(10, 3, 0.4));
+        System.out.println("Expected value for the distribution: " + expectedValue(3, 0.4));
+        System.out.println("Variance for the distribution: " + variance(3, 0.4));
+        System.out.println("Standard deviation for the distribution: " +
+                standardDeviation(variance(3, 0.4)));
+
+        System.out.println();
+
+        BigInteger r = BigInteger.valueOf(3);
+        BigInteger y = BigInteger.valueOf(10);
+        BigDecimal p = BigDecimal.valueOf(0.4);
+        System.out.println("Negative Binomial Distribution formula using BigInteger, BigDecimal, p = 0.4, r = 3, " +
+                "y = 10: " + negativeBinomialDistribution(y, r, p));
+        System.out.println("Expected value for the distribution using BigInteger & BigDecimal: " + expectedValue(r, p));
+        System.out.println("Variance for the distribution using BigInteger & BigDecimal: " + variance(r, p));
+        System.out.println("Standard deviation for the distribution using BigInteger & BigDecimal: " +
+                standardDeviation(variance(r, p)));
+
         System.out.println();
     }
 
