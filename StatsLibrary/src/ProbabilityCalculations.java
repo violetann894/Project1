@@ -32,7 +32,7 @@ public class ProbabilityCalculations {
     /**
      * The independenceUsingAGivenB method checks to see if the two events are independent using the probability of A
      * given B and the probability of A.
-     * @param probAgivenB The probability of event A given B happened.
+     * @param probAgivenB The probability of event A given B.
      * @param probA The probability of event A.
      * @return True - if the two events are independent, false - if the events are dependent
      */
