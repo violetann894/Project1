@@ -112,6 +112,7 @@ public class GeometricDistribution {
      */
     public void testerOutput() {
 
+        //Using problem 3.67 from the book to test methods
         System.out.println("Geometric distribution formula using p = 0.3 and y = 5: " +
                 geometricDistribution(0.3, 5));
         System.out.println("Expected value of the distribution: " + expectedValue(0.3));
@@ -120,6 +121,7 @@ public class GeometricDistribution {
 
         System.out.println();
 
+        //Testing same problem with BigInteger and BigDecimal values
         BigInteger y = BigInteger.valueOf(5);
         BigDecimal p = BigDecimal.valueOf(0.3);
         System.out.println("Geometric distribution formula using BigInteger, BigDecimal, p = 0.3 and y = 5: "
