@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * The Player class handles the state of the player and contains methods to runs the player's turn.
+ * The Player class handles the state of the player and contains methods to run the player's turn.
  * @author Rachel Hussmann
  */
 public class Player {
