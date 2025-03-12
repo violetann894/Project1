@@ -151,7 +151,7 @@ public class Player {
 
     /**
      * The removeCardFromHand method removes the given card from the hand of the player.
-     * @param cardToBeRemoved The card to be removed from the players hand.
+     * @param cardToBeRemoved The card to be removed from the player's hand.
      */
     public void removeCardFromHand(Card cardToBeRemoved){
         hand.remove(cardToBeRemoved);
@@ -698,7 +698,7 @@ public class Player {
 
     /**
      * The pickPokemonFromBench method allows the player to pick a pokemon from their bench, typically after their
-     * active pokemon has been knocked out.
+     * active pokemon has been knocked out or retreated.
      */
     public void pickPokemonFromBench(){
         //Inform the player of the action they need to take
